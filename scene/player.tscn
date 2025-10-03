@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://wl31yirtr8gs"]
+
+[ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
+[ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hurtbox.gd" id="3_s4jxa"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
+radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hp4bs"]
+size = Vector3(1.2746582, 2.071045, 1.2988892)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2vtq"]
+radius = 0.6
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_fvtld")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("2_ct4mp")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.9998561, -0.016963786, 0, 0.016963786, 0.9998561, 0, 1.0395035, 0)
+mesh = SubResource("CapsuleMesh_oh5ij")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8881311, 0)
+script = ExtResource("3_s4jxa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008911133, -0.8409424, -0.0018615723)
+shape = SubResource("BoxShape3D_hp4bs")
+debug_color = Color(0, 1, 0.007843138, 0.41960785)
+
+[node name="MeshCollision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0533457, 0)
+shape = SubResource("CapsuleShape3D_g2vtq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3752909, -0.6959814)

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpkym86yv1chi"]
+
+[ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
+[ext_resource type="Texture2D" uid="uid://bs8r408ytsgmv" path="res://asset/roblox_stud.jpeg" id="1_t8egj"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70m4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dx6n1"]
+albedo_texture = ExtResource("1_t8egj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t8egj"]
+material = SubResource("StandardMaterial3D_dx6n1")
+size = Vector2(20, 20)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_snrvv"]
+data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+
+[node name="Testing Ground" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_x70m4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08897829, -0.047367096, 0.722991)
+mesh = SubResource("PlaneMesh_t8egj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_snrvv")
+
+[node name="Player" parent="." instance=ExtResource("1_snrvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1691072, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.5104437, 0)
+shadow_enabled = true

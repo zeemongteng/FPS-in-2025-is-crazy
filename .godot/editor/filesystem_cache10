@@ -1,0 +1,15 @@
+63f7b34db8d8cdea90c76aacccf841ec
+::res://::1759486776
+icon.svg::CompressedTexture2D::155442069674626757::1759483457::1759483532::1::::<><><>0<>0<>ccc75534c48411cc5c75a506e57b0546<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://asset/::1759486776
+roblox_stud.jpeg::CompressedTexture2D::3719029677140783173::1759486771::1759486781::1::::<><><>0<>0<>7390244bca3205bc4c8c6d2acbacf27c<>res://.godot/imported/roblox_stud.jpeg-280401d3e78cbd8dc36000c845f12093.s3tc.ctex::
+::res://resource/::1759483555
+::res://scene/::1759486318
+player.tscn::PackedScene::1568610495487696186::1759485254::0::1::::<><><>0<>0<><>::uid://bc5hm1jtqj8rq::::res://script/player.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://dtxij87jbkl7h::::res://script/hurtbox.gd
+testing_ground.tscn::PackedScene::8234218902822669918::1759486314::0::1::::<><><>0<>0<><>::uid://wl31yirtr8gs::::res://scene/player.tscn
+::res://script/::1759486776
+attack.gd::GDScript::2721204686541588575::1759484210::0::1::::Attack<>Node<><>0<>0<><>::
+health_component.gd::GDScript::5465711739084200713::1759484305::0::1::::Health<>Node<><>0<>0<><>::
+hitbox.gd::GDScript::4192638288773366939::1759484545::0::1::::Hitbox<>Area3D<><>0<>0<><>::
+hurtbox.gd::GDScript::8540834359747527155::1759485254::0::1::::Hurtbox<>Area3D<><>0<>0<><>::
+player.gd::GDScript::2589177532462573502::1759486427::0::1::::<>CharacterBody3D<><>0<>0<><>::
