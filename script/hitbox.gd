@@ -1,8 +1,18 @@
 extends Area3D
-class_name Hitbox 
+class_name Hitbox
 
-signal damaged(attack: Attack)
+signal hit_enemy
 
-func damage(attack: Attack):
-	damaged.emit(attack)
-	
+@onready var projectile = get_owner()
+
+func _ready() -> void:
+	area_entered.connect(on_area_entered)
+
+func on_area_entered(area: Area3D):
+	if area is Hurtbox:
+		var attack := Attack.new()
+		attack.damage = projectile.damage
+		
+		area.damage(attack)
+		
+		hit_enemy.emit()

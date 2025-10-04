@@ -1,10 +1,15 @@
+RigidBody3D
+Node
+RayCast3D
+AnimationPlayer
+TextureRect
+Node3D
+StaticBody3D
 ProgressBar
 CanvasLayer
 Camera3D
 DirectionalLight3D
 CollisionShape3D
 MeshInstance3D
-StaticBody3D
 Area3D
-Node
 CharacterBody3D
