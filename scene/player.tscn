@@ -1,8 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=9 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
+[ext_resource type="Script" uid="uid://bofsogoj6y2si" path="res://HP_bar.gd" id="2_s4jxa"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hurtbox.gd" id="3_s4jxa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct4mp"]
+bg_color = Color(0, 0.73667276, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
@@ -16,8 +20,27 @@ radius = 0.6
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_fvtld")
 
-[node name="HealthComponent" type="Node" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HPbar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("HealthComponent")]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -36.0
+offset_right = 300.0
+offset_bottom = -9.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_s4jxa")
+HealthComponent = NodePath("../../HealthComponent")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_ct4mp")
+hurtbox = NodePath("../Hurtbox")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.9998561, -0.016963786, 0, 0.016963786, 0.9998561, 0, 1.0395035, 0)

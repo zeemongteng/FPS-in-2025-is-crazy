@@ -26,7 +26,6 @@ func increase_max_health(amount: float) -> void:
 	max_health += amount
 	health += amount
 	health_changed.emit(health)
-	
 
 func heal(amount: float) -> void:
 	if not unit.alive:
