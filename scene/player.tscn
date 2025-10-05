@@ -12,15 +12,15 @@
 radius = 0.6
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hp4bs"]
-size = Vector3(1.2746582, 2.071045, 1.2988892)
+size = Vector3(1.27466, 2.07104, 1.29889)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2vtq"]
 radius = 0.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct4mp"]
-bg_color = Color(0, 0.73667276, 0, 1)
+bg_color = Color(0, 0.736673, 0, 1)
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
 
 [node name="ShootFunction" type="Node" parent="." node_paths=PackedStringArray("hitscan")]
@@ -32,21 +32,21 @@ script = ExtResource("2_ct4mp")
 hurtbox = NodePath("../Hurtbox")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9998561, -0.016963786, 0, 0.016963786, 0.9998561, 0, 1.0395035, 0)
+transform = Transform3D(1, 0, 0, 0, 0.999856, -0.0169638, 0, 0.0169638, 0.999856, 0, 1.0395, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_oh5ij")
 
 [node name="Hurtbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8881311, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88813, 0)
 script = ExtResource("3_s4jxa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008911133, -0.8409424, -0.0018615723)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00891113, -0.840942, -0.00186157)
 shape = SubResource("BoxShape3D_hp4bs")
-debug_color = Color(0, 1, 0.007843138, 0.41960785)
+debug_color = Color(0, 1, 0.00784314, 0.419608)
 
 [node name="MeshCollision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0533457, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05335, 0)
 shape = SubResource("CapsuleShape3D_g2vtq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -63,7 +63,6 @@ grow_vertical = 0
 size_flags_horizontal = 0
 theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
 value = 50.0
-show_percentage = false
 script = ExtResource("2_s4jxa")
 HealthComponent = NodePath("../../HealthComponent")
 
@@ -84,7 +83,7 @@ pivot_offset = Vector2(256, 255)
 texture = ExtResource("3_oh5ij")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3752909, -0.6959814)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37529, -0.695981)
 
 [node name="WeaponComponent" parent="Camera3D" instance=ExtResource("6_oh5ij")]
 

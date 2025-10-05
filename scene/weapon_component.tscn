@@ -3,23 +3,6 @@
 [ext_resource type="Script" uid="uid://dendocwl7n5dw" path="res://script/weapon_component.gd" id="1_l0aut"]
 [ext_resource type="PackedScene" uid="uid://dqexjlkyrccnt" path="res://asset/low-poly_kimber_k6s/scene.gltf" id="1_lrje7"]
 
-[sub_resource type="Animation" id="Animation_ogril"]
-resource_name = "shoot"
-length = 0.13333501
-step = 0.016666668
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Gun:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.11666667),
-"transitions": PackedFloat32Array(0.26794347, 0.37892905, 1),
-"update": 0,
-"values": [Vector3(0, 1.5707964, 0), Vector3(0, 1.5707964, 0.34906584), Vector3(0, 1.5707964, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_8b82e"]
 length = 0.001
 tracks/0/type = "value"
@@ -32,7 +15,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.5707964, 0)]
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ogril"]
+resource_name = "shoot"
+length = 0.133335
+step = 0.0166667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.116667),
+"transitions": PackedFloat32Array(0.267943, 0.378929, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0.349066), Vector3(0, 1.5708, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p0d2r"]
@@ -45,7 +45,7 @@ _data = {
 script = ExtResource("1_l0aut")
 
 [node name="Gun" parent="." instance=ExtResource("1_lrje7")]
-transform = Transform3D(-8.742278e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.742278e-09, 0.42915154, -0.31403232, -0.78337765)
+transform = Transform3D(-7.23998e-07, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.23998e-07, 0.429152, -0.314032, -0.783378)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

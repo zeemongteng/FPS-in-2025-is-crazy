@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=8 format=3 uid="uid://dpkym86yv1chi"]
 
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
 [ext_resource type="Texture2D" uid="uid://bs8r408ytsgmv" path="res://asset/roblox_stud.jpeg" id="1_t8egj"]
+[ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://enemy.tscn" id="3_x70m4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70m4"]
 
@@ -21,15 +22,18 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 physics_material_override = SubResource("PhysicsMaterial_x70m4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08897829, -0.047367096, 0.722991)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0889783, -0.0473671, 0.722991)
 mesh = SubResource("PlaneMesh_t8egj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_snrvv")
 
 [node name="Player" parent="." instance=ExtResource("1_snrvv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1691072, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16911, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.5104437, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.51044, 0)
 shadow_enabled = true
+
+[node name="enemy" parent="." instance=ExtResource("3_x70m4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.70125)

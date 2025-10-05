@@ -1,12 +1,13 @@
 extends CharacterBody3D
-
+class_name Player
 @export var speed: float = 6.0
 @export var jump_force: float = 4.5
 @export var mouse_sensitivity: float = 0.002
-
+var alive : bool = true
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
+var damage = 10
 @onready var cam: Camera3D = $Camera3D
-
+@onready var health: Health = $HealthComponent
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -49,3 +50,8 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_force
 
 	move_and_slide()
+
+func on_damaged(attack: Attack) -> void:
+	health.damaged(attack)
+	if health.health <= 0:
+		queue_free()

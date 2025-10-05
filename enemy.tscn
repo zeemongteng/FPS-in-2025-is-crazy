@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhp57ajp6xw7h"]
+
+[ext_resource type="Script" uid="uid://bl7y3n5qhvxec" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_epg4t"]
+[ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_3yqyl"]
+[ext_resource type="PackedScene" uid="uid://d3ttsrkfc37ow" path="res://asset/ghoul/source/ghoul@idles.fbx" id="4_wujgv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hb8ge"]
+radius = 0.294341
+height = 2.00219
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_e1ltt"]
+radius = 0.212951
+height = 1.94939
+
+[node name="enemy" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
+script = ExtResource("1_iifgy")
+HPnode = NodePath("Health")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+script = ExtResource("2_epg4t")
+metadata/_custom_type_script = "uid://b0y7e06csgu1h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901317, 0.0380695)
+shape = SubResource("CapsuleShape3D_hb8ge")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("3_3yqyl")
+hurtbox = NodePath("../Hurtbox")
+metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
+
+[node name="ghoul_idles" parent="." instance=ExtResource("4_wujgv")]
+
+[node name="Floor_Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901317, 0.0672458)
+shape = SubResource("CapsuleShape3D_e1ltt")
+
+[connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]

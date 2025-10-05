@@ -1,10 +1,7 @@
+res://enemy.tscn
 res://scene/player.tscn
-res://scene/HP_bar.gd
-res://HP_bar.gd
-res://script/health_component.gd
-res://scene/weapon_component.tscn
-res://script/weapon_component.gd
-res://script/shoot_function.gd
-res://script/hitbox.gd
-res://script/hurtbox.gd
+res://enemy.gd
 res://script/player.gd
+res://scene/testing_ground.tscn
+res://scene/weapon_component.tscn
+res://script/hitbox.gd
