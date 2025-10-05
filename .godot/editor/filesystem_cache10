@@ -1,9 +1,10 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759676513
+::res://::1759679294
 enemy.gd::GDScript::3226065991781959934::1759666538::0::1::::enemy<>CharacterBody3D<><>0<>0<><>::
 enemy.tscn::PackedScene::2910586925285303015::1759671527::0::1::::<><><>0<>0<><>::uid://bl7y3n5qhvxec::::res://enemy.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://b2iwbdsp27klm::::res://asset/enemy_model/minecraft-slime/source/slime.fbx
 enemy_fly.gd::GDScript::3389954034144130273::1759676094::0::1::::Enemy_fly<>CharacterBody3D<><>0<>0<><>::
 enemy_fly.tscn::PackedScene::7953830277028192567::1759676094::0::1::::<><><>0<>0<><>::uid://bokebvdm7gpbt::::res://enemy_fly.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://dfquas6sbqrix::::res://asset/enemy_model/demon-eye-eye-of-cthulhu/textures/Eye.fbx
+enemy_fly_shoot.tscn::PackedScene::2536323219783172644::1759679233::0::1::::<><><>0<>0<><>::uid://bokebvdm7gpbt::::res://enemy_fly.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd
 export_presets.cfg::TextFile::-1::1759671082::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::155442069674626757::1759666538::1759676128::1::::<><><>0<>0<>ccc75534c48411cc5c75a506e57b0546<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1759676093::0::1::::<><><>0<>0<><>::
@@ -41,10 +42,11 @@ scene.gltf::PackedScene/PackedScene::8291954217600978165::1759666538::1759676133
 index.apple-touch-icon.png::CompressedTexture2D/CompressedTexture2D::2250671041834451651::1759671080::1759676128::1::::<><><>0<>0<>f953830e84a2edad961b9b4c0fae7a7b<>res://.godot/imported/index.apple-touch-icon.png-b21a756d869f84af832970a74d8371bc.ctex::
 index.icon.png::CompressedTexture2D/CompressedTexture2D::4289354754693203306::1759671080::1759676128::1::::<><><>0<>0<>1bfa6f479b126d69b0abed2891809bd3<>res://.godot/imported/index.icon.png-b92c9a802ad4b78e247784454a6b506f.ctex::
 index.png::CompressedTexture2D/CompressedTexture2D::4188184819385016239::1759671080::1759676128::1::::<><><>0<>0<>a864dec2c2b014d5119b6e04697d5fd8<>res://.godot/imported/index.png-0c78d14d192abe5f22f8c25928ca1ab8.ctex::
-::res://map/::1759676639
+::res://map/::1759679353
 fps map low poly.glb::PackedScene::2196855600993897422::1759676524::1759676527::1::::<><><>0<>0<>7ce0271f4c9b7a37edee3ce158c79b6a<>res://.godot/imported/fps map low poly.glb-dbef6cb06dc43286b6130e5f49947695.scn::
+fps%2Ftps map.glb::PackedScene::5914910927221433495::1759679353::1759679354::1::::<><><>0<>0<>e3223dfec35abc690dac7d6f5b2b3da3<>res://.godot/imported/fps%2Ftps map.glb-ee219a54f66f4b75c08a6a6cabce35a5.scn::
 map_Boss.tscn::PackedScene::2299389056464926018::1759676094::0::1::::<><><>0<>0<><>::
-root_scene.tscn::PackedScene::3712371100080422107::1759676639::0::1::::<><><>0<>0<><>::
+normal_scene.tscn::PackedScene::3712371100080422107::1759676639::0::1::::<><><>0<>0<><>::
 set design.glb::PackedScene/PackedScene::2562036835572806681::1759666668::1759676135::1::::<><><>0<>0<>9cb8380e001883d2d7be1d7092e42c5c<>res://.godot/imported/set design.glb-2271bc9eb88f66b1f07d3b26ecca066f.scn::
 ::res://scene/::1759676094
 player.tscn::PackedScene::1568610495487696186::1759666538::0::1::::<><><>0<>0<><>::uid://bc5hm1jtqj8rq::::res://script/player.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://2mafruolj7tc::::res://script/shoot_function.gd<>uid://bofsogoj6y2si::::res://script/HP_bar.gd<>uid://dk4t66eddv6ri::::res://asset/crosshair.png<>uid://dtxij87jbkl7h::::res://script/hitbox.gd<>uid://vjkgqlha66n6::::res://scene/weapon_component.tscn
