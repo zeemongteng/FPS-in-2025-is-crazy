@@ -9,7 +9,7 @@ var alive: bool = true
 
 
 @export var fly_speed: float = 8.0           
-@export var rush_speed: float = 25.0         
+@export var rush_speed: float = 10.0         
 @export var rush_duration: float = 0.6
 @export var cooldown: float = 2.0
 @export var fly_height: float = 6.0          
