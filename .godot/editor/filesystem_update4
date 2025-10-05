@@ -1,8 +1,1 @@
-res://scene/testing_ground.tscn
-res://scene/player.tscn
-res://scene/weapon_component.tscn
-res://enemy.tscn
-res://map/map_Boss.tscn
-res://enemy_fly.tscn
-res://enemy.gd
-res://enemy_fly.gd
+res://map/root_scene.tscn
