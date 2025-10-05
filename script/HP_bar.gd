@@ -5,21 +5,20 @@ extends ProgressBar
 @export var iframe := false
 @export var timer2 := 1.0
 @export var HealthComponent : Health
-
-var health_point
+@onready var hp = HealthComponent.health
 
 func _ready() -> void:
-	health_point = HealthComponent.health
 	HealthComponent.health_changed.connect(change_health)
-	init_health(health_point)
+	init_health(hp)
 
 func change_health(HP: float) -> void:
 	_set_health(HP)
 
 func _set_health(new_hp: float) -> void:
-	health_point = clamp(new_hp, 0, HealthComponent.max_health)
-	
-	var hp_percent = float(health_point) / max_value
+	hp = clamp(new_hp, 0, HealthComponent.max_health)
+	max_value = HealthComponent.max_health
+	value = hp
+	var hp_percent = float(hp) / max_value
 
 	var fill_style = get("theme_override_styles/fill")
 	if fill_style:
@@ -35,5 +34,6 @@ func _set_health(new_hp: float) -> void:
 		fill_style.bg_color = Color.WEB_GREEN
 
 func init_health(_hp: int) -> void:
+	hp = _hp
 	max_value = _hp
 	value = _hp

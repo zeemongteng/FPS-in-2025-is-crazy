@@ -5,3 +5,5 @@ res://script/player.gd
 res://scene/testing_ground.tscn
 res://scene/weapon_component.tscn
 res://script/hitbox.gd
+res://script/health_component.gd
+res://script/HP_bar.gd

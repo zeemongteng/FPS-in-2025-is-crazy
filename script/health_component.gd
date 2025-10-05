@@ -17,6 +17,7 @@ func on_damaged(attack: Attack):
 		return
 	
 	health -= attack.damage
+	print("health = %d "%health,unit)
 	health_changed.emit(health)
 	if health <= 0:
 		health = 0

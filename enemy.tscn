@@ -36,4 +36,5 @@ metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.901317, 0.0672458)
 shape = SubResource("CapsuleShape3D_e1ltt")
 
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]

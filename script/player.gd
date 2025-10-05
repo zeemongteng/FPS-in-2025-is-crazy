@@ -52,6 +52,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func on_damaged(attack: Attack) -> void:
-	health.damaged(attack)
+	health.on_damaged(attack)
 	if health.health <= 0:
 		queue_free()

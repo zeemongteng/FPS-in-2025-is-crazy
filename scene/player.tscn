@@ -92,3 +92,6 @@ enabled = false
 target_position = Vector3(0, 0, -10)
 collide_with_areas = true
 collide_with_bodies = false
+
+[connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]
+[connection signal="damaged" from="Hurtbox" to="HealthComponent" method="on_damaged"]
