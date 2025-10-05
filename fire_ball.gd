@@ -17,5 +17,4 @@ func _on_body_entered(body: Node3D) -> void:
 		body.on_damaged(attack)
 		queue_free()
 	elif not body.is_in_group("Enemy"):
-		# Fireball hits any solid object
 		queue_free()
