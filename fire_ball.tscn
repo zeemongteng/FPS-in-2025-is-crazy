@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmued3pbmaudg"]
+
+[ext_resource type="PackedScene" uid="uid://bribvmsuovoc" path="res://asset/enemy_model/fireball-vfx/source/fireballvfx.fbx" id="1_73oji"]
+[ext_resource type="Script" uid="uid://o58lunl1kx47" path="res://fire_ball.gd" id="1_gregu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gregu"]
+radius = 0.2
+
+[node name="FireBall" type="Area3D"]
+script = ExtResource("1_gregu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0302483, 0.157668, 0.00241905)
+shape = SubResource("SphereShape3D_gregu")
+
+[node name="fireballvfx" parent="." instance=ExtResource("1_73oji")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

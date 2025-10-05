@@ -1,5 +1,5 @@
 extends CharacterBody3D
-class_name Enemy_fly
+class_name Enemy
 
 @export var HPnode: Health
 @onready var hp = HPnode.health
@@ -7,8 +7,7 @@ class_name Enemy_fly
 var player: Player = null
 var alive: bool = true
 
-
-@export var fly_speed: float = 8.0           
+@export var fly_speed: float = 5.0           
 @export var rush_speed: float = 10.0         
 @export var rush_duration: float = 0.6
 @export var cooldown: float = 2.0
