@@ -41,10 +41,10 @@ scene.gltf::PackedScene/PackedScene::8291954217600978165::1759666538::1759676133
 index.apple-touch-icon.png::CompressedTexture2D/CompressedTexture2D::2250671041834451651::1759671080::1759676128::1::::<><><>0<>0<>f953830e84a2edad961b9b4c0fae7a7b<>res://.godot/imported/index.apple-touch-icon.png-b21a756d869f84af832970a74d8371bc.ctex::
 index.icon.png::CompressedTexture2D/CompressedTexture2D::4289354754693203306::1759671080::1759676128::1::::<><><>0<>0<>1bfa6f479b126d69b0abed2891809bd3<>res://.godot/imported/index.icon.png-b92c9a802ad4b78e247784454a6b506f.ctex::
 index.png::CompressedTexture2D/CompressedTexture2D::4188184819385016239::1759671080::1759676128::1::::<><><>0<>0<>a864dec2c2b014d5119b6e04697d5fd8<>res://.godot/imported/index.png-0c78d14d192abe5f22f8c25928ca1ab8.ctex::
-::res://map/::1759676524
+::res://map/::1759676639
 fps map low poly.glb::PackedScene::2196855600993897422::1759676524::1759676527::1::::<><><>0<>0<>7ce0271f4c9b7a37edee3ce158c79b6a<>res://.godot/imported/fps map low poly.glb-dbef6cb06dc43286b6130e5f49947695.scn::
 map_Boss.tscn::PackedScene::2299389056464926018::1759676094::0::1::::<><><>0<>0<><>::
-root_scene.tscn::PackedScene::-1::1759676444::0::1::::<><><>0<>0<><>::
+root_scene.tscn::PackedScene::3712371100080422107::1759676639::0::1::::<><><>0<>0<><>::
 set design.glb::PackedScene/PackedScene::2562036835572806681::1759666668::1759676135::1::::<><><>0<>0<>9cb8380e001883d2d7be1d7092e42c5c<>res://.godot/imported/set design.glb-2271bc9eb88f66b1f07d3b26ecca066f.scn::
 ::res://scene/::1759676094
 player.tscn::PackedScene::1568610495487696186::1759666538::0::1::::<><><>0<>0<><>::uid://bc5hm1jtqj8rq::::res://script/player.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://2mafruolj7tc::::res://script/shoot_function.gd<>uid://bofsogoj6y2si::::res://script/HP_bar.gd<>uid://dk4t66eddv6ri::::res://asset/crosshair.png<>uid://dtxij87jbkl7h::::res://script/hitbox.gd<>uid://vjkgqlha66n6::::res://scene/weapon_component.tscn
