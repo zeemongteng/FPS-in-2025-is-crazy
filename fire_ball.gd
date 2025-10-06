@@ -3,18 +3,18 @@ class_name Fireball
 
 @export var speed: float = 20.0
 var direction: Vector3 = Vector3.ZERO
+@export var hitbox : Hitbox
 
+func _ready() -> void:
+	pass
 
-func _process(delta: float) -> void:
-	if direction == Vector3.ZERO:
-		return
+func _physics_process(delta: float) -> void:
+	
 	position += direction * speed * delta
+	
+	rotation.x += .1
+	rotation.y += .1
+	rotation.z += .1
 
-func _on_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player") and body.has_method("on_damaged"):
-		var attack = Attack.new()
-		attack.damage = 10
-		body.on_damaged(attack)
-		queue_free()
-	elif not body.is_in_group("Enemy"):
-		queue_free()
+func disappear():
+	queue_free()

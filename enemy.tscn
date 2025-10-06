@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhp57ajp6xw7h"]
+[gd_scene load_steps=9 format=3 uid="uid://bhp57ajp6xw7h"]
 
 [ext_resource type="Script" uid="uid://bl7y3n5qhvxec" path="res://enemy.gd" id="1_iifgy"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_epg4t"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_3yqyl"]
 [ext_resource type="PackedScene" uid="uid://b2iwbdsp27klm" path="res://asset/enemy_model/minecraft-slime/source/slime.fbx" id="4_iifgy"]
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_epg4t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wujgv"]
+size = Vector3(0.25, 0.25, 0.25)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_epg4t"]
 size = Vector3(0.3, 0.3, 0.3)
@@ -13,16 +17,28 @@ size = Vector3(0.2, 0.2, 0.2)
 
 [node name="enemy" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
 script = ExtResource("1_iifgy")
-HPnode = NodePath("Health")
+HPnode = NodePath("HealthComponent")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_epg4t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("BoxShape3D_wujgv")
+debug_color = Color(1, 0, 0, 0.42000002)
 
 [node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("2_epg4t")
 metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("BoxShape3D_epg4t")
+debug_color = Color(0, 0.736673, 0, 1)
 
-[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_3yqyl")
 hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
@@ -31,6 +47,3 @@ metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 shape = SubResource("BoxShape3D_3yqyl")
 
 [node name="slime" parent="." instance=ExtResource("4_iifgy")]
-
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]

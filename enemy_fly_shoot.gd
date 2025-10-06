@@ -22,7 +22,10 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
 
 func _physics_process(delta: float) -> void:
-	if not alive or player == null:
+	if !alive:
+		death()
+	
+	if player == null:
 		return
 
 
@@ -56,40 +59,19 @@ func _physics_process(delta: float) -> void:
 		var target_basis = Basis.looking_at(target_direction, Vector3.UP).orthonormalized()
 		global_transform.basis = global_transform.basis.orthonormalized().slerp(target_basis, rotation_speed * delta)
 
-
 	shoot_timer -= delta
 	if shoot_timer <= 0:
 		shoot_fireball()
 		shoot_timer = shoot_interval
 
-
-	if hp <= 0:
-		alive = false
-		death()
-
-
 func shoot_fireball() -> void:
 	if fireball_scene == null or fire_ball_posistion == null:
 		return
-	var fireball = fireball_scene.instantiate() as Fireball
+	var fireball = fireball_scene.instantiate()
+	
 	get_parent().add_child(fireball)
 	fireball.global_transform.origin = fire_ball_posistion.global_transform.origin
 	fireball.direction = (player.global_transform.origin - fireball.global_transform.origin).normalized()
 
-
-func on_damaged(attack: Attack) -> void:
-	HPnode.on_damaged(attack)
-	hp = HPnode.health
-	if hp <= 0:
-		alive = false
-		death()
-
 func death():
 	queue_free()
-
-
-func _on_hitbox_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player"):
-		var attack = Attack.new()
-		attack.damage = 10
-		body.on_damaged(attack)

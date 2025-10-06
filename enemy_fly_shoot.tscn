@@ -16,7 +16,7 @@ height = 0.980288
 
 [node name="enemy_fly_shoot" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
 script = ExtResource("1_5lbc5")
-HPnode = NodePath("Health")
+HPnode = NodePath("HealthComponent")
 fireball_scene = ExtResource("2_4kul4")
 
 [node name="Hurtbox" type="Area3D" parent="."]
@@ -27,9 +27,9 @@ metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154234, -0.028311)
 shape = SubResource("CapsuleShape3D_4kul4")
 
-[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_4kul4")
-hurtbox = NodePath("../Hurtbox")
+hurtbox = NodePath("")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 
 [node name="Floor_Collision" type="CollisionShape3D" parent="."]
@@ -41,6 +41,3 @@ transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, 0, 0, 
 
 [node name="fire_ball_posistion" type="Marker3D" parent="."]
 transform = Transform3D(1.19249e-08, 0, -1, 0, 1, 0, 1, 0, 1.19249e-08, -0.00586259, 0, -0.46241)
-
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_body_entered"]
-[connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]
