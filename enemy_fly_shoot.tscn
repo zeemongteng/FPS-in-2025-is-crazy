@@ -29,7 +29,7 @@ shape = SubResource("CapsuleShape3D_4kul4")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_4kul4")
-hurtbox = NodePath("")
+hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 
 [node name="Floor_Collision" type="CollisionShape3D" parent="."]
