@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bceu4xbhoo2rg"]
 
-[ext_resource type="Script" uid="uid://blg57q0xp8phh" path="res://enemy_fly_shoot.gd" id="1_5lbc5"]
-[ext_resource type="PackedScene" uid="uid://bmued3pbmaudg" path="res://fire_ball.tscn" id="2_4kul4"]
+[ext_resource type="Script" uid="uid://blg57q0xp8phh" path="res://script/enemy/enemy_fly_shoot.gd" id="1_5lbc5"]
+[ext_resource type="PackedScene" uid="uid://bmued3pbmaudg" path="res://scene/fire_ball.tscn" id="2_4kul4"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_5lbc5"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_4kul4"]
 [ext_resource type="PackedScene" uid="uid://ddwgj7af3ki1m" path="res://asset/enemy_model/Grimmchild/hollow_knight_grimmchild_animation.tscn" id="4_5lbc5"]

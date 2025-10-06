@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://75qdd0qll1ib"]
 
-[ext_resource type="Script" uid="uid://bqnl8pxnapd85" path="res://death_scene.gd" id="1_oukyh"]
+[ext_resource type="Script" uid="uid://bqnl8pxnapd85" path="res://script/death_scene.gd" id="1_oukyh"]
 [ext_resource type="Texture2D" uid="uid://q5x8ugde8b5p" path="res://asset/Art/death_skull_1.png" id="1_y2fqr"]
 [ext_resource type="Texture2D" uid="uid://hdr4vvwx47h4" path="res://asset/Art/death_skull_2.png" id="2_fxiyg"]
 [ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="3_fxiyg"]
@@ -11,12 +11,11 @@ frame_0/texture = ExtResource("1_y2fqr")
 frame_1/texture = ExtResource("2_fxiyg")
 frame_1/duration = 1.0
 
-[node name="Death_Scene" type="Node2D"]
+[node name="Death_Scene" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_oukyh")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,7 +40,7 @@ scale = Vector2(0.5, 0.5)
 texture = SubResource("AnimatedTexture_oukyh")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="Label" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -54,7 +53,7 @@ theme_override_fonts/font = ExtResource("3_fxiyg")
 theme_override_font_sizes/font_size = 100
 text = "[YOU ARE DEAD]"
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
+[node name="Label2" type="Label" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

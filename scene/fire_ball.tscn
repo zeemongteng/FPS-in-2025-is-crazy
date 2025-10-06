@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmued3pbmaudg"]
 
 [ext_resource type="PackedScene" uid="uid://bribvmsuovoc" path="res://asset/enemy_model/fireball-vfx/source/fireballvfx.fbx" id="1_73oji"]
-[ext_resource type="Script" uid="uid://o58lunl1kx47" path="res://fire_ball.gd" id="1_gregu"]
+[ext_resource type="Script" uid="uid://o58lunl1kx47" path="res://script/fire_ball.gd" id="1_gregu"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="2_qsv8u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kgtyj"]

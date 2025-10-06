@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://b7awy4k1k5rh8"]
 
-[ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://boss.gd" id="1_o1i15"]
+[ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_n7jlu"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_bigo7"]
-[ext_resource type="Script" uid="uid://cf8upesilhlf8" path="res://hitbox.gd" id="4_lnbgr"]
+[ext_resource type="Script" uid="uid://cf8upesilhlf8" path="res://script/enemy/hitbox_boss.gd" id="4_lnbgr"]
 [ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]

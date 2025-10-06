@@ -5,3 +5,10 @@ res://death_scene.gd
 res://scene/player.tscn
 res://boss.tscn
 res://hitbox.gd
+res://game_manager.tscn
+res://scene/testing_ground.tscn
+res://enemy.tscn
+res://enemy_fly.tscn
+res://enemy_fly_shoot.tscn
+res://scene/enemy/enemy_fly_shoot.tscn
+res://scene/enemy/boss.tscn

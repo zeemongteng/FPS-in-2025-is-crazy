@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dlk5omru6gv88"]
 
-[ext_resource type="Script" uid="uid://bokebvdm7gpbt" path="res://enemy_fly.gd" id="1_5ro83"]
+[ext_resource type="Script" uid="uid://bokebvdm7gpbt" path="res://script/enemy/enemy_fly.gd" id="1_5ro83"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_slk7l"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_t56a1"]
 [ext_resource type="PackedScene" uid="uid://dfquas6sbqrix" path="res://asset/enemy_model/demon-eye-eye-of-cthulhu/textures/Eye.fbx" id="4_5ro83"]

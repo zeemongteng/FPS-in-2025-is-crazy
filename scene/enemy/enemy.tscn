@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bhp57ajp6xw7h"]
 
-[ext_resource type="Script" uid="uid://bl7y3n5qhvxec" path="res://enemy.gd" id="1_iifgy"]
+[ext_resource type="Script" uid="uid://bl7y3n5qhvxec" path="res://script/enemy/enemy.gd" id="1_iifgy"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_epg4t"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_3yqyl"]
 [ext_resource type="PackedScene" uid="uid://b2iwbdsp27klm" path="res://asset/enemy_model/minecraft-slime/source/slime.fbx" id="4_iifgy"]
