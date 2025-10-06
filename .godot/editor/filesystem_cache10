@@ -1,5 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1759742785
+::res://::1759763478
+boss.gd::GDScript::6385532477501260018::1759763075::0::1::::BossMinosPrime<>CharacterBody3D<><>0<>0<><>::
+boss.tscn::PackedScene::4633843852825798819::1759763377::0::1::::<><><>0<>0<><>::uid://cw8g10y6vp6rm::::res://boss.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://cf8upesilhlf8::::res://hitbox.gd<>uid://cynp2a472djln::::res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn
 enemy.gd::GDScript::3226065991781959934::1759740091::0::1::::enemy<>CharacterBody3D<><>0<>0<><>::
 enemy.tscn::PackedScene::2910586925285303015::1759741272::0::1::::<><><>0<>0<><>::uid://bl7y3n5qhvxec::::res://enemy.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://b2iwbdsp27klm::::res://asset/enemy_model/minecraft-slime/source/slime.fbx<>uid://dtxij87jbkl7h::::res://script/hitbox.gd
 enemy_fly.gd::GDScript::3389954034144130273::1759740091::0::1::::Enemy<>CharacterBody3D<><>0<>0<><>::
@@ -9,6 +11,7 @@ enemy_fly_shoot.tscn::PackedScene::2536323219783172644::1759742785::0::1::::<><>
 export_presets.cfg::TextFile::-1::1759740091::0::1::::<><><>0<>0<><>::
 fire_ball.gd::GDScript::1046599519132909158::1759740091::0::1::::Fireball<>Area3D<><>0<>0<><>::
 fire_ball.tscn::PackedScene::3270224081670830684::1759742097::0::1::::<><><>0<>0<><>::uid://bribvmsuovoc::::res://asset/enemy_model/fireball-vfx/source/fireballvfx.fbx<>uid://o58lunl1kx47::::res://fire_ball.gd<>uid://dtxij87jbkl7h::::res://script/hitbox.gd
+hitbox.gd::GDScript::5193151416502590559::1759744231::0::1::::<>Hitbox<><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::155442069674626757::1759740091::1759740091::1::::<><><>0<>0<>ccc75534c48411cc5c75a506e57b0546<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1759740091::0::1::::<><><>0<>0<><>::
 ::res://asset/::1759740211
@@ -36,11 +39,10 @@ internal_ground_ao_texture.jpeg::CompressedTexture2D/CompressedTexture2D::430680
 slime.png::CompressedTexture2D/CompressedTexture2D::5262548558743615142::1759740089::1759740089::1::::<><><>0<>0<>39be0a70b34a776f53044be5ce38cdac<>res://.godot/imported/slime.png-2394340c4839a0300c26953ceded0111.ctex::
 slime_opacity.png::CompressedTexture2D/CompressedTexture2D::8789597712694465042::1759740089::1759740089::1::::<><><>0<>0<>96faae50537bc1726fdf428615e38635<>res://.godot/imported/slime_opacity.png-dde5abd026958bf2658e9aa2f06f509a.ctex::
 ::res://asset/enemy_model/ultrakill-minos-prime/::1759743371
-::res://asset/enemy_model/ultrakill-minos-prime/source/::1759743371
+::res://asset/enemy_model/ultrakill-minos-prime/source/::1759763216
 King Minos.fbx::PackedScene::1814805124818460997::1759743353::1759743435::1::::<><><>0<>0<>4e7e3a7be7f268e0bf012b2c8aeb85dc<>res://.godot/imported/King Minos.fbx-cf6af3dcc654127ba45c05f3906478b3.scn::
-king_minos.tscn::PackedScene::6485169543118156975::1759743506::0::1::::<><><>0<>0<><>::uid://cne3hdvuah618::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_veins.png<>uid://bgamqfghx2v1r::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_heart.png<>uid://bmnjb3nwfwm3i::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_body.png
-boss.tscn::PackedScene::4633843852825798819::1759743621::0::1::::<><><>0<>0<><>::uid://dtxij87jbkl7h::::res://script/hitbox.gd<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://cynp2a472djln::::res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn
-::res://asset/enemy_model/ultrakill-minos-prime/textures/::1759743371
+king_minos.tscn::PackedScene::6485169543118156975::1759763216::0::1::::<><><>0<>0<><>::uid://cne3hdvuah618::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_veins.png<>uid://bgamqfghx2v1r::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_heart.png<>uid://bmnjb3nwfwm3i::::res://asset/enemy_model/ultrakill-minos-prime/textures/mp_body.png
+::res://asset/enemy_model/ultrakill-minos-prime/textures/::1759743483
 mp_body.png::CompressedTexture2D::3256073448624471792::1759743353::1759743483::1::::<><><>0<>0<>e16c3cec57b170d37a8acb6684eb682c<>res://.godot/imported/mp_body.png-9815b2f2bf3a985af65834d59d6527b8.s3tc.ctex::
 mp_heart.png::CompressedTexture2D::2808311194372418561::1759743353::1759743477::1::::<><><>0<>0<>ec52a3c04b3389422388677ffd29a0e3<>res://.godot/imported/mp_heart.png-f8a4e1e6389049400dbf4b5d4eb7ccaa.s3tc.ctex::
 mp_veins.png::CompressedTexture2D::5695266612971621001::1759743353::1759743468::1::::<><><>0<>0<>fdfe6218db139b7294ad2d0e5465d726<>res://.godot/imported/mp_veins.png-3652ce2e44f06a2ce14973d01f893934.s3tc.ctex::
@@ -68,15 +70,15 @@ map_Boss.tscn::PackedScene::2299389056464926018::1759740091::0::1::::<><><>0<>0<
 normal_scene.tscn::PackedScene::3712371100080422107::1759740091::0::1::::<><><>0<>0<><>::
 set design.glb::PackedScene/PackedScene::2562036835572806681::1759740091::1759740091::1::::<><><>0<>0<>6748410dc3ebfda26275ed07e87b5e0c<>res://.godot/imported/set design.glb-2271bc9eb88f66b1f07d3b26ecca066f.scn::
 tutorial.tscn::PackedScene::2373228545803400858::1759740091::0::1::::<><><>0<>0<><>::
-::res://scene/::1759742097
+::res://scene/::1759763284
 player.tscn::PackedScene::1568610495487696186::1759741087::0::1::::<><><>0<>0<><>::uid://bc5hm1jtqj8rq::::res://script/player.gd<>uid://cj4vqdx6vhjyn::::res://script/health_component.gd<>uid://2mafruolj7tc::::res://script/shoot_function.gd<>uid://bofsogoj6y2si::::res://script/HP_bar.gd<>uid://dk4t66eddv6ri::::res://asset/crosshair.png<>uid://b0y7e06csgu1h::::res://script/hurtbox.gd<>uid://vjkgqlha66n6::::res://scene/weapon_component.tscn
 testing_ground.gd::GDScript::3970065055857792425::1759740091::0::1::::<>Node3D<><>0<>0<><>::
-testing_ground.tscn::PackedScene::8234218902822669918::1759742097::0::1::::<><><>0<>0<><>::uid://bwtenkrakmb4l::::res://scene/testing_ground.gd<>uid://wl31yirtr8gs::::res://scene/player.tscn<>uid://bs8r408ytsgmv::::res://asset/roblox_stud.jpeg<>uid://bhp57ajp6xw7h::::res://enemy.tscn<>uid://dlk5omru6gv88::::res://enemy_fly.tscn<>uid://bceu4xbhoo2rg::::res://enemy_fly_shoot.tscn
+testing_ground.tscn::PackedScene::8234218902822669918::1759763284::0::1::::<><><>0<>0<><>::uid://bwtenkrakmb4l::::res://scene/testing_ground.gd<>uid://wl31yirtr8gs::::res://scene/player.tscn<>uid://bs8r408ytsgmv::::res://asset/roblox_stud.jpeg<>uid://bhp57ajp6xw7h::::res://enemy.tscn<>uid://dlk5omru6gv88::::res://enemy_fly.tscn<>uid://bceu4xbhoo2rg::::res://enemy_fly_shoot.tscn<>uid://b7awy4k1k5rh8::::res://boss.tscn
 weapon_component.tscn::PackedScene::1493163858562065645::1759740091::0::1::::<><><>0<>0<><>::uid://dendocwl7n5dw::::res://script/weapon_component.gd<>uid://dqexjlkyrccnt::::res://asset/low-poly_kimber_k6s/scene.gltf
-::res://script/::1759741272
+::res://script/::1759743945
 attack.gd::GDScript::2721204686541588575::1759740091::0::1::::Attack<>Node<><>0<>0<><>::
 health_component.gd::GDScript::5465711739084200713::1759741272::0::1::::Health<>Node<><>0<>0<><>::
-hitbox.gd::GDScript::8540834359747527155::1759740091::0::1::::Hitbox<>Area3D<><>0<>0<><>::
+hitbox.gd::GDScript::8540834359747527155::1759743945::0::1::::Hitbox<>Area3D<><>0<>0<><>::
 HP_bar.gd::GDScript::3380504627599001256::1759740091::0::1::::HPbar<>ProgressBar<><>0<>0<><>::
 hurtbox.gd::GDScript::4192638288773366939::1759740091::0::1::::Hurtbox<>Area3D<><>0<>0<><>::
 player.gd::GDScript::2589177532462573502::1759740091::0::1::::Player<>CharacterBody3D<><>0<>0<><>::

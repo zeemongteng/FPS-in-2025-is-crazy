@@ -26,6 +26,7 @@ metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154234, 0.06271143)
 shape = SubResource("CapsuleShape3D_4kul4")
+debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_4kul4")

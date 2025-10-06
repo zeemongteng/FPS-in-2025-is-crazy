@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4u3s36vyuvlc"]
+
+[ext_resource type="Script" uid="uid://bhxivv0p10owo" path="res://bullet.gd" id="1_v7oki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtl8c"]
+emission_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_v7oki"]
+material = SubResource("StandardMaterial3D_rtl8c")
+size = Vector3(0.05, 0.05, 0.5)
+
+[node name="bullet" type="Node3D"]
+script = ExtResource("1_v7oki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_v7oki")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, -0.25247115)
+collision_mask = 33
+collide_with_areas = true
+collide_with_bodies = false

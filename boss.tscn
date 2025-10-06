@@ -15,7 +15,7 @@ radius = 2.0
 height = 12.347168
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnbgr"]
-size = Vector3(10, 10, 10)
+size = Vector3(5, 5, 5)
 
 [node name="Boss" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
 script = ExtResource("1_o1i15")
@@ -30,6 +30,8 @@ metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4158196, 0)
 shape = SubResource("CapsuleShape3D_o1i15")
+disabled = true
+debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_bigo7")
@@ -44,11 +46,43 @@ shape = SubResource("CapsuleShape3D_we8h1")
 [node name="King Minos" parent="." instance=ExtResource("4_ttixl")]
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0, 0)
 
+[node name="Skeleton3D" parent="King Minos/minos_prime_Veins_skeleton" index="0"]
+bones/1/position = Vector3(1.4000089e-07, 0.00563569, -0.0021951222)
+bones/3/rotation = Quaternion(0.87661564, 0.48119128, -4.5112274e-06, 2.1725e-06)
+bones/4/rotation = Quaternion(-0.005440299, -0.0071514454, 0.47330326, 0.8808537)
+bones/5/rotation = Quaternion(0.08877301, -0.00021505832, 2.0170153e-05, 0.99605185)
+bones/6/rotation = Quaternion(-0.7301731, -0.0049943062, 0.002123218, 0.6832407)
+bones/9/rotation = Quaternion(-0.0054065315, 0.007231061, -0.47331527, 0.8808469)
+bones/10/rotation = Quaternion(0.0887725, 0.00013364792, -9.902767e-06, 0.9960519)
+bones/11/rotation = Quaternion(-0.73018676, 0.0049949843, -0.0021209728, 0.68322605)
+bones/13/rotation = Quaternion(0.04346646, 0.7057691, 0.0434658, 0.70577)
+bones/14/rotation = Quaternion(3.8922146e-08, 9.992422e-07, -0.038922165, 0.99924225)
+bones/15/rotation = Quaternion(3.991421e-07, -5.836824e-07, -0.18454018, 0.982825)
+bones/16/rotation = Quaternion(0.4283962, 0.5671814, 0.5657708, 0.41795388)
+bones/17/rotation = Quaternion(0.092628025, 0.11130464, 0.6285188, 0.76419604)
+bones/18/rotation = Quaternion(-0.30037892, 0.549144, -0.10706814, 0.77249587)
+bones/19/rotation = Quaternion(0.10423536, 0.0034947798, 0.039434697, 0.9937644)
+bones/20/rotation = Quaternion(-0.23268637, -0.053695068, 0.08100229, 0.9676841)
+bones/21/rotation = Quaternion(-0.25759363, -4.6939456e-07, -1.7060131e-07, 0.96625334)
+bones/23/rotation = Quaternion(-0.5657629, 0.41796243, -0.42838413, 0.5671922)
+bones/24/rotation = Quaternion(0.10059253, -0.12788418, -0.5976054, 0.78510803)
+bones/25/rotation = Quaternion(-0.22152013, -0.72250897, 0.080247834, 0.64997697)
+bones/26/rotation = Quaternion(0.10423377, -0.0034844968, -0.039433274, 0.99376476)
+bones/27/rotation = Quaternion(-0.2495926, 0.0551046, -0.080046244, 0.9634623)
+bones/28/rotation = Quaternion(-0.31347623, 5.365721e-06, -5.0290755e-06, 0.94959617)
+bones/30/rotation = Quaternion(-1.7410526e-06, -7.872135e-06, 0.29692376, 0.9549013)
+bones/31/rotation = Quaternion(0.0013835883, -0.005421571, 0.12858324, 0.99168295)
+
 [node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
 script = ExtResource("4_lnbgr")
 metadata/_custom_type_script = "uid://dtxij87jbkl7h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24536943, 8.752624, 1.8633847)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24536943, 6.955928, -3.923716)
 shape = SubResource("BoxShape3D_lnbgr")
 disabled = true
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[editable path="King Minos"]

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=13 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
 [ext_resource type="Script" uid="uid://2mafruolj7tc" path="res://script/shoot_function.gd" id="2_hp4bs"]
 [ext_resource type="Script" uid="uid://bofsogoj6y2si" path="res://script/HP_bar.gd" id="2_s4jxa"]
+[ext_resource type="PackedScene" uid="uid://b4u3s36vyuvlc" path="res://bullet.tscn" id="3_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
@@ -23,9 +24,9 @@ bg_color = Color(0, 0.736673, 0, 1)
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
 
-[node name="ShootFunction" type="Node" parent="." node_paths=PackedStringArray("hitscan")]
+[node name="ShootFunction" type="Node" parent="."]
 script = ExtResource("2_hp4bs")
-hitscan = NodePath("../Camera3D/RayCast3D")
+bullet_scene = ExtResource("3_g2vtq")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_ct4mp")
@@ -90,8 +91,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37529, -0.695981)
 [node name="WeaponComponent" parent="Camera3D" instance=ExtResource("6_oh5ij")]
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+visible = false
 enabled = false
 target_position = Vector3(0, 0, -10)
 collision_mask = 33
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1637026)

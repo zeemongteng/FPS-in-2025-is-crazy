@@ -1,14 +1,14 @@
+Marker3D
+RayCast3D
+MeshInstance3D
 Hitbox
 CollisionShape3D
 Hurtbox
 Area3D
 StaticBody3D
-Marker3D
 AnimationPlayer
 DirectionalLight3D
 Health
 CharacterBody3D
 RigidBody3D
 Node
-RayCast3D
-TextureRect

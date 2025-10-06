@@ -30,8 +30,7 @@ albedo_texture = ExtResource("1_t8egj")
 material = SubResource("StandardMaterial3D_dx6n1")
 size = Vector2(200, 200)
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_snrvv"]
-data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_788ah"]
 
 [node name="Testing Ground" type="Node3D"]
 script = ExtResource("1_6iy62")
@@ -47,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0889783, -0.0473671, 0.722
 mesh = SubResource("PlaneMesh_t8egj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_snrvv")
+shape = SubResource("WorldBoundaryShape3D_788ah")
 
 [node name="Player" parent="." instance=ExtResource("1_snrvv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16911, 0)
@@ -66,4 +65,4 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -26.5406, 8.6394, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 1.393815, 0)
 
 [node name="Boss" parent="." instance=ExtResource("7_788ah")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.4592674, 10.630288)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4592674, 10.630288)

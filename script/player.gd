@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 	if !alive:
-		return
+		die()
 	
 	var direction = Vector3.ZERO
 
@@ -55,3 +55,6 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_force
 
 	move_and_slide()
+
+func die():
+	get_tree().reload_current_scene()
