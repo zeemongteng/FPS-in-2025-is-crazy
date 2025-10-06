@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="2_qsv8u"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_kgtyj"]
+radius = 0.21
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gregu"]
 radius = 0.2
@@ -24,7 +25,7 @@ script = ExtResource("2_qsv8u")
 shape = SubResource("SphereShape3D_kgtyj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0302483, 0.157668, 0.00241905)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024875417, 0)
 shape = SubResource("SphereShape3D_gregu")
 
 [node name="fireballvfx" parent="." instance=ExtResource("1_73oji")]
