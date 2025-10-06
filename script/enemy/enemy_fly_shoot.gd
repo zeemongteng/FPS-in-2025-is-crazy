@@ -3,7 +3,7 @@ class_name EnemyFlyShoot
 
 @export var HPnode: Health
 @onready var hp = HPnode.health
-
+@export var blood_scene: PackedScene
 @export var fireball_scene: PackedScene
 @export var shoot_interval: float = 5.0
 @export var speed: float = 5.0
@@ -74,4 +74,7 @@ func shoot_fireball() -> void:
 	fireball.direction = (player.global_transform.origin - fireball.global_transform.origin).normalized()
 
 func death():
+	var blood = blood_scene.instantiate()
+	blood.global_transform = global_transform
+	get_tree().current_scene.add_child(blood)
 	queue_free()

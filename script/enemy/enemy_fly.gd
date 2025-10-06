@@ -13,7 +13,7 @@ var alive: bool = true
 @export var cooldown: float = 2.0
 @export var fly_height: float = 6.0          
 @export var fly_up_force: float = 20.0       
-
+@export var blood_scene: PackedScene
 var rush_timer: float = 0.0
 var cooldown_timer: float = 0.0
 var is_rushing: bool = false
@@ -104,4 +104,7 @@ func _on_hitbox_body_entered(body: Node3D) -> void:
 
 
 func death() -> void:
+	var blood = blood_scene.instantiate()
+	blood.global_transform = global_transform
+	get_tree().current_scene.add_child(blood)
 	queue_free()

@@ -12,7 +12,7 @@ var alive: bool = true
 @export var max_jump_force: float = 16.0   
 @export var gravity: float = 20.0
 @export var jump_cooldown: float = 0.5      
-
+@export var blood_scene: PackedScene
 var jump_timer: float = 0.0
 
 func _ready() -> void:
@@ -55,4 +55,7 @@ func random_jump_toward_player() -> void:
 	velocity.z = dir.z * speed
 
 func death():
+	var blood = blood_scene.instantiate()
+	blood.global_transform = global_transform
+	get_tree().current_scene.add_child(blood)
 	queue_free()
