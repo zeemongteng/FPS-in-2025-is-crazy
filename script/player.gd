@@ -4,7 +4,7 @@ class_name Player
 @export var speed: float = 6.0
 @export var jump_force: float = 4.5
 @export var mouse_sensitivity: float = 0.002
-
+@export var death_scene : PackedScene
 var alive : bool = true
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var damage = 10
@@ -57,4 +57,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
-	get_tree().reload_current_scene()
+	queue_free()
+	get_tree().call_deferred("change_scene_to_packed", death_scene)

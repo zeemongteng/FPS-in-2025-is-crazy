@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=14 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
+[ext_resource type="PackedScene" uid="uid://75qdd0qll1ib" path="res://death_scene.tscn" id="2_2fvbb"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
 [ext_resource type="Script" uid="uid://2mafruolj7tc" path="res://script/shoot_function.gd" id="2_hp4bs"]
 [ext_resource type="Script" uid="uid://bofsogoj6y2si" path="res://script/HP_bar.gd" id="2_s4jxa"]
@@ -23,6 +24,7 @@ bg_color = Color(0, 0.736673, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
+death_scene = ExtResource("2_2fvbb")
 
 [node name="ShootFunction" type="Node" parent="."]
 script = ExtResource("2_hp4bs")

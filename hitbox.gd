@@ -8,7 +8,7 @@ func _ready() -> void:
 func on_area_entered(area: Area3D):
 	if area is Hurtbox:
 		var attack := Attack.new()
-		attack.damage = 50
+		attack.damage = 20
 		
 		area.damage(attack)
 		

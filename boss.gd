@@ -88,8 +88,6 @@ func select_attack() -> void:
 			uppercut_attack()
 		elif roll < 80:
 			combo_attack()
-		else:
-			backstep_evade()
 	else:
 		if roll < 50:
 			rush_attack()
@@ -110,10 +108,9 @@ func rush_attack() -> void:
 func uppercut_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Uppercut")
-	velocity = Vector3.ZERO
+	velocity.y = jump_force
 	await anim.animation_finished
 	# Jump slightly to emulate launcher motion
-	velocity.y = jump_force
 	await get_tree().create_timer(0.3).timeout
 	reset_attack()
 
@@ -134,25 +131,8 @@ func combo_attack() -> void:
 	anim.play("minos_prime_Veins_skeleton|Combo")
 	velocity = Vector3.ZERO
 	await anim.animation_finished
-	if randi() % 2 == 0:
-		chain_followup()
-	else:
-		reset_attack()
-
-func backstep_evade() -> void:
-	attacking = true
-	anim.play("minos_prime_Veins_skeleton|Combo")
-	var back_dir = (global_transform.origin - player.global_transform.origin).normalized()
-	velocity.x = back_dir.x * rush_speed * 0.8
-	velocity.z = back_dir.z * rush_speed * 0.8
-	await anim.animation_finished
 	reset_attack()
 
-# === COMBO CHAIN ===
-func chain_followup() -> void:
-	anim.play("minos_prime_Veins_skeleton|Combo")
-	await anim.animation_finished
-	reset_attack()
 
 # === INTRO / DEATH ===
 func play_intro() -> void:
