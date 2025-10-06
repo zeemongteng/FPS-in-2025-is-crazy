@@ -110,6 +110,7 @@ func uppercut_attack() -> void:
 	anim.play("minos_prime_Veins_skeleton|Uppercut")
 	velocity.y = jump_force*2
 	await anim.animation_finished
+	velocity = Vector3.ZERO
 	# Jump slightly to emulate launcher motion
 	await get_tree().create_timer(0.3).timeout
 	reset_attack()
@@ -122,6 +123,7 @@ func ground_slam_attack() -> void:
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
 	await anim.animation_finished
+	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|DownSwing") # slam impact animation
 	await anim.animation_finished
 	reset_attack()
