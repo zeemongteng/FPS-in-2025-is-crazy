@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7awy4k1k5rh8"]
+
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="1_o7h6j"]
+[ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_n7jlu"]
+[ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_bigo7"]
+[ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lnbgr"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
+radius = 2.0
+height = 12.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_we8h1"]
+radius = 2.0
+height = 12.347168
+
+[node name="Boss" type="CharacterBody3D" groups=["Enemy"]]
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_o7h6j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.752624, 1.8633847)
+shape = SubResource("BoxShape3D_lnbgr")
+
+[node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("2_n7jlu")
+metadata/_custom_type_script = "uid://b0y7e06csgu1h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4158196, 0)
+shape = SubResource("CapsuleShape3D_o1i15")
+
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("3_bigo7")
+hurtbox = NodePath("../Hurtbox")
+metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
+
+[node name="Floor_Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.813488, 0)
+shape = SubResource("CapsuleShape3D_we8h1")
+
+[node name="King Minos" parent="." instance=ExtResource("4_ttixl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

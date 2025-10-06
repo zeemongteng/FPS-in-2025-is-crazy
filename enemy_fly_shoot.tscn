@@ -24,7 +24,7 @@ script = ExtResource("2_5lbc5")
 metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154234, -0.028311)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154234, 0.06271143)
 shape = SubResource("CapsuleShape3D_4kul4")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
@@ -33,7 +33,7 @@ hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 
 [node name="Floor_Collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.163999, -0.0371263)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.163999, 0.06564543)
 shape = SubResource("CapsuleShape3D_o01kx")
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("4_5lbc5")]

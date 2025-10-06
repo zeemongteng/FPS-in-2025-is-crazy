@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=12 format=3 uid="uid://dpkym86yv1chi"]
 
 [ext_resource type="Script" uid="uid://bwtenkrakmb4l" path="res://scene/testing_ground.gd" id="1_6iy62"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://enemy.tscn" id="3_x70m4"]
 [ext_resource type="PackedScene" uid="uid://dlk5omru6gv88" path="res://enemy_fly.tscn" id="4_dx6n1"]
 [ext_resource type="PackedScene" uid="uid://bceu4xbhoo2rg" path="res://enemy_fly_shoot.tscn" id="5_sml2l"]
+[ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://boss.tscn" id="7_788ah"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70m4"]
 
@@ -47,3 +48,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -26.5406, 8.6394, 0)
 
 [node name="enemy_fly_shoot" parent="." instance=ExtResource("5_sml2l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 1.393815, 0)
+
+[node name="Boss" parent="." instance=ExtResource("7_788ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -77.40817)

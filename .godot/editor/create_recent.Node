@@ -1,8 +1,8 @@
+CollisionShape3D
 Hurtbox
 Hitbox
 Area3D
 StaticBody3D
-CollisionShape3D
 Marker3D
 AnimationPlayer
 DirectionalLight3D

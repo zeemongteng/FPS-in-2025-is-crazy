@@ -5,3 +5,5 @@ res://enemy.tscn
 res://enemy_fly.tscn
 res://scene/testing_ground.tscn
 res://fire_ball.tscn
+res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn
+res://boss.tscn
