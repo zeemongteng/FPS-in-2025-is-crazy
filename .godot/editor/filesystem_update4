@@ -12,3 +12,6 @@ res://enemy_fly.tscn
 res://enemy_fly_shoot.tscn
 res://scene/enemy/enemy_fly_shoot.tscn
 res://scene/enemy/boss.tscn
+res://script/enemy/boss.gd
+res://hpbar.gd
+res://hpbar.tscn

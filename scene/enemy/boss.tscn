@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7awy4k1k5rh8"]
+[gd_scene load_steps=10 format=3 uid="uid://b7awy4k1k5rh8"]
 
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_n7jlu"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_bigo7"]
 [ext_resource type="Script" uid="uid://cf8upesilhlf8" path="res://script/enemy/hitbox_boss.gd" id="4_lnbgr"]
 [ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
+[ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://hpbar.tscn" id="6_flos3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
 radius = 2.0
@@ -47,31 +48,32 @@ shape = SubResource("CapsuleShape3D_we8h1")
 transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="King Minos/minos_prime_Veins_skeleton" index="0"]
-bones/1/position = Vector3(1.4000089e-07, 0.00563569, -0.0021951222)
+bones/0/position = Vector3(0, 2.910383e-13, 4.4240184)
+bones/1/position = Vector3(-3.4000004e-07, 0.005634916, -0.28359374)
 bones/3/rotation = Quaternion(0.87661564, 0.48119128, -4.5112274e-06, 2.1725e-06)
-bones/4/rotation = Quaternion(-0.005440299, -0.0071514454, 0.47330326, 0.8808537)
-bones/5/rotation = Quaternion(0.08877301, -0.00021505832, 2.0170153e-05, 0.99605185)
-bones/6/rotation = Quaternion(-0.7301731, -0.0049943062, 0.002123218, 0.6832407)
-bones/9/rotation = Quaternion(-0.0054065315, 0.007231061, -0.47331527, 0.8808469)
-bones/10/rotation = Quaternion(0.0887725, 0.00013364792, -9.902767e-06, 0.9960519)
-bones/11/rotation = Quaternion(-0.73018676, 0.0049949843, -0.0021209728, 0.68322605)
-bones/13/rotation = Quaternion(0.04346646, 0.7057691, 0.0434658, 0.70577)
-bones/14/rotation = Quaternion(3.8922146e-08, 9.992422e-07, -0.038922165, 0.99924225)
-bones/15/rotation = Quaternion(3.991421e-07, -5.836824e-07, -0.18454018, 0.982825)
-bones/16/rotation = Quaternion(0.4283962, 0.5671814, 0.5657708, 0.41795388)
-bones/17/rotation = Quaternion(0.092628025, 0.11130464, 0.6285188, 0.76419604)
-bones/18/rotation = Quaternion(-0.30037892, 0.549144, -0.10706814, 0.77249587)
-bones/19/rotation = Quaternion(0.10423536, 0.0034947798, 0.039434697, 0.9937644)
-bones/20/rotation = Quaternion(-0.23268637, -0.053695068, 0.08100229, 0.9676841)
-bones/21/rotation = Quaternion(-0.25759363, -4.6939456e-07, -1.7060131e-07, 0.96625334)
-bones/23/rotation = Quaternion(-0.5657629, 0.41796243, -0.42838413, 0.5671922)
-bones/24/rotation = Quaternion(0.10059253, -0.12788418, -0.5976054, 0.78510803)
-bones/25/rotation = Quaternion(-0.22152013, -0.72250897, 0.080247834, 0.64997697)
-bones/26/rotation = Quaternion(0.10423377, -0.0034844968, -0.039433274, 0.99376476)
-bones/27/rotation = Quaternion(-0.2495926, 0.0551046, -0.080046244, 0.9634623)
-bones/28/rotation = Quaternion(-0.31347623, 5.365721e-06, -5.0290755e-06, 0.94959617)
-bones/30/rotation = Quaternion(-1.7410526e-06, -7.872135e-06, 0.29692376, 0.9549013)
-bones/31/rotation = Quaternion(0.0013835883, -0.005421571, 0.12858324, 0.99168295)
+bones/4/rotation = Quaternion(0.03723342, -0.21818036, 0.44678771, 0.86682856)
+bones/5/rotation = Quaternion(0.26731014, -0.00020491687, 5.6317534e-05, 0.96361053)
+bones/6/rotation = Quaternion(-0.5591837, -0.0028341066, 0.0044861054, 0.8290269)
+bones/9/rotation = Quaternion(0.009280108, 0.15084179, -0.46555865, 0.8720183)
+bones/10/rotation = Quaternion(0.2455989, -0.010943438, -0.0060765576, 0.96929073)
+bones/11/rotation = Quaternion(-0.3305671, 0.0034425457, -0.004194237, 0.94376695)
+bones/13/rotation = Quaternion(-0.098164685, 0.70025796, -0.09816545, 0.7002615)
+bones/14/rotation = Quaternion(-1.9895199e-13, 2.0161653e-13, -0.21271048, 0.97711533)
+bones/15/rotation = Quaternion(-3.8369308e-13, 2.9132252e-13, -0.10881214, 0.9940623)
+bones/16/rotation = Quaternion(0.49560064, 0.6583555, 0.45646358, 0.33554322)
+bones/17/rotation = Quaternion(0.23052505, -0.21260424, 0.31231004, 0.89672744)
+bones/18/rotation = Quaternion(-0.01481541, -0.064900205, -0.07458973, 0.9949899)
+bones/19/rotation = Quaternion(0.10423534, 0.003494763, 0.03943472, 0.9937644)
+bones/20/rotation = Quaternion(-0.15723902, -0.047277596, 0.084903486, 0.9827676)
+bones/21/rotation = Quaternion(0.022876492, 4.6577825e-10, -4.6578337e-09, 0.9997384)
+bones/23/rotation = Quaternion(-0.42499617, 0.31187642, -0.5108201, 0.6790981)
+bones/24/rotation = Quaternion(0.20518188, 0.22432117, -0.33699408, 0.89107543)
+bones/25/rotation = Quaternion(0.038633574, 0.21776184, 0.2706145, 0.9369393)
+bones/26/rotation = Quaternion(0.10423376, -0.0034845134, -0.039433304, 0.99376476)
+bones/27/rotation = Quaternion(-0.058351316, 0.038566712, -0.08919977, 0.9935549)
+bones/28/rotation = Quaternion(-0.0037019982, 3.1664932e-08, -3.000742e-06, 0.99999315)
+bones/30/rotation = Quaternion(-1.9661882e-06, -7.575232e-06, 0.20816307, 0.9780942)
+bones/31/rotation = Quaternion(-0.0005577058, -0.005566534, -0.21909592, 0.9756873)
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 0
@@ -84,5 +86,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.24536943, 6.955928, -3.9237
 shape = SubResource("BoxShape3D_lnbgr")
 disabled = true
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="Hpbar" parent="." node_paths=PackedStringArray("HPnode") instance=ExtResource("6_flos3")]
+visible = false
+offset_right = 1136.0
+offset_bottom = 42.0
+HPnode = NodePath("../HealthComponent")
+bar_name = "Minos Prime"
 
 [editable path="King Minos"]

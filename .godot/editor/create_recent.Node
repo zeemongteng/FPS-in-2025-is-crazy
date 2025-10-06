@@ -1,7 +1,10 @@
+Label
+ProgressBar
+Timer
+TextureProgressBar
 Node2D
 CanvasLayer
 ColorRect
-Label
 TextureRect
 Marker3D
 RayCast3D
@@ -9,6 +12,3 @@ MeshInstance3D
 Hitbox
 CollisionShape3D
 Hurtbox
-Area3D
-StaticBody3D
-AnimationPlayer
