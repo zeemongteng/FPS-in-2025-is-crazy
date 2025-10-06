@@ -22,6 +22,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not alive:
+		death()
 		return
 
 	if not is_on_floor():
@@ -35,10 +36,6 @@ func _physics_process(delta: float) -> void:
 			jump_timer = jump_cooldown
 
 	move_and_slide()
-
-	if hp <= 0:
-		alive = false
-		death()
 
 func random_jump_toward_player() -> void:
 	if not player: 
@@ -57,20 +54,5 @@ func random_jump_toward_player() -> void:
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
 
-
-func on_damaged(attack: Attack) -> void:
-	HPnode.on_damaged(attack)
-	hp = HPnode.health
-	if hp <= 0:
-		alive = false
-		death()
-
 func death():
 	queue_free()
-
-
-func _on_hitbox_body_entered(body: Node3D) -> void:
-	if body.is_in_group("Player"):
-		var attack = Attack.new()
-		attack.damage = 10
-		body.on_damaged(attack) 

@@ -1,28 +1,44 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlk5omru6gv88"]
+[gd_scene load_steps=9 format=3 uid="uid://dlk5omru6gv88"]
 
 [ext_resource type="Script" uid="uid://bokebvdm7gpbt" path="res://enemy_fly.gd" id="1_5ro83"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_slk7l"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_t56a1"]
 [ext_resource type="PackedScene" uid="uid://dfquas6sbqrix" path="res://asset/enemy_model/demon-eye-eye-of-cthulhu/textures/Eye.fbx" id="4_5ro83"]
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_slk7l"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_t56a1"]
+radius = 3.908604
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5ro83"]
-radius = 3.7
+radius = 4.2035685
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_slk7l"]
 radius = 3.5
 
 [node name="Demon_eyes" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
 script = ExtResource("1_5ro83")
-HPnode = NodePath("Health")
+HPnode = NodePath("HealthComponent")
+
+[node name="Hitbox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("5_slk7l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+shape = SubResource("SphereShape3D_t56a1")
+debug_color = Color(1, 0, 0, 0.42000002)
 
 [node name="Hurtbox" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 0
 script = ExtResource("2_slk7l")
 metadata/_custom_type_script = "uid://b0y7e06csgu1h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox"]
 shape = SubResource("SphereShape3D_5ro83")
+debug_color = Color(0, 1, 0, 0.42000002)
 
-[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+[node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_t56a1")
 hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
@@ -33,5 +49,5 @@ shape = SubResource("SphereShape3D_slk7l")
 [node name="Eye" parent="." instance=ExtResource("4_5ro83")]
 transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 0, 0)
 
-[connection signal="body_entered" from="Hurtbox" to="." method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="damaged" from="Hurtbox" to="." method="on_damaged"]

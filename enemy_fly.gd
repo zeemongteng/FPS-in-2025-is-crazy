@@ -31,7 +31,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not alive or player == null:
+	if !alive:
+		death()
+		
+	if player == null:
 		return
 
 	if is_on_floor():
@@ -94,21 +97,10 @@ func start_rush() -> void:
 
 func _on_hitbox_body_entered(body: Node3D) -> void:
 	if body.is_in_group("Player") and is_rushing:
+		
 		hit_player = true
-		var attack = Attack.new()
-		attack.damage = 10
-		body.on_damaged(attack)
-
 		velocity.y = fly_up_force 
 		is_rushing = false
-
-
-func on_damaged(attack: Attack) -> void:
-	HPnode.on_damaged(attack)
-	hp = HPnode.health
-	if hp <= 0:
-		alive = false
-		death()
 
 
 func death() -> void:

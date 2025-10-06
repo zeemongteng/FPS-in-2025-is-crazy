@@ -5,19 +5,20 @@ class_name Health
 signal health_changed(health: float)
 
 @export var max_health := 100.0
-
 @export var hurtbox : Hurtbox
 
 @onready var health := max_health
 @onready var unit = get_owner()
 
+func _ready() -> void:
+	hurtbox.damaged.connect(Callable(self, "on_damaged"))
 
 func on_damaged(attack: Attack):
 	if not unit.alive:
 		return
 	
 	health -= attack.damage
-	print("health = %d "%health,unit)
+	print("health = %d " %health , unit)
 	health_changed.emit(health)
 	if health <= 0:
 		health = 0

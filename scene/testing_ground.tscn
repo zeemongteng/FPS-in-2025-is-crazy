@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=12 format=3 uid="uid://dpkym86yv1chi"]
 
+[ext_resource type="Script" uid="uid://bwtenkrakmb4l" path="res://scene/testing_ground.gd" id="1_6iy62"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
 [ext_resource type="Texture2D" uid="uid://bs8r408ytsgmv" path="res://asset/roblox_stud.jpeg" id="1_t8egj"]
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://enemy.tscn" id="3_x70m4"]
 [ext_resource type="PackedScene" uid="uid://dlk5omru6gv88" path="res://enemy_fly.tscn" id="4_dx6n1"]
 [ext_resource type="PackedScene" uid="uid://bceu4xbhoo2rg" path="res://enemy_fly_shoot.tscn" id="5_sml2l"]
+[ext_resource type="PackedScene" uid="uid://bmued3pbmaudg" path="res://fire_ball.tscn" id="7_788ah"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70m4"]
 
@@ -19,6 +21,7 @@ size = Vector2(20, 20)
 data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100, -100, 0, -100, 100, 0, -100)
 
 [node name="Testing Ground" type="Node3D"]
+script = ExtResource("1_6iy62")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_x70m4")
@@ -44,4 +47,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.96754, -8.70125)
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -26.5406, 8.6394, 0)
 
 [node name="enemy_fly_shoot" parent="." instance=ExtResource("5_sml2l")]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -5.44706, 2.71053, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 1.393815, 0)
+
+[node name="FireBall" parent="." instance=ExtResource("7_788ah")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2500896, 2.3235173, -7.1817503)
