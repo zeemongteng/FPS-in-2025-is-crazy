@@ -1,6 +1,6 @@
+Hitbox
 CollisionShape3D
 Hurtbox
-Hitbox
 Area3D
 StaticBody3D
 Marker3D

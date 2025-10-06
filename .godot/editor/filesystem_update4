@@ -7,3 +7,6 @@ res://scene/testing_ground.tscn
 res://fire_ball.tscn
 res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn
 res://boss.tscn
+res://script/hitbox.gd
+res://hitbox.gd
+res://boss.gd
