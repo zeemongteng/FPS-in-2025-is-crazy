@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=15 format=3 uid="uid://dpkym86yv1chi"]
 
 [ext_resource type="Script" uid="uid://bwtenkrakmb4l" path="res://scene/testing_ground.gd" id="1_6iy62"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
@@ -7,6 +7,19 @@
 [ext_resource type="PackedScene" uid="uid://dlk5omru6gv88" path="res://enemy_fly.tscn" id="4_dx6n1"]
 [ext_resource type="PackedScene" uid="uid://bceu4xbhoo2rg" path="res://enemy_fly_shoot.tscn" id="5_sml2l"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://boss.tscn" id="7_788ah"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_788ah"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_00rxe"]
+sky_material = SubResource("ProceduralSkyMaterial_788ah")
+
+[sub_resource type="Environment" id="Environment_c1631"]
+background_mode = 2
+sky = SubResource("Sky_00rxe")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x70m4"]
 
@@ -22,6 +35,9 @@ data = PackedVector3Array(100, 0, 100, -100, 0, 100, 100, 0, -100, -100, 0, 100,
 
 [node name="Testing Ground" type="Node3D"]
 script = ExtResource("1_6iy62")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c1631")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 physics_material_override = SubResource("PhysicsMaterial_x70m4")
@@ -50,4 +66,4 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -26.5406, 8.6394, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 1.393815, 0)
 
 [node name="Boss" parent="." instance=ExtResource("7_788ah")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -77.40817)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.4592674, 10.630288)
