@@ -223,7 +223,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6b11s"]
@@ -432,10 +432,22 @@ tracks/28/path = NodePath("../Hitbox/CollisionShape3D:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 8.708333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 2.59, 3.14, 4.17, 4.37, 5.36, 5.77, 8.708333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false, true, false, true, false, true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_mstwx"]
@@ -644,10 +656,22 @@ tracks/28/path = NodePath("../Hitbox/CollisionShape3D:disabled")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 5.375),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 1.58, 2.66, 3.62, 3.87, 5.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false, true, false, true]
+}
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_c4djt"]
@@ -861,6 +885,18 @@ tracks/28/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_1n83l"]
 resource_name = "minos_prime_Veins_skeleton|DropAttack"
@@ -1061,6 +1097,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, -0.77038354, 2.048494e-06, -3.0216652e-06, 0.63758075)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_rkhtj"]
 resource_name = "minos_prime_Veins_skeleton|DropAttack_Recovery"
@@ -1261,6 +1309,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, -0.7703721, 7.2438816e-06, -1.4742858e-06, 0.6375946, 0.4, 1, -0.769699, 7.241185e-06, -1.4798478e-06, 0.638407, 0.8, 1, -0.76902497, 7.238484e-06, -1.4854057e-06, 0.63921875, 0.875, 1, -0.7688985, 7.2379776e-06, -1.4864473e-06, 0.63937086, 0.9166667, 1, -0.7666097, 7.2325042e-06, -1.5120748e-06, 0.6421133, 0.93333334, 1, -0.76514685, 7.2289986e-06, -1.5284393e-06, 0.6438558, 0.9583333, 1, -0.76294506, 7.2236703e-06, -1.5529706e-06, 0.64646333, 1, 1, -0.7579666, 7.211438e-06, -1.6080855e-06, 0.6522934, 1.0416666, 1, -0.751731, 7.1957115e-06, -1.6763522e-06, 0.6594699, 1.0833334, 1, -0.74427223, 7.176308e-06, -1.7568923e-06, 0.66787636, 1.125, 1, -0.73567826, 7.153168e-06, -1.8482154e-06, 0.67733115, 1.1666666, 1, -0.72596335, 7.126034e-06, -1.9496147e-06, 0.6877334, 1.2083334, 1, -0.71521837, 7.0948645e-06, -2.0595871e-06, 0.69890106, 1.25, 1, -0.70344293, 7.059371e-06, -2.177597e-06, 0.7107517, 1.2916666, 1, -0.69075644, 7.019642e-06, -2.3019388e-06, 0.7230875, 1.3333334, 1, -0.6771865, 6.9755197e-06, -2.431885e-06, 0.7358114, 1.375, 1, -0.6628061, 6.927019e-06, -2.5663185e-06, 0.74879104, 1.4166666, 1, -0.6476961, 6.8742224e-06, -2.7041262e-06, 0.7618988, 1.4583334, 1, -0.6319432, 6.8172767e-06, -2.844225e-06, 0.77501464, 1.5, 1, -0.61562204, 6.756329e-06, -2.985722e-06, 0.78804153, 1.7083334, 1, -0.528573, 6.401349e-06, -3.6842216e-06, 0.84888786, 1.75, 1, -0.5107079, 6.3228767e-06, -3.8170188e-06, 0.85975426, 1.7916666, 1, -0.49290636, 6.2429513e-06, -3.946088e-06, 0.8700824, 1.8333334, 1, -0.47528338, 6.1621836e-06, -4.0707723e-06, 0.8798328, 1.875, 1, -0.45795596, 6.0812295e-06, -4.1904646e-06, 0.8889749, 1.9166666, 1, -0.44104484, 6.000791e-06, -4.30459e-06, 0.8974851, 1.9583334, 1, -0.42464706, 5.921485e-06, -4.412783e-06, 0.90535897, 2, 1, -0.40891168, 5.844202e-06, -4.514376e-06, 0.912574, 2.0416667, 1, -0.3939379, 5.769611e-06, -4.6090695e-06, 0.91913706, 2.0833333, 1, -0.37990084, 5.698779e-06, -4.696115e-06, 0.9250272, 2.125, 1, -0.3668754, 5.6322815e-06, -4.7754197e-06, 0.9302701, 2.1666667, 1, -0.3550112, 5.5710784e-06, -4.846438e-06, 0.9348621, 2.2083333, 1, -0.34440517, 5.515863e-06, -4.9089494e-06, 0.93882114, 2.25, 1, -0.3352311, 5.4677253e-06, -4.962273e-06, 0.94213593, 2.2916667, 1, -0.3275572, 5.427195e-06, -5.0063336e-06, 0.9448314, 2.3333333, 1, -0.32150126, 5.3950434e-06, -5.0407316e-06, 0.9469091, 2.375, 1, -0.31707475, 5.371453e-06, -5.0656304e-06, 0.94840056, 2.4, 1, -0.31546393, 5.3628523e-06, -5.0745957e-06, 0.9489376, 2.4166667, 1, -0.31438956, 5.3571102e-06, -5.0805647e-06, 0.9492941, 2.4583333, 1, -0.3134762, 5.352235e-06, -5.085469e-06, 0.94959605)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_irq4n"]
 resource_name = "minos_prime_Veins_skeleton|Falling"
@@ -2073,6 +2133,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, -0.77038354, 2.0935252e-06, -3.0160732e-06, 0.63758075)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_eyqud"]
 resource_name = "minos_prime_Veins_skeleton|Outro"
@@ -2273,6 +2345,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, -0.3134946, -1.6501323e-07, -2.6875357e-06, 0.94958997, 4.133333, 1, -0.31446755, 5.3919e-06, -5.0662247e-06, 0.9492682, 4.1666665, 1, -0.31603232, 5.4001002e-06, -5.057274e-06, 0.9487484, 4.2083335, 1, -0.3195495, 5.4186407e-06, -5.0371414e-06, 0.9475696, 4.25, 1, -0.32483006, 5.4464713e-06, -5.0067724e-06, 0.9457724, 4.2916665, 1, -0.3320966, 5.484646e-06, -4.9646587e-06, 0.94324535, 4.3333335, 1, -0.34154004, 5.5339788e-06, -4.9093396e-06, 0.9398672, 4.375, 1, -0.35339242, 5.595405e-06, -4.8389397e-06, 0.9354752, 4.4166665, 1, -0.3678209, 5.6694034e-06, -4.751749e-06, 0.92989665, 4.4583335, 1, -0.38490275, 5.755861e-06, -4.646362e-06, 0.9229571, 4.5, 1, -0.40434262, 5.8526834e-06, -4.523502e-06, 0.9146076, 4.5416665, 1, -0.42571646, 5.9571435e-06, -4.384721e-06, 0.9048566, 4.5833335, 1, -0.44859985, 6.0665807e-06, -4.231701e-06, 0.8937327, 4.625, 1, -0.4725734, 6.1784635e-06, -4.0662812e-06, 0.88129133, 4.6666665, 1, -0.49725157, 6.290545e-06, -3.890302e-06, 0.8676064, 4.7083335, 1, -0.52223706, 6.400674e-06, -3.7059608e-06, 0.85280037, 4.8333335, 1, -0.59555036, 6.702526e-06, -3.1258592e-06, 0.80331796, 4.875, 1, -0.61847615, 6.789716e-06, -2.9312062e-06, 0.78580356, 4.9166665, 1, -0.64029664, 6.8691493e-06, -2.7394083e-06, 0.76812774, 4.9583335, 1, -0.660911, 6.9407843e-06, -2.5519496e-06, 0.75046426, 5, 1, -0.6802133, 7.0046394e-06, -2.3705102e-06, 0.7330142, 5.0416665, 1, -0.6980915, 7.0608007e-06, -2.1969859e-06, 0.71600854, 5.0833335, 1, -0.7144498, 7.1094887e-06, -2.0332698e-06, 0.69968665, 5.125, 1, -0.72918653, 7.15098e-06, -1.8814515e-06, 0.68431497, 5.1666665, 1, -0.7422317, 7.1857003e-06, -1.7433997e-06, 0.6701433, 5.2083335, 1, -0.753522, 7.2141215e-06, -1.6209696e-06, 0.65742266, 5.25, 1, -0.7629806, 7.2366893e-06, -1.5161738e-06, 0.64642143, 5.2916665, 1, -0.77051234, 7.2537905e-06, -1.4312031e-06, 0.6374251, 5.3333335, 1, -0.77605265, 7.2658295e-06, -1.367807e-06, 0.63066816, 5.366667, 1, -0.7788178, 7.2716216e-06, -1.335884e-06, 0.6272502, 5.375, 1, -0.77950674, 7.2730477e-06, -1.3278994e-06, 0.62639385, 5.4, 1, -0.7802601, 7.274527e-06, -1.3191699e-06, 0.62545514, 5.5666666, 1, -0.7808917, 7.2751004e-06, -1.3119889e-06, 0.6246664, 6.3, 1, -0.78152674, 7.273105e-06, -1.305341e-06, 0.62387174, 6.633333, 1, -0.78146505, 7.271464e-06, -1.3064018e-06, 0.623949, 6.6666665, 1, -0.78009146, 7.268423e-06, -1.3224184e-06, 0.6256655, 6.7083335, 1, -0.7679138, 7.2414546e-06, -1.4620053e-06, 0.6405532, 6.75, 1, -0.7292806, 7.1437585e-06, -1.8815438e-06, 0.6842147, 6.7916665, 1, -0.65791583, 6.922044e-06, -2.5799534e-06, 0.75309145, 6.8333335, 1, -0.55768615, 6.54121e-06, -3.4323157e-06, 0.8300519, 6.9166665, 1, -0.30527142, 5.3305516e-06, -5.1135275e-06, 0.9522654, 6.9583335, 1, -0.18379173, 4.649076e-06, -5.7398956e-06, 0.98296523, 7, 1, -0.08784312, 4.0718655e-06, -6.1625956e-06, 0.99613434, 7.0416665, 1, -0.02574365, 3.6807066e-06, -6.403705e-06, 0.9996686, 7.0666666, 1, -0.012523987, 3.5956245e-06, -6.451739e-06, 0.99992156, 7.0833335, 1, -0.0037095195, 3.5385542e-06, -6.4831347e-06, 0.99999315, 9.791667, 1, -0.003701998, 3.1665195e-08, -3.000742e-06, 0.99999315)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_sintl"]
 resource_name = "minos_prime_Veins_skeleton|ProjectilePunch"
@@ -2673,6 +2757,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, 0.10856604, 0.08088214, 0.04346582, 0.9898395)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_3eh3x"]
 resource_name = "minos_prime_Veins_skeleton|Uppercut"
@@ -2885,6 +2981,18 @@ tracks/28/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/29/type = "value"
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qhafl"]
 resource_name = "minos_prime_Veins_skeleton|Walk"
@@ -3085,6 +3193,18 @@ tracks/27/path = NodePath("minos_prime_Veins_skeleton/Skeleton3D:Fingers_Right")
 tracks/27/interp = 1
 tracks/27/loop_wrap = true
 tracks/27/keys = PackedFloat32Array(0, 1, -0.78741246, 7.276656e-06, -1.2513642e-06, 0.61642647)
+tracks/28/type = "value"
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/path = NodePath("../Hurtbox/CollisionShape3D:disabled")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_18jd6"]
 _data = {

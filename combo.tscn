@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://w8ruayqxrefy"]
+
+[ext_resource type="Script" path="res://combo.gd" id="1_xwhkk"]
+[ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="2_xwhkk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwhkk"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_12glm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_xwhkk"]
+default_font_size = 22
+
+[node name="Combo" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xwhkk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 1
+offset_right = 164.0
+offset_bottom = 168.0
+color = Color(0.20871013, 0.20871016, 0.20871013, 1)
+
+[node name="NumMul" type="Label" parent="."]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 117.0
+offset_right = 363.0
+offset_bottom = 472.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("2_xwhkk")
+theme_override_font_sizes/font_size = 200
+text = "0x
+"
+horizontal_alignment = 1
+
+[node name="MULTIPLIER" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.000004
+offset_top = 123.0
+offset_right = 772.0
+offset_bottom = 238.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("2_xwhkk")
+theme_override_font_sizes/font_size = 130
+text = "MULTIPLIER"
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 40.0
+offset_right = 157.0
+offset_bottom = 50.0
+theme_override_styles/background = SubResource("StyleBoxFlat_xwhkk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_12glm")
+value = 50.0
+show_percentage = false
+
+[node name="NameCombo" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 11.0
+offset_right = 556.0
+offset_bottom = 99.0
+scale = Vector2(0.2, 0.2)
+theme = SubResource("Theme_xwhkk")
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xwhkk")
+theme_override_font_sizes/font_size = 100
+text = "ULTRAKILL"

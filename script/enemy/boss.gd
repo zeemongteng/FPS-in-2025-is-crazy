@@ -28,6 +28,7 @@ var attack_timer := 0.0
 
 # Intro / States
 var intro_played := false
+var intro_playing := false
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
@@ -43,6 +44,10 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	
+	if intro_playing and Input.is_action_just_pressed("skip"):
+		skip_intro()
+		return
 
 	if not intro_played:
 		move_and_slide()
@@ -96,22 +101,19 @@ func select_attack() -> void:
 			combo_attack()
 
 # === ATTACKS ===
-
 func rush_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Boxing")
-	teleport(1.2,1.5,5)
-	
+	teleport(1.4, 1.5, 5)
 	await anim.animation_finished
 	reset_attack()
 
 func uppercut_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Uppercut")
-	velocity.y = jump_force*2
+	velocity.y = jump_force * 2
 	await anim.animation_finished
 	velocity = Vector3.ZERO
-	# Jump slightly to emulate launcher motion
 	await get_tree().create_timer(0.3).timeout
 	reset_attack()
 
@@ -124,24 +126,33 @@ func ground_slam_attack() -> void:
 	velocity.z = dir.z * speed
 	await anim.animation_finished
 	velocity = Vector3.ZERO
-	anim.play("minos_prime_Veins_skeleton|DownSwing") # slam impact animation
+	anim.play("minos_prime_Veins_skeleton|DownSwing")
 	await anim.animation_finished
 	reset_attack()
 
 func combo_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Combo")
-	teleport(1,1.5,3)
+	teleport(1.2, 1.5, 4)
 	await anim.animation_finished
 	reset_attack()
 
-
 # === INTRO / DEATH ===
 func play_intro() -> void:
+	intro_playing = true
 	anim.play("minos_prime_Veins_skeleton|Intro")
 	await anim.animation_finished
+	if not intro_played:  # If not skipped
+		hpbar.show()
+		intro_played = true
+	intro_playing = false
+
+func skip_intro() -> void:
+	anim.stop()
 	hpbar.show()
 	intro_played = true
+	intro_playing = false
+	print("Intro skipped!")
 
 func death() -> void:
 	alive = false
@@ -156,17 +167,12 @@ func reset_attack() -> void:
 	attack_timer = attack_cooldown
 	velocity = Vector3.ZERO
 
-func teleport(time,distance,n):
+func teleport(time, distance, n):
 	velocity = Vector3.ZERO
-	for i in range(n):  # warp 5 times
+	for i in range(n):
 		if player and player.is_inside_tree():
-			# Warp near player
 			var target_pos = player.global_transform.origin
 			var offset_dir = (global_transform.origin - target_pos).normalized()
-			var warp_distance = distance  # how far behind or beside the player to appear
+			var warp_distance = distance
 			global_transform.origin = target_pos + offset_dir * warp_distance
-			
-			# Optional: add teleport effect or sound here
-			# spawn_teleport_effect(global_transform.origin)
-		
 		await get_tree().create_timer(time).timeout
