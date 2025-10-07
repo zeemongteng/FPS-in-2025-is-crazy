@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=21 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4u3s36vyuvlc" path="res://scene/bullet.tscn" id="3_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
+[ext_resource type="PackedScene" uid="uid://djgene0oow2xw" path="res://scene/coin.tscn" id="4_u7b46"]
 [ext_resource type="Script" uid="uid://dqkg5p8j7cmj4" path="res://scene/stamina_component.gd" id="5_ml7e8"]
 [ext_resource type="Script" uid="uid://clo402pglooj2" path="res://script/parry_box.gd" id="6_ihjo1"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
@@ -40,6 +41,7 @@ script = ExtResource("2_hp4bs")
 bullet_scene = ExtResource("3_g2vtq")
 marker_3d = NodePath("../Pivot/Camera3D/Marker3D")
 parryBox = NodePath("../ParryBox/CollisionShape3D")
+coin_scene = ExtResource("4_u7b46")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_ct4mp")

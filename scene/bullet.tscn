@@ -19,4 +19,3 @@ mesh = SubResource("BoxMesh_v7oki")
 transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, -0.25247115)
 collision_mask = 33
 collide_with_areas = true
-collide_with_bodies = false
