@@ -3,6 +3,7 @@ class_name enemy
 
 @export var HPnode : Health
 @onready var hp = HPnode.health
+@onready var audio_stream_player: AudioStreamPlayer3D = $AudioStreamPlayer
 
 var player: Player = null
 var alive: bool = true
@@ -49,7 +50,7 @@ func random_jump_toward_player() -> void:
 		dir = dir.normalized()
 	else:
 		dir = Vector3.ZERO
-
+	audio_stream_player.play()
 	velocity.y = jump_force
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed

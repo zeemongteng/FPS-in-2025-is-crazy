@@ -14,6 +14,7 @@ var alive: bool = true
 @export var launch_distance: float = 10.0
 @export var rotation_speed: float = 5.0   # how fast it rotates toward player
 @onready var anim_player: AnimationPlayer = $Freddy/AnimationPlayer
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 signal died
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
@@ -46,6 +47,7 @@ func _physics_process(delta: float) -> void:
 					velocity.x = dir.x * launch_speed
 					velocity.z = dir.z * launch_speed
 					anim_player.play("Freddy--Jumpscare")
+					audio_stream_player_3d.play()
 				else:
 					# Walk toward player
 					velocity.x = dir.x * speed

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://do8iayi6gtm37"]
+[gd_scene load_steps=10 format=3 uid="uid://do8iayi6gtm37"]
 
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="1_k6nby"]
 [ext_resource type="Script" uid="uid://btn4skumy3gy" path="res://script/enemy/enemy_ground.gd" id="2_2kosb"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_js420"]
 [ext_resource type="PackedScene" uid="uid://drpnvif4tkym1" path="res://asset/enemy_model/freddy/sketchfab_scene.tscn" id="6_dv5jv"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="6_qsd21"]
+[ext_resource type="AudioStream" uid="uid://cgounlsdu3bt7" path="res://asset/sound/five-nights-at-freddys-full-scream-sound_2.mp3" id="6_ynutc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtglh"]
 size = Vector3(1, 2.413086, 1)
@@ -51,12 +52,8 @@ metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.69697, 0)
 shape = SubResource("CapsuleShape3D_qsd21")
-debug_color = Color(0, 1, 0, 1)
 
 [node name="Freddy" parent="." instance=ExtResource("6_dv5jv")]
-
-[node name="Transform_Bn" parent="Freddy/Sketchfab_model/Freddy_fbx/Object_2/RootNode/Freddy" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6999999, -2)
 
 [node name="Skeleton3D" parent="Freddy/Sketchfab_model/Freddy_fbx/Object_2/RootNode/Freddy/Transform_Bn/Object_7" index="0"]
 bones/2/position = Vector3(0.010000071, 0.68961567, -0.11345234)
@@ -97,5 +94,9 @@ bones/30/position = Vector3(-0.19971974, -0.00043656564, -0.00011651807)
 bones/30/rotation = Quaternion(-0.19618018, -0.12970659, 0.24771875, 0.93985367)
 bones/31/position = Vector3(0, 0, 0)
 bones/31/scale = Vector3(0, 1e-12, 1)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6235505, 0)
+stream = ExtResource("6_ynutc")
 
 [editable path="Freddy"]
