@@ -12,5 +12,4 @@ func on_area_entered(area: Area3D):
 		attack.damage = damage
 		
 		area.damage(attack)
-		
 		hit_enemy.emit()

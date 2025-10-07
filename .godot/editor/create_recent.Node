@@ -1,3 +1,7 @@
+CollisionShape3D
+Hitbox
+MeshInstance3D
+GPUParticles3D
 ColorRect
 Camera3D
 Label
@@ -9,6 +13,3 @@ CanvasLayer
 TextureRect
 Marker3D
 RayCast3D
-MeshInstance3D
-Hitbox
-CollisionShape3D

@@ -1,6 +1,4 @@
+res://ground_slam.gd
+res://ground_slam.tscn
 res://scene/enemy/boss.tscn
-res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn
 res://script/enemy/boss.gd
-res://combo.tscn
-res://combo.gd
-res://scene/player.tscn

@@ -2,6 +2,7 @@ extends CharacterBody3D
 class_name BossMinosPrime
 
 @export var HPnode: Health
+@export var ground_slam : PackedScene
 @onready var hp = HPnode.health
 
 var player: Player = null
@@ -120,15 +121,28 @@ func uppercut_attack() -> void:
 func ground_slam_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Jump")
+
+	# Jump towards player
 	var dir = (player.global_transform.origin - global_transform.origin).normalized()
 	velocity.y = jump_force * 2
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
+
 	await anim.animation_finished
+
+	# Slam impact
 	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|DownSwing")
+
+	# Wait until he hits the ground before spawning the shockwave
+	await get_tree().create_timer(0.3).timeout  # tweak for timing
+
+	if is_on_floor():
+		spawn_ground_slam_effect()
+
 	await anim.animation_finished
 	reset_attack()
+
 
 func combo_attack() -> void:
 	attacking = true
@@ -176,3 +190,13 @@ func teleport(time, distance, n):
 			var warp_distance = distance
 			global_transform.origin = target_pos + offset_dir * warp_distance
 		await get_tree().create_timer(time).timeout
+func spawn_ground_slam_effect():
+	if not ground_slam:
+		push_warning("No ground_slam scene assigned!")
+		return
+
+	var slam = ground_slam.instantiate()
+	get_tree().current_scene.add_child(slam)
+	
+	# Place it at boss's feet
+	slam.global_transform.origin = global_transform.origin
