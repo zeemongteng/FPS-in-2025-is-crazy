@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7awy4k1k5rh8"]
+[gd_scene load_steps=13 format=3 uid="uid://b7awy4k1k5rh8"]
 
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://scene/ground_slam.tscn" id="2_bjihq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_flos3"]
 [ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://scene/hpbar.tscn" id="6_flos3"]
+[ext_resource type="AudioStream" uid="uid://rykxbg4go30r" path="res://asset/sound/bgm/Order.mp3" id="9_1kebi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
 radius = 2.0
@@ -79,6 +80,9 @@ bones/28/rotation = Quaternion(-0.31347623, 5.365721e-06, -5.0290755e-06, 0.9495
 bones/30/rotation = Quaternion(-1.7410526e-06, -7.872135e-06, 0.29692376, 0.9549013)
 bones/31/rotation = Quaternion(0.0013835883, -0.005421571, 0.12858324, 0.99168295)
 
+[node name="AnimationPlayer" parent="King Minos" index="1"]
+speed_scale = 2.0
+
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 16
@@ -98,5 +102,9 @@ offset_right = 1136.0
 offset_bottom = 42.0
 HPnode = NodePath("../HealthComponent")
 bar_name = "Minos Prime"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_1kebi")
+playback_type = 1
 
 [editable path="King Minos"]

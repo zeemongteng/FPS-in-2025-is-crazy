@@ -27,6 +27,7 @@ var attack_timer := 0.0
 # Animation
 @onready var anim = $"King Minos/AnimationPlayer"
 @onready var hpbar: Hpbar = $Hpbar
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 # Intro / States
 var intro_played := false
@@ -36,6 +37,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
 	if player:
 		play_intro()
+	audio_stream_player.play()
 
 func _physics_process(delta: float) -> void:
 	if dead:
@@ -193,7 +195,7 @@ func jump_kick_attack() -> void:
 func rush_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Boxing")
-	teleport(1.4, 1.5, 5)
+	teleport(0.7, 1.5, 5)
 	await anim.animation_finished
 	reset_attack()
 
@@ -224,19 +226,21 @@ func ground_slam_attack() -> void:
 func combo_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Combo")
-	teleport(1.2, 1.5, 4)
+	teleport(0.6, 1.5, 4)
 	await anim.animation_finished
 	reset_attack()
 
 # === INTRO / DEATH ===
 func play_intro() -> void:
 	intro_playing = true
+	anim.speed_scale = 1.0
 	anim.play("minos_prime_Veins_skeleton|Intro")
 	await anim.animation_finished
 	if not intro_played:
 		hpbar.show()
 		intro_played = true
 	intro_playing = false
+	anim.speed_scale = 2.0
 
 func skip_intro() -> void:
 	anim.stop()
@@ -246,6 +250,7 @@ func skip_intro() -> void:
 	print("Intro skipped!")
 
 func death() -> void:
+	anim.speed_scale = 1.0
 	if dead:
 		return
 	dead = true
