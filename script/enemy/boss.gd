@@ -13,7 +13,7 @@ var last_attack := ""
 @export var speed: float = 10.0
 @export var gravity: float = 25.0
 @export var jump_force: float = 15.0
-@export var fireball_speed: float = 100.0
+@export var fireball_speed: float = 200.0
 
 # Control
 var attacking := false
@@ -90,30 +90,19 @@ func select_attack() -> void:
 	if not player:
 		return
 
-	var distance = global_transform.origin.distance_to(player.global_transform.origin)
-	var attack_weights = {}
-
-	# Assign weights based on distance
-	if distance > far_range:
-		attack_weights = {
-			"fireball_attack": 50,
-			"ground_slam_attack": 50
-		}
-	elif distance < close_range:
-		attack_weights = {
-			"jump_kick_attack": 35,
-			"combo_attack": 40,
-			"uppercut_attack": 25
-		}
-	else:
-		attack_weights = {
-			"rush_attack": 40,
-			"fireball_attack": 20
-		}
+	# Attack weights (equal or customized however you like)
+	var attack_weights = {
+		"fireball_attack": 20,
+		"ground_slam_attack": 20,
+		"jump_kick_attack": 15,
+		"combo_attack": 20,
+		"uppercut_attack": 15,
+		"rush_attack": 10
+	}
 
 	# Prevent repeating the same attack immediately
 	if last_attack in attack_weights:
-		attack_weights[last_attack] = max(attack_weights[last_attack] - 30, 5)  # reduce weight
+		attack_weights[last_attack] = max(attack_weights[last_attack] - 10, 5)
 
 	# Weighted random selection
 	var total_weight = 0
@@ -151,7 +140,7 @@ func fireball_attack() -> void:
 	attacking = true
 	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|ProjectilePunch")
-	await get_tree().create_timer(1.5).timeout
+	await get_tree().create_timer(0.7).timeout
 
 	if fireball_scene and player:
 		var fireball_instance = fireball_scene.instantiate()
@@ -211,16 +200,22 @@ func uppercut_attack() -> void:
 func ground_slam_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Jump")
+
 	var dir = (player.global_transform.origin - global_transform.origin).normalized()
 	velocity.y = jump_force * 2
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
+
 	await anim.animation_finished
-	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|DownSwing")
-	await anim.animation_finished
+	var original_gravity = gravity
+	gravity *= 3.0 
+	while not is_on_floor():
+		await get_tree().process_frame
+	gravity = original_gravity
 	if is_on_floor():
 		spawn_ground_slam_effect()
+	await anim.animation_finished
 	reset_attack()
 
 func combo_attack() -> void:
