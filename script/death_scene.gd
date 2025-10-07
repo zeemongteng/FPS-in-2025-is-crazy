@@ -10,6 +10,6 @@ func _process(_delta: float) -> void:
 			get_tree().reload_current_scene()
 		elif Input.is_action_pressed("ui_cancel"):
 			active = false
-			#make a start menu pls
-			#get_tree().change_scene_to_packed(start_scene)
-			get_tree().quit()
+			hide()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().change_scene_to_packed(start_scene)

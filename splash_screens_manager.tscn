@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=3 uid="uid://3oaq0msemeg3"]
+
+[ext_resource type="Script" path="res://splash_screens_manager.gd" id="1_cyrd6"]
+[ext_resource type="PackedScene" uid="uid://b7mqopnx72c3i" path="res://scene/main__menu.tscn" id="2_8o7ov"]
+[ext_resource type="Texture2D" uid="uid://hmbvdjvwvl3n" path="res://asset/Art/letters-dark.png" id="3_0v28i"]
+[ext_resource type="Texture2D" uid="uid://dy5ocv57ix83m" path="res://asset/Art/logo2.06d1225.png" id="4_ld0nd"]
+[ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="5_rw6g3"]
+
+[node name="Splash Screens Manager" type="Control" node_paths=PackedStringArray("splash_screen_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_cyrd6")
+load_screen = ExtResource("2_8o7ov")
+splash_screen_container = NodePath("CenterContainer")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1344.0
+offset_top = -756.0
+offset_right = 1344.0
+offset_bottom = 756.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screen1" type="TextureRect" parent="CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 2
+texture = ExtResource("3_0v28i")
+expand_mode = 1
+
+[node name="Screen2" type="TextureRect" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_ld0nd")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rw6g3")
+theme_override_font_sizes/font_size = 100
+text = "Present"
+
+[node name="Label2" type="Label" parent="CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_rw6g3")
+theme_override_font_sizes/font_size = 100
+text = "Overkill"

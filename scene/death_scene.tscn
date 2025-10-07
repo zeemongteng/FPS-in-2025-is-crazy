@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://75qdd0qll1ib"]
+[gd_scene load_steps=7 format=3 uid="uid://75qdd0qll1ib"]
 
 [ext_resource type="Script" uid="uid://bqnl8pxnapd85" path="res://script/death_scene.gd" id="1_oukyh"]
 [ext_resource type="Texture2D" uid="uid://q5x8ugde8b5p" path="res://asset/Art/death_skull_1.png" id="1_y2fqr"]
 [ext_resource type="Texture2D" uid="uid://hdr4vvwx47h4" path="res://asset/Art/death_skull_2.png" id="2_fxiyg"]
+[ext_resource type="PackedScene" uid="uid://b7mqopnx72c3i" path="res://scene/main__menu.tscn" id="2_hg0nf"]
 [ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="3_fxiyg"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_oukyh"]
@@ -14,6 +15,7 @@ frame_1/duration = 1.0
 [node name="Death_Scene" type="CanvasLayer"]
 visible = false
 script = ExtResource("1_oukyh")
+start_scene = ExtResource("2_hg0nf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -1

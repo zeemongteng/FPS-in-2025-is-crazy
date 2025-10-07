@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://iqgedkuuxh83"]
 
-[ext_resource type="Script" uid="uid://bbexupof4ocrb" path="res://ground_slam.gd" id="1_0fvhc"]
+[ext_resource type="Script" uid="uid://bbexupof4ocrb" path="res://script/ground_slam.gd" id="1_0fvhc"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="2_07ho4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fvhc"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://c85bfgwtq87yg"]
 
-[ext_resource type="Script" uid="uid://bul2xd32p51ie" path="res://hpbar.gd" id="1_dkruw"]
+[ext_resource type="Script" uid="uid://bul2xd32p51ie" path="res://script/hpbar.gd" id="1_dkruw"]
 [ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="2_p6m11"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dkruw"]
