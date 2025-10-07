@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://3oaq0msemeg3"]
 
-[ext_resource type="Script" path="res://splash_screens_manager.gd" id="1_cyrd6"]
+[ext_resource type="Script" uid="uid://cxoeus4jwj8c8" path="res://splash_screens_manager.gd" id="1_cyrd6"]
 [ext_resource type="PackedScene" uid="uid://b7mqopnx72c3i" path="res://scene/main__menu.tscn" id="2_8o7ov"]
 [ext_resource type="Texture2D" uid="uid://hmbvdjvwvl3n" path="res://asset/Art/letters-dark.png" id="3_0v28i"]
 [ext_resource type="Texture2D" uid="uid://dy5ocv57ix83m" path="res://asset/Art/logo2.06d1225.png" id="4_ld0nd"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0.14117648, 0.14117648, 0.14117648, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -45,7 +45,7 @@ visible = false
 custom_minimum_size = Vector2(1152, 648)
 layout_mode = 2
 texture = ExtResource("3_0v28i")
-expand_mode = 1
+expand_mode = 3
 
 [node name="Screen2" type="TextureRect" parent="CenterContainer"]
 visible = false

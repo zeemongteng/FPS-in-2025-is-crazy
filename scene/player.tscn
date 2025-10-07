@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4u3s36vyuvlc" path="res://scene/bullet.tscn" id="3_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
-[ext_resource type="Script" path="res://scene/stamina_component.gd" id="5_ml7e8"]
+[ext_resource type="Script" uid="uid://dqkg5p8j7cmj4" path="res://scene/stamina_component.gd" id="5_ml7e8"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
-[ext_resource type="Script" path="res://scene/staminabar.gd" id="8_ihjo1"]
+[ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
@@ -20,11 +20,11 @@ size = Vector3(1.27466, 2.07104, 1.29889)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g2vtq"]
 radius = 0.6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct4mp"]
-bg_color = Color(0, 0.736673, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ml7e8"]
 bg_color = Color(1, 0.5563933, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct4mp"]
+bg_color = Color(0, 0.736673, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
@@ -39,7 +39,6 @@ hurtbox = NodePath("../Hurtbox")
 
 [node name="StaminaComponent" type="Node" parent="."]
 script = ExtResource("5_ml7e8")
-dash_strength = 200.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999856, -0.0169638, 0, 0.0169638, 0.999856, 0, 1.0395, 0)
@@ -63,30 +62,39 @@ shape = SubResource("CapsuleShape3D_g2vtq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HPbar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("HealthComponent")]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 14.0
-offset_top = -36.0
-offset_right = 300.0
-offset_bottom = -9.0
-grow_vertical = 0
-size_flags_horizontal = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
-value = 50.0
-script = ExtResource("2_s4jxa")
-HealthComponent = NodePath("../../HealthComponent")
-
 [node name="StaminaBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("stamina_node")]
-offset_left = 14.0
-offset_top = 578.0
-offset_right = 299.0
-offset_bottom = 605.0
+anchors_preset = -1
+anchor_top = 0.99100006
+anchor_right = 0.27800003
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -78.16803
+offset_right = -0.25604248
+offset_bottom = -57.0
+grow_vertical = 0
+size_flags_horizontal = 8
 theme_override_styles/fill = SubResource("StyleBoxFlat_ml7e8")
 value = 50.0
+show_percentage = false
 script = ExtResource("8_ihjo1")
 stamina_node = NodePath("../../StaminaComponent")
+
+[node name="HPbar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("HealthComponent")]
+anchors_preset = -1
+anchor_top = 0.994
+anchor_right = 0.279
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = -54.112
+offset_right = -0.40802002
+offset_bottom = -31.0
+grow_vertical = 0
+size_flags_horizontal = 8
+theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
+value = 50.0
+show_percentage = false
+script = ExtResource("2_s4jxa")
+HealthComponent = NodePath("../../HealthComponent")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8

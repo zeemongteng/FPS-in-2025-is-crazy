@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0889783, -0.0473671, 0.722
 mesh = SubResource("PlaneMesh_t8egj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6187258, -4.732751)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0041286945, -4.726996)
 shape = SubResource("WorldBoundaryShape3D_788ah")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -61,7 +61,7 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.96754, -8.70125)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5406, 8.6394, 0)
 
 [node name="enemy_fly_shoot" parent="." instance=ExtResource("5_sml2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 1.393815, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 4.9157553, 2.0314465)
 
 [node name="Boss" parent="." instance=ExtResource("7_788ah")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4592674, 10.630288)
@@ -70,4 +70,4 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4592674, 10.630288
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5539775, 0)
 
 [node name="enemy_ground" parent="." instance=ExtResource("8_00rxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.4886632)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.130421)

@@ -1,12 +1,16 @@
 extends CharacterBody3D
 class_name Player
 
-@export var speed: float = 6.0
+@export var speed: float = 15.0
 @export var jump_force: float = 4.5
 @export var mouse_sensitivity: float = 0.002
+
 var alive : bool = true
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var damage = 10
+var default_cam_y: float                # store original camera height
+var target_cam_y: float
+
 
 @onready var cam: Camera3D = $Camera3D
 @onready var health: Health = $HealthComponent
@@ -15,7 +19,12 @@ var damage = 10
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass
+	
+	default_cam_y = cam.position.y
+	target_cam_y = default_cam_y
+	
+	stamina.slide_started.connect(_on_slide_started)
+	stamina.slide_ended.connect(_on_slide_ended)
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
@@ -52,15 +61,32 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else: 
-		if Input.is_action_just_pressed("ui_accept"):
-			velocity.y = jump_force
+		if is_on_floor() and Input.is_action_just_pressed("ui_accept"):
+			if stamina.is_sliding:
+				var extra_jump = clampf(stamina.slide_momentum.length() * 0.5, 0, 100)
+				velocity.y = jump_force + extra_jump
+			else:
+				velocity.y = jump_force
 	
 	if Input.is_action_just_pressed("dash"):
 		stamina.try_dash(direction)
 	
+	if Input.is_action_pressed("slide"):
+		stamina.start_slide()
+	else:
+		stamina.stop_slide()
+	
 	move_and_slide()
+	
+	cam.position.y = lerp(cam.position.y, target_cam_y, 8 * delta)
 
 func die():
 	DeathScene.active = true
 	DeathScene.show()
 	queue_free()
+
+func _on_slide_started() -> void:
+	target_cam_y = default_cam_y - 0.7
+
+func _on_slide_ended() -> void:
+	target_cam_y = default_cam_y
