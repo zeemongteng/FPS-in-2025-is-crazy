@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=3 uid="uid://do8iayi6gtm37"]
+
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="1_k6nby"]
+[ext_resource type="Script" uid="uid://btn4skumy3gy" path="res://script/enemy/enemy_ground.gd" id="2_2kosb"]
+[ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_js420"]
+[ext_resource type="PackedScene" uid="uid://drpnvif4tkym1" path="res://asset/enemy_model/freddy/sketchfab_scene.tscn" id="6_dv5jv"]
+[ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="6_qsd21"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6nby"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qsd21"]
+height = 3.2329102
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_js420"]
+height = 2.126831
+
+[node name="enemy_ground" type="CharacterBody3D" node_paths=PackedStringArray("HPnode")]
+script = ExtResource("2_2kosb")
+HPnode = NodePath("Health")
+
+[node name="Hitbox" type="Area3D" parent="."]
+script = ExtResource("1_k6nby")
+metadata/_custom_type_script = "uid://dtxij87jbkl7h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8432174, 1.0057253)
+shape = SubResource("BoxShape3D_k6nby")
+disabled = true
+debug_color = Color(1, 0, 0, 1)
+
+[node name="Hurtbox" type="Area3D" parent="."]
+script = ExtResource("2_js420")
+metadata/_custom_type_script = "uid://b0y7e06csgu1h"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Hurtbox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5996138, 0)
+shape = SubResource("CapsuleShape3D_qsd21")
+debug_color = Color(0, 1, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9831587, 0)
+shape = SubResource("CapsuleShape3D_js420")
+
+[node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
+script = ExtResource("6_qsd21")
+hurtbox = NodePath("../Hurtbox")
+metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("6_dv5jv")]
+
+[node name="Skeleton3D" parent="Sketchfab_Scene/Sketchfab_model/Freddy_fbx/Object_2/RootNode/Freddy/Transform_Bn/Object_7" index="0"]
+bones/2/position = Vector3(-0.00037109657, 1.3272347, -0.09241743)
+bones/2/rotation = Quaternion(1.2802149e-15, -1.1172266e-17, -0.008726535, 0.9999619)
+bones/3/rotation = Quaternion(-0.19961622, 0.084519595, -0.6476301, 0.7304691)
+bones/4/rotation = Quaternion(-1.22541275e-08, 0.09266622, 1.1404525e-09, 0.99569726)
+bones/5/rotation = Quaternion(-2.4562642e-08, 0.14148912, 1.7463492e-08, 0.9899398)
+bones/6/rotation = Quaternion(0.060803887, -0.030375998, -0.02803169, 0.99729353)
+bones/7/rotation = Quaternion(0.716587, 0.6649334, 0.10300534, 0.18372951)
+bones/8/rotation = Quaternion(-4.893074e-15, 0.06813893, 2.8032314e-15, 0.9976759)
+bones/9/rotation = Quaternion(-1.2339201e-08, 0.09261736, 1.00080655e-08, 0.9957018)
+bones/10/rotation = Quaternion(0.059513394, -0.0026363428, -0.029061336, 0.99780095)
+bones/11/position = Vector3(-0.00041686703, 0.03094112, -0.0011771508)
+bones/11/rotation = Quaternion(0.034740645, 0.009328948, 0.017136605, 0.9992059)
+bones/12/rotation = Quaternion(0.99622774, -0.08601533, 0.011433539, -0.0009871668)
+bones/13/rotation = Quaternion(0.13258493, 0.027914088, 0.46312374, 0.8758759)
+bones/14/rotation = Quaternion(3.1556067e-17, 0.21643962, -1.4103178e-17, 0.976296)
+bones/15/rotation = Quaternion(-4.2312644e-16, 7.198268e-16, 0.15643446, 0.98768836)
+bones/16/rotation = Quaternion(0.18383968, 0.0081349695, 0.07160296, 0.9803111)
+bones/17/rotation = Quaternion(-0.1412613, 0.0015970592, 0.03624483, 0.9893074)
+bones/18/rotation = Quaternion(0.12836288, -1.042732e-15, -7.5843627e-16, 0.9917273)
+bones/19/rotation = Quaternion(0, 0, 0.17522836, 0.9845278)
+bones/20/rotation = Quaternion(0.09107871, -0.0056344373, 0.00051532744, 0.9958276)
+bones/21/rotation = Quaternion(8.6042284e-16, -3.469447e-18, 4.7271215e-17, 1)
+bones/22/rotation = Quaternion(-3.5110803e-15, -3.469447e-18, 4.7271215e-17, 1)
+bones/23/rotation = Quaternion(0.9845278, -0.17522837, 1.190695e-16, 8.338688e-17)
+bones/24/position = Vector3(-0.048346937, 0.11246747, 0.068216145)
+bones/24/rotation = Quaternion(0.06516782, -0.002530003, 0.00016522653, 0.99787116)
+bones/25/position = Vector3(-0.048346937, 0.11246747, 0.068216145)
+bones/25/rotation = Quaternion(8.6042284e-16, -3.469447e-18, 4.7271215e-17, 1)
+bones/26/position = Vector3(-0.048346937, 0.11246747, 0.068216145)
+bones/26/rotation = Quaternion(-3.5110803e-15, -3.469447e-18, 4.7271215e-17, 1)
+bones/27/rotation = Quaternion(0.0009871844, 0.01143354, 0.08601532, 0.99622774)
+bones/28/position = Vector3(-0.16995287, -0.0005927968, 0.0002701284)
+bones/28/rotation = Quaternion(0.170818, 0.24857716, 0.35022026, 0.88677865)
+bones/29/rotation = Quaternion(-2.0318492e-17, 0.5, -2.0318492e-17, 0.8660254)
+bones/30/position = Vector3(-0.19977239, -7.509907e-05, 0.0003829596)
+bones/30/rotation = Quaternion(-0.2612485, 0.21209657, 0.100473754, 0.9363062)
+bones/31/position = Vector3(1.9428903e-16, 0, -1.593)
+bones/31/rotation = Quaternion(6.123234e-17, 1, 6.123234e-17, 6.123234e-17)
+bones/31/scale = Vector3(1, 1e-12, 1)
+
+[editable path="Sketchfab_Scene"]
