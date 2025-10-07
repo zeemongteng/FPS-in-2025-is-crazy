@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_n7jlu"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_bigo7"]
-[ext_resource type="Script" uid="uid://cf8upesilhlf8" path="res://script/enemy/hitbox_boss.gd" id="4_lnbgr"]
 [ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
+[ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_flos3"]
 [ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://hpbar.tscn" id="6_flos3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
@@ -78,7 +78,8 @@ bones/31/rotation = Quaternion(-0.0005577058, -0.005566534, -0.21909592, 0.97568
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 16
-script = ExtResource("4_lnbgr")
+script = ExtResource("5_flos3")
+damage = 20.0
 metadata/_custom_type_script = "uid://dtxij87jbkl7h"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]

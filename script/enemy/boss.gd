@@ -100,7 +100,7 @@ func select_attack() -> void:
 func rush_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Boxing")
-	teleport(1.5,2,5)
+	teleport(1.2,1.5,5)
 	
 	await anim.animation_finished
 	reset_attack()
@@ -131,7 +131,7 @@ func ground_slam_attack() -> void:
 func combo_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Combo")
-	teleport(1,2,3)
+	teleport(1,1.5,3)
 	await anim.animation_finished
 	reset_attack()
 
