@@ -7,7 +7,7 @@ class_name BossMinosPrime
 
 var player: Player = null
 var alive: bool = true
-
+var dead := false
 @export var speed: float = 10.0
 @export var rush_speed: float = 5.0
 @export var gravity: float = 25.0
@@ -37,7 +37,10 @@ func _ready() -> void:
 		play_intro()
 
 func _physics_process(delta: float) -> void:
-	if not alive:
+	if dead:
+		return  # stop all logic if already dead
+
+	if not alive and not dead:
 		death()
 		return
 	if not player or not player.alive:
@@ -134,13 +137,9 @@ func ground_slam_attack() -> void:
 	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|DownSwing")
 
-	# Wait until he hits the ground before spawning the shockwave
-	await get_tree().create_timer(0.3).timeout  # tweak for timing
-
+	await anim.animation_finished
 	if is_on_floor():
 		spawn_ground_slam_effect()
-
-	await anim.animation_finished
 	reset_attack()
 
 
@@ -169,6 +168,9 @@ func skip_intro() -> void:
 	print("Intro skipped!")
 
 func death() -> void:
+	if dead:
+		return
+	dead = true
 	alive = false
 	reset_attack()
 	anim.play("minos_prime_Veins_skeleton|Outro")

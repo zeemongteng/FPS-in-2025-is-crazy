@@ -8,3 +8,8 @@
 *.cfg
 *.cache
 *.bin
+.godot/editor/script_editor_cache.cfg
+.godot/editor/project_metadata.cfg
+.godot/editor/filesystem_update4
+.godot/editor/filesystem_cache10
+.godot/editor/editor_layout.cfg
