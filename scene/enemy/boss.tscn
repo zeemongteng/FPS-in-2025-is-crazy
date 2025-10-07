@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7awy4k1k5rh8"]
 
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
-[ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://ground_slam.tscn" id="2_bjihq"]
+[ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://scene/ground_slam.tscn" id="2_bjihq"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="2_n7jlu"]
 [ext_resource type="PackedScene" uid="uid://bmued3pbmaudg" path="res://scene/fire_ball.tscn" id="3_657sb"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="3_bigo7"]
 [ext_resource type="PackedScene" uid="uid://cynp2a472djln" path="res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn" id="4_ttixl"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_flos3"]
-[ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://hpbar.tscn" id="6_flos3"]
+[ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://scene/hpbar.tscn" id="6_flos3"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
 radius = 2.0
@@ -39,7 +39,7 @@ debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_bigo7")
-max_health = 1000.0
+max_health = 2000.0
 hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 
