@@ -1,8 +1,10 @@
 .godot/editor/script_editor_cache.cfg
 .godot/editor/project_metadata.cfg
-.godot/editor/ground_slam.tscn-folding-05d6a57af76a09ae90307e9857c72606.cfg
-.godot/editor/ground_slam.tscn-editstate-05d6a57af76a09ae90307e9857c72606.cfg
 .godot/editor/editor_layout.cfg
 .godot/editor/project_metadata.cfg
 .godot/editor/editor_layout.cfg
 .godot/editor/script_editor_cache.cfg
+
+*.cfg
+*.cache
+*.bin
