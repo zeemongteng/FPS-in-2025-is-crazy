@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=15 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4u3s36vyuvlc" path="res://scene/bullet.tscn" id="3_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
+[ext_resource type="Script" uid="uid://dqkg5p8j7cmj4" path="res://scene/stamina_component.gd" id="5_ml7e8"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
+[ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
@@ -31,6 +33,9 @@ bullet_scene = ExtResource("3_g2vtq")
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_ct4mp")
 hurtbox = NodePath("../Hurtbox")
+
+[node name="StaminaComponent" type="Node" parent="."]
+script = ExtResource("5_ml7e8")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.999856, -0.0169638, 0, 0.0169638, 0.999856, 0, 1.0395, 0)
@@ -68,6 +73,20 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
 value = 50.0
 script = ExtResource("2_s4jxa")
 HealthComponent = NodePath("../../HealthComponent")
+
+[node name="Staminabar" type="ProgressBar" parent="CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -73.0
+offset_right = 300.0
+offset_bottom = -46.0
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
+value = 50.0
+script = ExtResource("8_ihjo1")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
