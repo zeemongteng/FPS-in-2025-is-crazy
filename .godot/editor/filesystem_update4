@@ -3,3 +3,5 @@ res://ground_slam.tscn
 res://script/hitbox.gd
 res://script/enemy/boss.gd
 res://scene/enemy/boss.tscn
+res://scene/testing_ground.tscn
+res://scene/player.tscn

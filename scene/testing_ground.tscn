@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=15 format=3 uid="uid://dpkym86yv1chi"]
 
 [ext_resource type="Script" uid="uid://bwtenkrakmb4l" path="res://scene/testing_ground.gd" id="1_6iy62"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
 [ext_resource type="Texture2D" uid="uid://bs8r408ytsgmv" path="res://asset/roblox_stud.jpeg" id="1_t8egj"]
-[ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://ground_slam.tscn" id="3_00rxe"]
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://scene/enemy/enemy.tscn" id="3_x70m4"]
 [ext_resource type="PackedScene" uid="uid://dlk5omru6gv88" path="res://scene/enemy/enemy_fly.tscn" id="4_dx6n1"]
 [ext_resource type="PackedScene" uid="uid://bceu4xbhoo2rg" path="res://scene/enemy/enemy_fly_shoot.tscn" id="5_sml2l"]
@@ -45,8 +44,6 @@ physics_material_override = SubResource("PhysicsMaterial_x70m4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0889783, -0.0473671, 0.722991)
 mesh = SubResource("PlaneMesh_t8egj")
-
-[node name="GroundSlam" parent="StaticBody3D/MeshInstance3D" instance=ExtResource("3_00rxe")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6187258, -4.732751)

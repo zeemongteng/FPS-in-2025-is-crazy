@@ -38,7 +38,7 @@ visible = false
 mesh = SubResource("CapsuleMesh_oh5ij")
 
 [node name="Hurtbox" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.88813, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9426124, 0)
 collision_layer = 16
 collision_mask = 0
 script = ExtResource("4_hp4bs")
