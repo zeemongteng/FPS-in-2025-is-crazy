@@ -19,3 +19,4 @@ data_*/
 mono_crash.*.json
 
 # End of https://www.toptal.com/developers/gitignore/api/godot
+.godot/shader_cache/ClusterRenderShaderRD/9502a0390ee6965ffb56ef8a758070e729ac89971a740ca387540e1a685acf9a/087916079fba7c625e62b0c2cca570e0fb87c99a.vulkan.cache
