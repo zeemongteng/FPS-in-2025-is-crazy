@@ -5,3 +5,4 @@ res://script/enemy/boss.gd
 res://scene/enemy/boss.tscn
 res://scene/testing_ground.tscn
 res://scene/player.tscn
+res://asset/enemy_model/ultrakill-minos-prime/source/king_minos.tscn

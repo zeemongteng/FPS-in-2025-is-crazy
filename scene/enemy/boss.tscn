@@ -50,35 +50,6 @@ shape = SubResource("CapsuleShape3D_we8h1")
 [node name="King Minos" parent="." instance=ExtResource("4_ttixl")]
 transform = Transform3D(-0.1, 0, -1.509958e-08, 0, 0.1, 0, 1.509958e-08, 0, -0.1, 0, 0, 0)
 
-[node name="Skeleton3D" parent="King Minos/minos_prime_Veins_skeleton" index="0"]
-bones/1/position = Vector3(7.500002e-07, 0.0056347703, 0.39000005)
-bones/1/rotation = Quaternion(-0.2407959, 0.6648433, -0.24079521, 0.66484463)
-bones/3/rotation = Quaternion(0.87661564, 0.48119128, -4.497172e-06, 2.1647847e-06)
-bones/4/rotation = Quaternion(-0.34397292, -0.8126312, 0.07568437, 0.46431154)
-bones/5/rotation = Quaternion(0.8631091, -0.124238975, 0.07585344, 0.48358425)
-bones/6/rotation = Quaternion(-0.3630609, -0.0035850287, 0.0040733, 0.9317497)
-bones/8/rotation = Quaternion(0.8766112, -0.4811994, -5.156498e-06, -3.1343654e-06)
-bones/9/rotation = Quaternion(-0.41380468, 0.21852948, -0.41976175, 0.7776958)
-bones/10/rotation = Quaternion(0.04901606, 0.018107655, 0.002096356, 0.99863166)
-bones/11/rotation = Quaternion(-0.106426805, 0.00066015095, 0.00068213156, 0.9943201)
-bones/13/rotation = Quaternion(-0.0053521204, 0.9541668, -0.017096607, 0.29873848)
-bones/14/rotation = Quaternion(-0.08688903, 0.21714005, 0.067315765, 0.9699325)
-bones/15/rotation = Quaternion(-0.19298626, -0.003591406, -0.037278973, 0.98048645)
-bones/16/rotation = Quaternion(0.36154458, 0.6318434, 0.5104473, 0.4577151)
-bones/17/rotation = Quaternion(-0.09574288, -0.024655076, -0.03236376, 0.9945743)
-bones/18/rotation = Quaternion(-0.85371643, 0.27651772, -0.39016533, 0.20610037)
-bones/19/rotation = Quaternion(0.104235396, 0.0034947584, 0.039434727, 0.9937644)
-bones/20/rotation = Quaternion(-0.23270291, -0.053696487, 0.08099728, 0.9676805)
-bones/21/rotation = Quaternion(-0.25759414, 2.12047e-08, 1.9277024e-09, 0.9662532)
-bones/23/rotation = Quaternion(-0.565763, 0.41796246, -0.42838404, 0.567192)
-bones/24/rotation = Quaternion(-0.06638698, 0.06877816, -0.13850886, 0.9857371)
-bones/25/rotation = Quaternion(-0.109961815, -0.704374, -0.04092312, 0.70006496)
-bones/26/rotation = Quaternion(0.0764238, -0.0112598175, 0.018540325, 0.9968395)
-bones/27/rotation = Quaternion(-0.050640933, 0.08624261, 0.010410184, 0.9949318)
-bones/28/rotation = Quaternion(0.108566046, 0.08088215, 0.043465823, 0.98983955)
-bones/30/rotation = Quaternion(-0.13960844, -0.5733925, 0.20729522, 0.7802302)
-bones/31/rotation = Quaternion(0.001820382, -0.0052948385, 0.20769297, 0.9781781)
-
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 0
 collision_mask = 16

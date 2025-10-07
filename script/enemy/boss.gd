@@ -9,7 +9,7 @@ class_name BossMinosPrime
 var player: Player = null
 var alive: bool = true
 var dead := false
-
+var last_attack := ""
 @export var speed: float = 10.0
 @export var gravity: float = 25.0
 @export var jump_force: float = 15.0
@@ -85,26 +85,64 @@ func chase_player(_delta: float) -> void:
 
 # === ATTACK SELECTION ===
 func select_attack() -> void:
-	var distance = global_transform.origin.distance_to(player.global_transform.origin)
-	var roll = randi() % 100
+	if not player:
+		return
 
+	var distance = global_transform.origin.distance_to(player.global_transform.origin)
+	var attack_weights = {}
+
+	# Assign weights based on distance
 	if distance > far_range:
-		if roll < 40:
-			fireball_attack()
-		else:
-			ground_slam_attack()
+		attack_weights = {
+			"fireball_attack": 50,
+			"ground_slam_attack": 50
+		}
 	elif distance < close_range:
-		if roll < 40:
-			jump_kick_attack()
-		elif roll < 80:
-			combo_attack()
-		else:
-			uppercut_attack()
+		attack_weights = {
+			"jump_kick_attack": 35,
+			"combo_attack": 40,
+			"uppercut_attack": 25
+		}
 	else:
-		if roll < 50:
-			rush_attack()
-		else:
+		attack_weights = {
+			"rush_attack": 40,
+			"fireball_attack": 20
+		}
+
+	# Prevent repeating the same attack immediately
+	if last_attack in attack_weights:
+		attack_weights[last_attack] = max(attack_weights[last_attack] - 30, 5)  # reduce weight
+
+	# Weighted random selection
+	var total_weight = 0
+	for w in attack_weights.values():
+		total_weight += w
+
+	var pick = randi() % total_weight
+	var sum = 0
+	var selected_attack = ""
+	for attack_name in attack_weights.keys():
+		sum += attack_weights[attack_name]
+		if pick < sum:
+			selected_attack = attack_name
+			break
+
+	# Call the selected attack
+	match selected_attack:
+		"fireball_attack":
 			fireball_attack()
+		"ground_slam_attack":
+			ground_slam_attack()
+		"jump_kick_attack":
+			jump_kick_attack()
+		"combo_attack":
+			combo_attack()
+		"uppercut_attack":
+			uppercut_attack()
+		"rush_attack":
+			rush_attack()
+
+	last_attack = selected_attack
 
 # === ATTACKS ===
 func fireball_attack() -> void:
