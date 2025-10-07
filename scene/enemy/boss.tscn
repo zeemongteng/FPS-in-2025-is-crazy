@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://b7awy4k1k5rh8"]
+[gd_scene load_steps=22 format=3 uid="uid://b7awy4k1k5rh8"]
 
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://scene/ground_slam.tscn" id="2_bjihq"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://s6wpsfovqxtx" path="res://asset/sound/minos prime/Mp_die2.ogg" id="14_1t23o"]
 [ext_resource type="AudioStream" uid="uid://b24i47tv4n5fu" path="res://asset/sound/minos prime/Mp_deathscream.wav" id="15_xp8gc"]
 [ext_resource type="AudioStream" uid="uid://cji1jfq3bnycs" path="res://asset/sound/minos prime/Mp_crush.ogg" id="16_8l802"]
+[ext_resource type="PackedScene" uid="uid://c2xbsodvqs6je" path="res://map/hub_boss.tscn" id="18_3dwv2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
 radius = 2.0
@@ -186,5 +187,7 @@ theme_override_colors/font_color = Color(0.972549, 0.64705884, 0.06666667, 1)
 theme_override_fonts/font = ExtResource("10_6m4t8")
 theme_override_font_sizes/font_size = 30
 text = "X"
+
+[node name="HUB_Boss" parent="." instance=ExtResource("18_3dwv2")]
 
 [editable path="King Minos"]

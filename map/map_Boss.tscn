@@ -1,9 +1,8 @@
-[gd_scene load_steps=1001 format=4 uid="uid://703upx0de1x3"]
+[gd_scene load_steps=1000 format=4 uid="uid://703upx0de1x3"]
 
-[ext_resource type="Script" path="res://map/map_boss.gd" id="1_lbddn"]
+[ext_resource type="Script" uid="uid://dr3nnrtkwrict" path="res://map/map_boss.gd" id="1_lbddn"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://scene/enemy/boss.tscn" id="1_lqhm1"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="2_66qsi"]
-[ext_resource type="PackedScene" path="res://map/hub_boss.tscn" id="4_x1m8h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6s7r"]
 resource_name = "y"
@@ -17740,9 +17739,7 @@ shape = SubResource("BoxShape3D_xiilh")
 transform = Transform3D(-0.0372367, 0.999306, 0, -0.396728, -0.0147831, 0.917817, 0.91718, 0.0341765, 0.397004, 0, 91.3013, 0)
 
 [node name="Boss" parent="." instance=ExtResource("1_lqhm1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.426203, 16.705765, -4.876749)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.426203, 9.565216, 36.38472)
 
 [node name="Player" parent="." instance=ExtResource("2_66qsi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 30.667027, 6.308239, -84.50288)
-
-[node name="HUB_Boss" parent="." instance=ExtResource("4_x1m8h")]

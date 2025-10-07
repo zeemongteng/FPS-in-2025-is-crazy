@@ -239,6 +239,7 @@ func play_intro() -> void:
 	anim.play("minos_prime_Veins_skeleton|Intro")
 	await anim.animation_finished
 	await get_tree().create_timer(21).timeout
+	canvas_layer.queue_free()
 	if not intro_played:
 		hpbar.show()
 		intro_played = true
@@ -246,6 +247,7 @@ func play_intro() -> void:
 	anim.speed_scale = 2.0
 
 func skip_intro() -> void:
+	canvas_layer.queue_free()
 	intro.stop()
 	anim.stop()
 	hpbar.show()
