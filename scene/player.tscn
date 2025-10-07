@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4u3s36vyuvlc" path="res://scene/bullet.tscn" id="3_g2vtq"]
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
-[ext_resource type="Script" uid="uid://dqkg5p8j7cmj4" path="res://scene/stamina_component.gd" id="5_ml7e8"]
+[ext_resource type="Script" path="res://scene/stamina_component.gd" id="5_ml7e8"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
-[ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
+[ext_resource type="Script" path="res://scene/staminabar.gd" id="8_ihjo1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6

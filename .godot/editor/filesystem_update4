@@ -11,3 +11,4 @@ res://scene/main__menu.gd
 res://scene/death_scene.tscn
 res://script/death_scene.gd
 res://splash_screens_manager.tscn
+res://script/player.gd
