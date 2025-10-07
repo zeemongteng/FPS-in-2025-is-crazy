@@ -7,14 +7,13 @@ class_name enemy_ground
 var player: Player = null
 var alive: bool = true
 
-@export var speed: float = 2.0
-@export var launch_force: float = 12.0
-@export var launch_speed: float = 16.0
+@export var speed: float = 4.0
+@export var launch_force: float = 6.0
+@export var launch_speed: float = 20.0
 @export var gravity: float = 20.0
-@export var launch_distance: float = 30.0
+@export var launch_distance: float = 10.0
 @export var rotation_speed: float = 5.0   # how fast it rotates toward player
-
-@onready var anim_player: AnimationPlayer = $Sketchfab_Scene/AnimationPlayer
+@onready var anim_player: AnimationPlayer = $Freddy/AnimationPlayer
 signal died
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
