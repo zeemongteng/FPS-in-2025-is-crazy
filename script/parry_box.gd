@@ -11,8 +11,7 @@ func parrying(area: Area3D) -> void:
 			area.direction = dir_to_enemy
 			
 			area.speed *= 1.5
-
-			area.flipp
+			area.flipped()
 			
 			area.parried = true
 
