@@ -16,7 +16,7 @@ class_name EnemyFlyShoot
 var player: Player = null
 var alive: bool = true
 var shoot_timer: float = 0.0
-
+signal died
 func _ready() -> void:
 	shoot_timer = shoot_interval
 	player = get_tree().get_first_node_in_group("Player") as Player
@@ -77,4 +77,5 @@ func death():
 	var blood = blood_scene.instantiate()
 	blood.global_transform = global_transform
 	get_tree().current_scene.add_child(blood)
+	emit_signal("died")
 	queue_free()

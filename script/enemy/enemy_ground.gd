@@ -15,7 +15,7 @@ var alive: bool = true
 @export var rotation_speed: float = 5.0   # how fast it rotates toward player
 
 @onready var anim_player: AnimationPlayer = $Sketchfab_Scene/AnimationPlayer
-
+signal died
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
 	if player == null:
@@ -71,4 +71,5 @@ func death() -> void:
 	velocity = Vector3.ZERO
 	anim_player.play("Freddy--Shutdown")
 	await anim_player.animation_finished
+	emit_signal("died")
 	queue_free()

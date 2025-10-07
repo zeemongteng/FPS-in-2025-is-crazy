@@ -50,9 +50,6 @@ mesh = SubResource("PlaneMesh_t8egj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6187258, -4.732751)
 shape = SubResource("WorldBoundaryShape3D_788ah")
 
-[node name="Player" parent="." instance=ExtResource("1_snrvv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16911, 0)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 4.51044, 0)
 shadow_enabled = true
@@ -71,3 +68,6 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4592674, 10.630288
 
 [node name="enemy_ground" parent="." instance=ExtResource("8_00rxe")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.488573)
+
+[node name="Player" parent="." instance=ExtResource("1_snrvv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5539775, 0)

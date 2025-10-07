@@ -14,7 +14,7 @@ var alive: bool = true
 @export var jump_cooldown: float = 0.5      
 @export var blood_scene: PackedScene
 var jump_timer: float = 0.0
-
+signal died
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
 	if player == null:
@@ -58,4 +58,5 @@ func death():
 	var blood = blood_scene.instantiate()
 	blood.global_transform = global_transform
 	get_tree().current_scene.add_child(blood)
+	emit_signal("died")
 	queue_free()

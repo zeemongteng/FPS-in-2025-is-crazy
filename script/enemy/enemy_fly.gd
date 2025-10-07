@@ -23,7 +23,7 @@ var direction: Vector3 = Vector3.ZERO
 var circle_angle: float = 0.0
 @export var circle_radius: float = 6.0
 @export var circle_speed: float = 2.0
-
+signal died
 
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
@@ -107,4 +107,5 @@ func death() -> void:
 	var blood = blood_scene.instantiate()
 	blood.global_transform = global_transform
 	get_tree().current_scene.add_child(blood)
+	emit_signal("died")
 	queue_free()

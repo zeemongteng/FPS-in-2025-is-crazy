@@ -1,4 +1,8 @@
-[gd_scene load_steps=115 format=4 uid="uid://82uyy5mwnaco"]
+[gd_scene load_steps=118 format=4 uid="uid://82uyy5mwnaco"]
+
+[ext_resource type="Script" uid="uid://btrtnd04ogpn1" path="res://map/tutorial.gd" id="1_ov4k6"]
+[ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://scene/enemy/enemy.tscn" id="2_nv76t"]
+[ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="3_bbb6f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obqi3"]
 resource_name = "Material.001"
@@ -1965,7 +1969,7 @@ size = Vector3(1, 50, 100)
 size = Vector3(50, 50, 1)
 
 [node name="Root Scene" type="Node3D"]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+script = ExtResource("1_ov4k6")
 
 [node name="RootNode" type="Node3D" parent="."]
 
@@ -2316,3 +2320,9 @@ shape = SubResource("BoxShape3D_4sumq")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.41261494, 0.14490291, 0.24238823, -0.27812296, 0.13411759, 0.39326847, 0.048954453, -0.45936435, 0.19127949, 0, 54.38221, -4.277527)
 shadow_enabled = true
+
+[node name="enemy" parent="." instance=ExtResource("2_nv76t")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.200654, 13.429953)
+
+[node name="Player" parent="." instance=ExtResource("3_bbb6f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7578549, 0.058659077, 19.525284)
