@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c7xvmyqnqbajr"
+path="res://.godot/imported/Mp_thyend2.ogg-f23e58eb34821b57219e18cef7aef9aa.oggvorbisstr"
+
+[deps]
+
+source_file="res://asset/sound/minos prime/Mp_thyend2.ogg"
+dest_files=["res://.godot/imported/Mp_thyend2.ogg-f23e58eb34821b57219e18cef7aef9aa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

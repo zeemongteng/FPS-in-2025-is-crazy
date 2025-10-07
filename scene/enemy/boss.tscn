@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7awy4k1k5rh8"]
+[gd_scene load_steps=21 format=3 uid="uid://b7awy4k1k5rh8"]
 
 [ext_resource type="Script" uid="uid://cw8g10y6vp6rm" path="res://script/enemy/boss.gd" id="1_o1i15"]
 [ext_resource type="PackedScene" uid="uid://iqgedkuuxh83" path="res://scene/ground_slam.tscn" id="2_bjihq"]
@@ -9,6 +9,14 @@
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="5_flos3"]
 [ext_resource type="PackedScene" uid="uid://c85bfgwtq87yg" path="res://scene/hpbar.tscn" id="6_flos3"]
 [ext_resource type="AudioStream" uid="uid://rykxbg4go30r" path="res://asset/sound/bgm/Order.mp3" id="9_1kebi"]
+[ext_resource type="AudioStream" uid="uid://nierwl2mmenr" path="res://asset/sound/minos prime/Mp_intro2.wav" id="10_4ljy0"]
+[ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="10_6m4t8"]
+[ext_resource type="AudioStream" uid="uid://c0f2p6j8g7pd3" path="res://asset/sound/minos prime/Mp_judgement.ogg" id="11_5r7ks"]
+[ext_resource type="AudioStream" uid="uid://b75dy4pcllcef" path="res://asset/sound/minos prime/Mp_prepare.ogg" id="12_3dwv2"]
+[ext_resource type="AudioStream" uid="uid://c7xvmyqnqbajr" path="res://asset/sound/minos prime/Mp_thyend2.ogg" id="13_aoygy"]
+[ext_resource type="AudioStream" uid="uid://s6wpsfovqxtx" path="res://asset/sound/minos prime/Mp_die2.ogg" id="14_1t23o"]
+[ext_resource type="AudioStream" uid="uid://b24i47tv4n5fu" path="res://asset/sound/minos prime/Mp_deathscream.wav" id="15_xp8gc"]
+[ext_resource type="AudioStream" uid="uid://cji1jfq3bnycs" path="res://asset/sound/minos prime/Mp_crush.ogg" id="16_8l802"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o1i15"]
 radius = 2.0
@@ -40,7 +48,7 @@ debug_color = Color(0, 1, 0, 0.41960785)
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("3_bigo7")
-max_health = 2000.0
+max_health = 1.0
 hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 
@@ -106,5 +114,77 @@ bar_name = "Minos Prime"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_1kebi")
 playback_type = 1
+
+[node name="intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4ljy0")
+playback_type = 1
+
+[node name="judement" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_5r7ks")
+playback_type = 1
+
+[node name="prepare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_3dwv2")
+playback_type = 1
+
+[node name="thyend" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_aoygy")
+playback_type = 1
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_1t23o")
+playback_type = 1
+
+[node name="deathscream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_xp8gc")
+playback_type = 1
+
+[node name="crush" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_8l802")
+playback_type = 1
+
+[node name="CanvasLayer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -132.5
+offset_top = -57.0
+offset_right = 132.5
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_6m4t8")
+theme_override_font_sizes/font_size = 30
+text = "Press   to skip"
+
+[node name="Label2" type="Label" parent="CanvasLayer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -25.0
+offset_top = -57.0
+offset_right = -7.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.972549, 0.64705884, 0.06666667, 1)
+theme_override_fonts/font = ExtResource("10_6m4t8")
+theme_override_font_sizes/font_size = 30
+text = "X"
 
 [editable path="King Minos"]

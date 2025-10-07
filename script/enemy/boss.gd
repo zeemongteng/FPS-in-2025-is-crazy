@@ -5,6 +5,16 @@ class_name BossMinosPrime
 @export var ground_slam: PackedScene
 @export var fireball_scene: PackedScene
 @onready var hp = HPnode.health
+@onready var canvas_layer: Control = $CanvasLayer
+@onready var intro: AudioStreamPlayer = $intro
+@onready var prepare: AudioStreamPlayer = $prepare
+@onready var thyend: AudioStreamPlayer = $thyend
+@onready var die: AudioStreamPlayer = $die
+@onready var deathscream: AudioStreamPlayer = $deathscream
+@onready var crush: AudioStreamPlayer = $crush
+@onready var hpbar: Hpbar = $Hpbar
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
+@onready var anim = $"King Minos/AnimationPlayer"
 
 var player: Player = null
 var alive: bool = true
@@ -24,21 +34,24 @@ var attack_timer := 0.0
 @export var close_range := 6.0
 @export var far_range := 18.0
 
-# Animation
-@onready var anim = $"King Minos/AnimationPlayer"
-@onready var hpbar: Hpbar = $Hpbar
-@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
-
 # Intro / States
 var intro_played := false
 var intro_playing := false
 
+# === SOUND LIST ===
+var attack_sounds: Array[AudioStreamPlayer]
+var death_sounds: Array[AudioStreamPlayer]
+
+# === READY ===
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player") as Player
+	attack_sounds = [prepare, thyend, crush ,die]  # random attack sound pool
+	death_sounds = [deathscream]         # random death sound pool
 	if player:
 		play_intro()
 	audio_stream_player.play()
 
+# === MAIN LOOP ===
 func _physics_process(delta: float) -> void:
 	if dead:
 		return
@@ -53,6 +66,7 @@ func _physics_process(delta: float) -> void:
 
 	if intro_playing and Input.is_action_just_pressed("skip"):
 		skip_intro()
+		canvas_layer.hide()
 		return
 
 	if not intro_played:
@@ -90,7 +104,6 @@ func select_attack() -> void:
 	if not player:
 		return
 
-	# Attack weights (equal or customized however you like)
 	var attack_weights = {
 		"fireball_attack": 20,
 		"ground_slam_attack": 20,
@@ -100,11 +113,9 @@ func select_attack() -> void:
 		"rush_attack": 10
 	}
 
-	# Prevent repeating the same attack immediately
 	if last_attack in attack_weights:
 		attack_weights[last_attack] = max(attack_weights[last_attack] - 10, 5)
 
-	# Weighted random selection
 	var total_weight = 0
 	for w in attack_weights.values():
 		total_weight += w
@@ -118,7 +129,6 @@ func select_attack() -> void:
 			selected_attack = attack_name
 			break
 
-	# Call the selected attack
 	match selected_attack:
 		"fireball_attack":
 			fireball_attack()
@@ -138,6 +148,7 @@ func select_attack() -> void:
 # === ATTACKS ===
 func fireball_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|ProjectilePunch")
 	await get_tree().create_timer(0.7).timeout
@@ -146,45 +157,36 @@ func fireball_attack() -> void:
 		var fireball_instance = fireball_scene.instantiate()
 		if fireball_instance:
 			get_tree().current_scene.add_child(fireball_instance)
-
 			fireball_instance.scale *= 2.0
-
 			if fireball_instance is Fireball:
 				fireball_instance.global_transform.origin = global_transform.origin + Vector3(0, 2, 0)
 				fireball_instance.direction = (player.global_transform.origin - fireball_instance.global_transform.origin).normalized()
 				fireball_instance.speed = fireball_speed
-			else:
-				push_warning("Fireball scene does not contain a Fireball script!")
-				
+
 	await anim.animation_finished
 	await get_tree().create_timer(0.5).timeout
 	reset_attack()
 
-
 func jump_kick_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Riderkick")
-
-	# Small lift off the ground
-	velocity.y = jump_force * 0.5
+	velocity.y = jump_force * 2
 	await get_tree().create_timer(0.3).timeout
 
-	# Kick toward player
 	if player:
 		var dir = (player.global_transform.origin - global_transform.origin).normalized()
 		velocity.x = dir.x * (speed * 4)
 		velocity.z = dir.z * (speed * 4)
 
 	await anim.animation_finished
-
-	# When lands, trigger slam
 	if is_on_floor():
 		spawn_ground_slam_effect()
-
 	reset_attack()
 
 func rush_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Boxing")
 	teleport(0.7, 1.5, 5)
 	await anim.animation_finished
@@ -192,6 +194,7 @@ func rush_attack() -> void:
 
 func uppercut_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Uppercut")
 	velocity.y = jump_force * 2
 	await anim.animation_finished
@@ -201,8 +204,8 @@ func uppercut_attack() -> void:
 
 func ground_slam_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Jump")
-
 	var dir = (player.global_transform.origin - global_transform.origin).normalized()
 	velocity.y = jump_force * 2
 	velocity.x = dir.x * speed
@@ -211,7 +214,7 @@ func ground_slam_attack() -> void:
 	await anim.animation_finished
 	anim.play("minos_prime_Veins_skeleton|DownSwing")
 	var original_gravity = gravity
-	gravity *= 3.0 
+	gravity *= 3.0
 	while not is_on_floor():
 		await get_tree().process_frame
 	gravity = original_gravity
@@ -222,6 +225,7 @@ func ground_slam_attack() -> void:
 
 func combo_attack() -> void:
 	attacking = true
+	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Combo")
 	teleport(0.6, 1.5, 4)
 	await anim.animation_finished
@@ -229,10 +233,12 @@ func combo_attack() -> void:
 
 # === INTRO / DEATH ===
 func play_intro() -> void:
+	intro.play()
 	intro_playing = true
 	anim.speed_scale = 1.0
 	anim.play("minos_prime_Veins_skeleton|Intro")
 	await anim.animation_finished
+	await get_tree().create_timer(21).timeout
 	if not intro_played:
 		hpbar.show()
 		intro_played = true
@@ -240,6 +246,7 @@ func play_intro() -> void:
 	anim.speed_scale = 2.0
 
 func skip_intro() -> void:
+	intro.stop()
 	anim.stop()
 	hpbar.show()
 	intro_played = true
@@ -253,6 +260,7 @@ func death() -> void:
 	dead = true
 	alive = false
 	reset_attack()
+	play_random_sound(death_sounds)
 	anim.play("minos_prime_Veins_skeleton|Outro")
 	await anim.animation_finished
 	queue_free()
@@ -277,7 +285,15 @@ func spawn_ground_slam_effect():
 	if not ground_slam:
 		push_warning("No ground_slam scene assigned!")
 		return
-
 	var slam = ground_slam.instantiate()
 	get_tree().current_scene.add_child(slam)
 	slam.global_transform.origin = global_transform.origin
+
+# 🎵 RANDOM SOUND PICKER
+func play_random_sound(sounds: Array[AudioStreamPlayer]) -> void:
+	if sounds.is_empty():
+		return
+	var sound = sounds[randi() % sounds.size()]
+	if sound.playing:
+		sound.stop()
+	sound.play()
