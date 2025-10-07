@@ -1,9 +1,22 @@
-[gd_scene load_steps=119 format=4 uid="uid://82uyy5mwnaco"]
+[gd_scene load_steps=122 format=4 uid="uid://82uyy5mwnaco"]
 
 [ext_resource type="Script" uid="uid://btrtnd04ogpn1" path="res://map/tutorial.gd" id="1_ov4k6"]
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://scene/enemy/enemy.tscn" id="2_nv76t"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="3_bbb6f"]
-[ext_resource type="PackedScene" path="res://map/hub.tscn" id="4_nv76t"]
+[ext_resource type="PackedScene" uid="uid://bp46vpstcdcin" path="res://map/hub.tscn" id="4_nv76t"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nv76t"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bbb6f"]
+sky_material = SubResource("ProceduralSkyMaterial_nv76t")
+
+[sub_resource type="Environment" id="Environment_6vu3p"]
+background_mode = 2
+sky = SubResource("Sky_bbb6f")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obqi3"]
 resource_name = "Material.001"
@@ -1972,6 +1985,9 @@ size = Vector3(50, 50, 1)
 [node name="Root Scene" type="Node3D"]
 script = ExtResource("1_ov4k6")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6vu3p")
+
 [node name="RootNode" type="Node3D" parent="."]
 
 [node name="cover" type="MeshInstance3D" parent="RootNode"]
@@ -2319,7 +2335,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20.566326, 49.989838)
 shape = SubResource("BoxShape3D_4sumq")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.41261494, 0.14490291, 0.24238823, -0.27812296, 0.13411759, 0.39326847, 0.048954453, -0.45936435, 0.19127949, 0, 54.38221, -4.277527)
+transform = Transform3D(0.8252299, 0.28980586, 0.4847765, -0.5562459, 0.26823518, 0.78653693, 0.097908914, -0.9187287, 0.382559, 0, 54.38221, -4.277527)
 shadow_enabled = true
 
 [node name="enemy" parent="." instance=ExtResource("2_nv76t")]

@@ -188,7 +188,7 @@ func rush_attack() -> void:
 	attacking = true
 	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Boxing")
-	teleport(0.7, 1.5, 5)
+	teleport(0.7, 2, 7)
 	await anim.animation_finished
 	reset_attack()
 
@@ -227,7 +227,7 @@ func combo_attack() -> void:
 	attacking = true
 	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Combo")
-	teleport(0.6, 1.5, 4)
+	teleport(0.6, 2, 4)
 	await anim.animation_finished
 	reset_attack()
 
