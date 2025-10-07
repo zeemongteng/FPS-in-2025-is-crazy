@@ -10,8 +10,8 @@ signal slide_ended
 @export var max_stamina := 100.0
 @export var regen_rate := 10.0
 @export var dash_cost := 30.0  
-@export var dash_strength := 50  
-@export var dash_duration := 0.7
+@export var dash_strength := 200
+@export var dash_duration := 0.6
 
 @export_group("Sliding")
 @export var slide_drain_rate := 20.0  

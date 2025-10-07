@@ -1,4 +1,5 @@
 extends ColorRect
+class_name Flash
 
 func flash(duration: float = 0.2, color: Color = Color.WHITE, max_alpha: float = 0.7) -> void:
 	self.color = color

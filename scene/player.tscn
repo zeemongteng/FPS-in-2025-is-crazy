@@ -152,7 +152,7 @@ scale = Vector2(0.05, 0.05)
 pivot_offset = Vector2(256, 255)
 texture = ExtResource("3_oh5ij")
 
-[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+[node name="Flash" type="ColorRect" parent="CanvasLayer" groups=["Flash"]]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 8

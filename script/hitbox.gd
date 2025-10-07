@@ -2,6 +2,7 @@ extends Area3D
 class_name Hitbox
 
 signal hit_enemy
+
 @export var damage : float = 10
 func _ready() -> void:
 	area_entered.connect(on_area_entered)

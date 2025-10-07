@@ -11,7 +11,6 @@ var damage = 10
 var default_cam_y: float                # store original camera height
 var target_cam_y: float
 
-
 @onready var cam: Camera3D = $Pivot/Camera3D
 @onready var health: Health = $HealthComponent
 @onready var stamina: Stamina = $StaminaComponent
