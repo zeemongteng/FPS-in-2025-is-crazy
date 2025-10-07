@@ -12,10 +12,11 @@ var default_cam_y: float                # store original camera height
 var target_cam_y: float
 
 
-@onready var cam: Camera3D = $Camera3D
+@onready var cam: Camera3D = $Pivot/Camera3D
 @onready var health: Health = $HealthComponent
 @onready var stamina: Stamina = $StaminaComponent
-
+@onready var hurtbox: Hurtbox = $Hurtbox
+@onready var pivot: Node3D = $Pivot
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -23,6 +24,7 @@ func _ready() -> void:
 	default_cam_y = cam.position.y
 	target_cam_y = default_cam_y
 	
+	hurtbox.damaged.connect(hit)
 	stamina.slide_started.connect(_on_slide_started)
 	stamina.slide_ended.connect(_on_slide_ended)
 
@@ -30,11 +32,12 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		# Rotate camera (pitch)
-		cam.rotate_x(-event.relative.y * mouse_sensitivity)
-		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+		pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 	pass
 
 func _physics_process(delta: float) -> void:
+
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 
@@ -90,3 +93,6 @@ func _on_slide_started() -> void:
 
 func _on_slide_ended() -> void:
 	target_cam_y = default_cam_y
+
+func hit(_attack: Attack):
+	cam.shake(0.1,_attack.damage * 1)

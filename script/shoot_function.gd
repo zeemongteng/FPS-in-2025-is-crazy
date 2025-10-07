@@ -1,7 +1,7 @@
 extends Node
 
 @export var bullet_scene: PackedScene
-@onready var marker_3d: Marker3D = $"../Camera3D/Marker3D"
+@export var marker_3d: Marker3D
 @export var parryBox : CollisionShape3D
 
 @export var parry_cooldown: float = 2.0  # seconds before you can parry again

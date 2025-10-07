@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=20 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://clo402pglooj2" path="res://script/parry_box.gd" id="6_ihjo1"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
 [ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
+[ext_resource type="Script" uid="uid://ds2qdlc5e4wdk" path="res://scene/camera_3d.gd" id="11_dk1vr"]
+[ext_resource type="Script" uid="uid://ckd5k2w7fns1a" path="res://script/color_rect.gd" id="13_34jf3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
@@ -33,9 +35,10 @@ bg_color = Color(0, 0.736673, 0, 1)
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
 
-[node name="ShootFunction" type="Node" parent="." node_paths=PackedStringArray("parryBox")]
+[node name="ShootFunction" type="Node" parent="." node_paths=PackedStringArray("marker_3d", "parryBox")]
 script = ExtResource("2_hp4bs")
 bullet_scene = ExtResource("3_g2vtq")
+marker_3d = NodePath("../Pivot/Camera3D/Marker3D")
 parryBox = NodePath("../ParryBox/CollisionShape3D")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
@@ -74,6 +77,26 @@ debug_color = Color(0, 1, 0.00784314, 0.419608)
 [node name="MeshCollision" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05335, 0)
 shape = SubResource("CapsuleShape3D_g2vtq")
+
+[node name="Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37529, -0.695981)
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" node_paths=PackedStringArray("follow_node")]
+script = ExtResource("11_dk1vr")
+follow_node = NodePath("..")
+
+[node name="WeaponComponent" parent="Pivot/Camera3D" instance=ExtResource("6_oh5ij")]
+
+[node name="RayCast3D" type="RayCast3D" parent="Pivot/Camera3D"]
+visible = false
+enabled = false
+target_position = Vector3(0, 0, -10)
+collision_mask = 33
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="Marker3D" type="Marker3D" parent="Pivot/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1637026)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -127,20 +150,15 @@ scale = Vector2(0.05, 0.05)
 pivot_offset = Vector2(256, 255)
 texture = ExtResource("3_oh5ij")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37529, -0.695981)
-
-[node name="WeaponComponent" parent="Camera3D" instance=ExtResource("6_oh5ij")]
-
-[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+[node name="Flash" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
 visible = false
-enabled = false
-target_position = Vector3(0, 0, -10)
-collision_mask = 33
-collide_with_areas = true
-collide_with_bodies = false
-
-[node name="Marker3D" type="Marker3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1637026)
+anchors_preset = -1
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_top = 6.0
+offset_right = 2.303955
+offset_bottom = -6.0
+script = ExtResource("13_34jf3")
 
 [connection signal="area_entered" from="ParryBox" to="ParryBox" method="parrying"]

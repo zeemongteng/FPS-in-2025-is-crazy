@@ -11,6 +11,9 @@ func parrying(area: Area3D) -> void:
 			area.direction = dir_to_enemy
 			area.speed *= 1.5
 			area.flipped()
-	
+			%Flash.flash(0.1, Color.WHITE, 0.8)
+			get_tree().paused = true
+			await get_tree().create_timer(0.3).timeout
+			get_tree().paused = false
 
 		parried.emit(area)
