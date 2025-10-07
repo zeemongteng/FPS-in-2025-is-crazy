@@ -7,11 +7,13 @@ class_name enemy_ground
 var player: Player = null
 var alive: bool = true
 
-@export var speed: float = 8.0
+@export var speed: float = 2.0
 @export var launch_force: float = 12.0
 @export var launch_speed: float = 16.0
 @export var gravity: float = 20.0
-@export var launch_distance: float = 10.0
+@export var launch_distance: float = 30.0
+@export var rotation_speed: float = 5.0   # how fast it rotates toward player
+
 @onready var anim_player: AnimationPlayer = $Sketchfab_Scene/AnimationPlayer
 
 func _ready() -> void:
@@ -21,8 +23,11 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not alive:
-		death()
+		await death()
 		return
+
+	if player and player.alive and is_on_floor():
+		look_at_player(delta)
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -54,10 +59,16 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func death():
+func look_at_player(delta: float) -> void:
+	var target_dir = player.global_transform.origin - global_transform.origin
+	target_dir.y = 0
+	if target_dir.length() > 0.01:
+		var target_rotation = atan2(target_dir.x, target_dir.z)
+		rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
+
+func death() -> void:
 	alive = false
 	velocity = Vector3.ZERO
 	anim_player.play("Freddy--Shutdown")
-	# Delay queue_free until death animation is done
 	await anim_player.animation_finished
 	queue_free()
