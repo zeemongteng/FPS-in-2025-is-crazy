@@ -8,7 +8,7 @@ class_name enemy
 var player: Player = null
 var alive: bool = true
 
-@export var speed: float = 8.0              
+@export var speed: float = 12.0              
 @export var min_jump_force: float = 8.0    
 @export var max_jump_force: float = 16.0   
 @export var gravity: float = 20.0

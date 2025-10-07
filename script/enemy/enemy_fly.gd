@@ -6,9 +6,10 @@ class_name Enemy
 
 var player: Player = null
 var alive: bool = true
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-@export var fly_speed: float = 5.0           
-@export var rush_speed: float = 10.0         
+@export var fly_speed: float = 12.0           
+@export var rush_speed: float = 40.0         
 @export var rush_duration: float = 0.6
 @export var cooldown: float = 2.0
 @export var fly_height: float = 6.0          
@@ -41,6 +42,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = fly_up_force 
 
 	if is_rushing:
+		audio_stream_player_3d.play()
+		await get_tree().create_timer(0.2).timeout
 		handle_rush(delta)
 	else:
 		handle_hover(delta)

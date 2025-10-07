@@ -5,13 +5,14 @@ class_name EnemyFlyShoot
 @onready var hp = HPnode.health
 @export var blood_scene: PackedScene
 @export var fireball_scene: PackedScene
-@export var shoot_interval: float = 5.0
-@export var speed: float = 5.0
+@export var shoot_interval: float = 3.0
+@export var speed: float = 8.0
 @export var keep_distance: float = 10.0
 @export var move_smoothness: float = 3.0
 @export var rotation_speed: float = 5.0
 @export var hover_height: float = 5.0  
 @onready var fire_ball_posistion: Marker3D = $fire_ball_posistion
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var player: Player = null
 var alive: bool = true
@@ -65,6 +66,7 @@ func _physics_process(delta: float) -> void:
 		shoot_timer = shoot_interval
 
 func shoot_fireball() -> void:
+	audio_stream_player_3d.play()
 	if fireball_scene == null or fire_ball_posistion == null:
 		return
 	var fireball = fireball_scene.instantiate()

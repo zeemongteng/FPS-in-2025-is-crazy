@@ -46,6 +46,7 @@ debug_color = Color(0, 1, 0, 1)
 
 [node name="Health" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("6_qsd21")
+max_health = 50.0
 hurtbox = NodePath("../Hurtbox")
 metadata/_custom_type_script = "uid://cj4vqdx6vhjyn"
 

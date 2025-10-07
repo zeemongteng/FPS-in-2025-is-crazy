@@ -144,16 +144,18 @@ func fireball_attack() -> void:
 
 	if fireball_scene and player:
 		var fireball_instance = fireball_scene.instantiate()
-		if fireball_instance:  # ensure it's not null
+		if fireball_instance:
 			get_tree().current_scene.add_child(fireball_instance)
 
-			# Make sure it is a Fireball (Area3D) before accessing properties
+			fireball_instance.scale *= 2.0
+
 			if fireball_instance is Fireball:
 				fireball_instance.global_transform.origin = global_transform.origin + Vector3(0, 2, 0)
 				fireball_instance.direction = (player.global_transform.origin - fireball_instance.global_transform.origin).normalized()
 				fireball_instance.speed = fireball_speed
 			else:
 				push_warning("Fireball scene does not contain a Fireball script!")
+				
 	await anim.animation_finished
 	await get_tree().create_timer(0.5).timeout
 	reset_attack()
