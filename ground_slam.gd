@@ -32,6 +32,6 @@ func _process(delta: float) -> void:
 			torus.outer_radius = current_radius
 			torus.inner_radius = inner
 
-		collision_shape_3d.scale = Vector3(current_radius, 1.0, current_radius)
+		collision_shape_3d.scale = Vector3(current_radius, current_radius * 0.1, current_radius)
 	else:
 		queue_free()

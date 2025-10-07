@@ -2,20 +2,21 @@ extends CharacterBody3D
 class_name BossMinosPrime
 
 @export var HPnode: Health
-@export var ground_slam : PackedScene
+@export var ground_slam: PackedScene
+@export var fireball_scene: PackedScene
 @onready var hp = HPnode.health
 
 var player: Player = null
 var alive: bool = true
 var dead := false
+
 @export var speed: float = 10.0
-@export var rush_speed: float = 5.0
 @export var gravity: float = 25.0
 @export var jump_force: float = 15.0
+@export var fireball_speed: float = 100.0
 
 # Control
 var attacking := false
-var can_chain := false
 var attack_timer := 0.0
 @export var attack_cooldown := 0.8
 
@@ -38,8 +39,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if dead:
-		return  # stop all logic if already dead
-
+		return
 	if not alive and not dead:
 		death()
 		return
@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
+
 	if intro_playing and Input.is_action_just_pressed("skip"):
 		skip_intro()
 		return
@@ -90,21 +90,68 @@ func select_attack() -> void:
 
 	if distance > far_range:
 		if roll < 40:
-			rush_attack()
+			fireball_attack()
 		else:
 			ground_slam_attack()
 	elif distance < close_range:
 		if roll < 40:
-			uppercut_attack()
+			jump_kick_attack()
 		elif roll < 80:
 			combo_attack()
+		else:
+			uppercut_attack()
 	else:
 		if roll < 50:
 			rush_attack()
 		else:
-			combo_attack()
+			fireball_attack()
 
 # === ATTACKS ===
+func fireball_attack() -> void:
+	attacking = true
+	velocity = Vector3.ZERO
+	anim.play("minos_prime_Veins_skeleton|ProjectilePunch")
+	await get_tree().create_timer(1.5).timeout
+
+	if fireball_scene and player:
+		var fireball_instance = fireball_scene.instantiate()
+		if fireball_instance:  # ensure it's not null
+			get_tree().current_scene.add_child(fireball_instance)
+
+			# Make sure it is a Fireball (Area3D) before accessing properties
+			if fireball_instance is Fireball:
+				fireball_instance.global_transform.origin = global_transform.origin + Vector3(0, 2, 0)
+				fireball_instance.direction = (player.global_transform.origin - fireball_instance.global_transform.origin).normalized()
+				fireball_instance.speed = fireball_speed
+			else:
+				push_warning("Fireball scene does not contain a Fireball script!")
+	await anim.animation_finished
+	await get_tree().create_timer(0.5).timeout
+	reset_attack()
+
+
+func jump_kick_attack() -> void:
+	attacking = true
+	anim.play("minos_prime_Veins_skeleton|Riderkick")
+
+	# Small lift off the ground
+	velocity.y = jump_force * 0.5
+	await get_tree().create_timer(0.3).timeout
+
+	# Kick toward player
+	if player:
+		var dir = (player.global_transform.origin - global_transform.origin).normalized()
+		velocity.x = dir.x * (speed * 4)
+		velocity.z = dir.z * (speed * 4)
+
+	await anim.animation_finished
+
+	# When lands, trigger slam
+	if is_on_floor():
+		spawn_ground_slam_effect()
+
+	reset_attack()
+
 func rush_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Boxing")
@@ -124,24 +171,17 @@ func uppercut_attack() -> void:
 func ground_slam_attack() -> void:
 	attacking = true
 	anim.play("minos_prime_Veins_skeleton|Jump")
-
-	# Jump towards player
 	var dir = (player.global_transform.origin - global_transform.origin).normalized()
 	velocity.y = jump_force * 2
 	velocity.x = dir.x * speed
 	velocity.z = dir.z * speed
-
 	await anim.animation_finished
-
-	# Slam impact
 	velocity = Vector3.ZERO
 	anim.play("minos_prime_Veins_skeleton|DownSwing")
-
 	await anim.animation_finished
 	if is_on_floor():
 		spawn_ground_slam_effect()
 	reset_attack()
-
 
 func combo_attack() -> void:
 	attacking = true
@@ -155,7 +195,7 @@ func play_intro() -> void:
 	intro_playing = true
 	anim.play("minos_prime_Veins_skeleton|Intro")
 	await anim.animation_finished
-	if not intro_played:  # If not skipped
+	if not intro_played:
 		hpbar.show()
 		intro_played = true
 	intro_playing = false
@@ -192,6 +232,7 @@ func teleport(time, distance, n):
 			var warp_distance = distance
 			global_transform.origin = target_pos + offset_dir * warp_distance
 		await get_tree().create_timer(time).timeout
+
 func spawn_ground_slam_effect():
 	if not ground_slam:
 		push_warning("No ground_slam scene assigned!")
@@ -199,6 +240,4 @@ func spawn_ground_slam_effect():
 
 	var slam = ground_slam.instantiate()
 	get_tree().current_scene.add_child(slam)
-	
-	# Place it at boss's feet
 	slam.global_transform.origin = global_transform.origin
