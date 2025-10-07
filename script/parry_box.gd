@@ -9,10 +9,8 @@ func parrying(area: Area3D) -> void:
 		if enemyUnit:
 			var dir_to_enemy = (enemyUnit.global_transform.origin - area.global_transform.origin).normalized()
 			area.direction = dir_to_enemy
-			
 			area.speed *= 1.5
 			area.flipped()
-			
-			area.parried = true
+	
 
 		parried.emit(area)

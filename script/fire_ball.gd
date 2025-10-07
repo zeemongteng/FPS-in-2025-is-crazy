@@ -22,4 +22,4 @@ func disappear():
 	queue_free()
 
 func flipped():
-	$Hitbox2/CollisionShape3D.disabled = false
+	call_deferred("$Hitbox2/CollisionShape3D.disabled = false")
