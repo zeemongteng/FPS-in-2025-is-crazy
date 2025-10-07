@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://vjkgqlha66n6"]
+[gd_scene load_steps=10 format=3 uid="uid://vjkgqlha66n6"]
 
 [ext_resource type="Script" uid="uid://dendocwl7n5dw" path="res://script/weapon_component.gd" id="1_l0aut"]
 [ext_resource type="PackedScene" uid="uid://dqexjlkyrccnt" path="res://asset/low-poly_kimber_k6s/scene.gltf" id="1_lrje7"]
 [ext_resource type="AudioStream" uid="uid://dcikqwpxynx5w" path="res://asset/sound/weapon/pew.mp3" id="3_8b82e"]
+[ext_resource type="PackedScene" uid="uid://beucook0mc2qa" path="res://asset/low-poly-raygun/source/raygun.fbx" id="3_p0d2r"]
 [ext_resource type="AudioStream" uid="uid://cnp33mxk6yqmb" path="res://asset/sound/weapon/ceiling-dropper-form-hk.mp3" id="4_p0d2r"]
 
 [sub_resource type="Animation" id="Animation_8b82e"]
@@ -90,6 +91,9 @@ script = ExtResource("1_l0aut")
 
 [node name="Gun" parent="." instance=ExtResource("1_lrje7")]
 transform = Transform3D(-7.239979e-07, 0, 0.2, 0, 0.19999997, 0, -0.19999997, 0, -7.23998e-07, 0.429152, -0.314032, -0.783378)
+
+[node name="raygun" parent="Gun" instance=ExtResource("3_p0d2r")]
+transform = Transform3D(-1.628996e-06, 0, -0.4500001, 0, 0.4500001, 0, 0.45000002, 0, -1.6289956e-06, -0.65973353, -2.2538853, -0.19674468)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

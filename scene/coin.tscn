@@ -60,7 +60,7 @@ point_count = 2
 
 [node name="Coin" type="RigidBody3D" groups=["Coin"]]
 collision_layer = 33
-mass = 5.0
+mass = 3.0
 physics_material_override = SubResource("PhysicsMaterial_ya73g")
 script = ExtResource("1_s0dlu")
 
@@ -68,12 +68,12 @@ script = ExtResource("1_s0dlu")
 stream = ExtResource("2_ya73g")
 
 [node name="bitcoin" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -1.1920929e-07, 0.99999994, 0, -0.99999994, -1.1920929e-07, 0, 0, 0)
+transform = Transform3D(1.7, 0, 0, 0, -7.430936e-08, 1.7, 0, -1.7, -7.430936e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_leebs")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0004272461, 0)
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, 0, 0.0004272461, 0)
 shape = SubResource("CylinderShape3D_4ldxs")
 
 [node name="CPUParticles3D2" type="CPUParticles3D" parent="."]

@@ -120,4 +120,5 @@ func _on_slide_ended() -> void:
 
 func hit(_attack: Attack):
 	cam.shake(0.1, _attack.damage * 1.5)
+	%Flash.flash(0.1, Color.RED,0.3)
 	$hit.play()
