@@ -8,8 +8,9 @@ class_name Player
 var alive : bool = true
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var damage = 10
-var default_cam_y: float                # store original camera height
+var default_cam_y: float
 var target_cam_y: float
+var was_on_floor: bool = true  # to track landing/footstep state
 
 @onready var cam: Camera3D = $Pivot/Camera3D
 @onready var health: Health = $HealthComponent
@@ -30,7 +31,6 @@ func _ready() -> void:
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * mouse_sensitivity)
-		# Rotate camera (pitch)
 		pivot.rotate_x(-event.relative.y * mouse_sensitivity)
 		pivot.rotation.x = clamp(pivot.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 	pass
@@ -61,7 +61,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity.x = direction.x * speed
 	velocity.z = direction.z * speed
-
+	
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -72,10 +72,14 @@ func _physics_process(delta: float) -> void:
 				velocity.y = jump_force + extra_jump
 			else:
 				velocity.y = jump_force
-	
+			if $Jump:
+				$Jump.play()
+
+	# Dash
 	if Input.is_action_just_pressed("dash"):
 		stamina.try_dash(direction)
 	
+	# Slide
 	if Input.is_action_pressed("slide"):
 		stamina.start_slide()
 	else:
@@ -83,9 +87,27 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	# Smooth camera height for slide
 	cam.position.y = lerp(cam.position.y, target_cam_y, 8 * delta)
+	
+	# Footstep sound when walking
+	if is_on_floor() and direction.length() > 0:
+		if !$Footstep.playing:
+			$Footstep.play()
+			$Footstep.pitch_scale = randf_range(0.95, 1.05)
+	else:
+		if $Footstep.playing:
+			$Footstep.stop()
+
+	# Landing sound (optional): detect when player lands after a jump/fall
+	if !was_on_floor and is_on_floor():
+		if $Footstep:
+			$Footstep.play()
+
+	was_on_floor = is_on_floor()
 
 func die():
+	$Landing.play()
 	DeathScene.active = true
 	DeathScene.show()
 	queue_free()
@@ -97,4 +119,5 @@ func _on_slide_ended() -> void:
 	target_cam_y = default_cam_y
 
 func hit(_attack: Attack):
-	cam.shake(0.1,_attack.damage * 1.5)
+	cam.shake(0.1, _attack.damage * 1.5)
+	$hit.play()

@@ -11,6 +11,8 @@ func _process(_delta: float) -> void:
 
 func shoot():
 	$AnimationPlayer.play("shoot")
+	$GunShot.play()
+	await $AnimationPlayer.animation_finished
 
 func parry():
 	if not can_parry:
@@ -18,6 +20,7 @@ func parry():
 	
 	can_parry = false
 	$AnimationPlayer3.play("parry")
+	$Swing.play()
 	
 
 	await get_tree().create_timer(parry_cooldown).timeout

@@ -41,7 +41,6 @@ func parry():
 	can_parry = true
 
 func throw_coin():
-		
 	var coin = coin_scene.instantiate() as Coin
 	coin.global_transform = marker_3d.global_transform
 	get_tree().current_scene.add_child(coin)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=25 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -14,6 +14,10 @@
 [ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
 [ext_resource type="Script" uid="uid://ds2qdlc5e4wdk" path="res://scene/camera_3d.gd" id="11_dk1vr"]
 [ext_resource type="Script" uid="uid://ckd5k2w7fns1a" path="res://script/color_rect.gd" id="13_34jf3"]
+[ext_resource type="AudioStream" uid="uid://drbd78wjlos37" path="res://asset/sound/footstep.mp3" id="15_j4wxg"]
+[ext_resource type="AudioStream" uid="uid://byvu8g452jnq0" path="res://asset/sound/hit.mp3" id="16_v4iqv"]
+[ext_resource type="AudioStream" uid="uid://dpoakx1smdlb1" path="res://asset/sound/jump.mp3" id="17_42h83"]
+[ext_resource type="AudioStream" uid="uid://c8enua4q66n13" path="res://asset/sound/landing.mp3" id="18_iuf2t"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
@@ -64,6 +68,8 @@ script = ExtResource("6_ihjo1")
 shape = SubResource("BoxShape3D_dk1vr")
 disabled = true
 debug_color = Color(0.87778026, 0.00039871514, 0.8306958, 0.41960785)
+
+[node name="Parry" type="AudioStreamPlayer3D" parent="ParryBox"]
 
 [node name="Hurtbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9426124, 0)
@@ -168,5 +174,20 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(229.65198, 198)
 script = ExtResource("13_34jf3")
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("15_j4wxg")
+volume_db = 38.461
+max_db = 6.0
+parameters/looping = true
+
+[node name="hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("16_v4iqv")
+
+[node name="Jump" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_42h83")
+
+[node name="Landing" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("18_iuf2t")
 
 [connection signal="area_entered" from="ParryBox" to="ParryBox" method="parrying"]

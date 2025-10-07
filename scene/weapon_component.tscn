@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://vjkgqlha66n6"]
+[gd_scene load_steps=9 format=3 uid="uid://vjkgqlha66n6"]
 
 [ext_resource type="Script" uid="uid://dendocwl7n5dw" path="res://script/weapon_component.gd" id="1_l0aut"]
 [ext_resource type="PackedScene" uid="uid://dqexjlkyrccnt" path="res://asset/low-poly_kimber_k6s/scene.gltf" id="1_lrje7"]
+[ext_resource type="AudioStream" uid="uid://dcikqwpxynx5w" path="res://asset/sound/weapon/pew.mp3" id="3_8b82e"]
+[ext_resource type="AudioStream" uid="uid://cnp33mxk6yqmb" path="res://asset/sound/weapon/ceiling-dropper-form-hk.mp3" id="4_p0d2r"]
 
 [sub_resource type="Animation" id="Animation_8b82e"]
 length = 0.001
@@ -98,3 +100,14 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_p0d2r")
 }
+
+[node name="GunShot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_8b82e")
+volume_db = -13.76
+max_db = -18.903
+autoplay = true
+
+[node name="Swing" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_p0d2r")
+volume_db = -9.492
+max_db = -15.427

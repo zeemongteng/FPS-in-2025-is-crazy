@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=4 uid="uid://djgene0oow2xw"]
+[gd_scene load_steps=11 format=4 uid="uid://djgene0oow2xw"]
 
 [ext_resource type="Script" uid="uid://cb6kmchkk4e24" path="res://script/coin.gd" id="1_s0dlu"]
+[ext_resource type="AudioStream" uid="uid://c0f33mg8hcksq" path="res://asset/sound/coin/coin_toss.mp3" id="2_ya73g"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ya73g"]
 
@@ -62,6 +63,9 @@ collision_layer = 33
 mass = 5.0
 physics_material_override = SubResource("PhysicsMaterial_ya73g")
 script = ExtResource("1_s0dlu")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_ya73g")
 
 [node name="bitcoin" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.1920929e-07, 0.99999994, 0, -0.99999994, -1.1920929e-07, 0, 0, 0)

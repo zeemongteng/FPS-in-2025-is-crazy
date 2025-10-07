@@ -1,7 +1,7 @@
 extends Node3D
 class_name Bullet
 
-@export var speed: float = 30.0
+@export var speed: float = 60.0
 @export var lifetime: float = 5.0
 @export var damage: float = 10.0
 @export var color: Color = Color(1, 0, 0)
@@ -58,7 +58,8 @@ func _process(delta: float) -> void:
 			get_tree().paused = true
 			await get_tree().create_timer(0.1).timeout
 			get_tree().paused = false
-
+			$AudioStreamPlayer3D.play()
+			
 			_update_target()  # Set next coin or enemy
 			return  # Continue without dying
 

@@ -15,5 +15,6 @@ func parrying(area: Area3D) -> void:
 			get_tree().paused = true
 			await get_tree().create_timer(0.3).timeout
 			get_tree().paused = false
+			$Parry.play()
 
 		parried.emit(area)
