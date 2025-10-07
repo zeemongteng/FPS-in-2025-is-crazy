@@ -171,7 +171,7 @@ func jump_kick_attack() -> void:
 	attacking = true
 	play_random_sound(attack_sounds)
 	anim.play("minos_prime_Veins_skeleton|Riderkick")
-	velocity.y = jump_force * 2
+	velocity.y = jump_force * 1.5
 	await get_tree().create_timer(0.3).timeout
 
 	if player:
@@ -247,7 +247,7 @@ func play_intro() -> void:
 	anim.speed_scale = 2.0
 
 func skip_intro() -> void:
-	canvas_layer.queue_free()
+	canvas_layer.hide()
 	intro.stop()
 	anim.stop()
 	hpbar.show()
