@@ -23,6 +23,7 @@ size = Vector3(5, 5, 5)
 script = ExtResource("1_o1i15")
 HPnode = NodePath("HealthComponent")
 ground_slam = ExtResource("2_bjihq")
+far_range = 10.0
 
 [node name="Hurtbox" type="Area3D" parent="."]
 collision_layer = 32
