@@ -6,6 +6,3 @@
 .godot/editor/project_metadata.cfg
 .godot/editor/editor_layout.cfg
 .godot/editor/script_editor_cache.cfg
-*.cfg
-*.cache
-*.bin
