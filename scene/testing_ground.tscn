@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dpkym86yv1chi"]
+[gd_scene load_steps=13 format=3 uid="uid://dpkym86yv1chi"]
 
 [ext_resource type="Script" uid="uid://bwtenkrakmb4l" path="res://scene/testing_ground.gd" id="1_6iy62"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="1_snrvv"]
 [ext_resource type="Texture2D" uid="uid://bs8r408ytsgmv" path="res://asset/roblox_stud.jpeg" id="1_t8egj"]
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://scene/enemy/enemy.tscn" id="3_x70m4"]
-[ext_resource type="PackedScene" uid="uid://dlk5omru6gv88" path="res://scene/enemy/enemy_fly.tscn" id="4_dx6n1"]
-[ext_resource type="PackedScene" uid="uid://bceu4xbhoo2rg" path="res://scene/enemy/enemy_fly_shoot.tscn" id="5_sml2l"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://scene/enemy/boss.tscn" id="7_788ah"]
-[ext_resource type="PackedScene" uid="uid://do8iayi6gtm37" path="res://scene/enemy/enemy_ground.tscn" id="8_00rxe"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_788ah"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -57,17 +54,8 @@ shadow_enabled = true
 [node name="enemy" parent="." instance=ExtResource("3_x70m4")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.96754, -8.70125)
 
-[node name="enemy2" parent="." instance=ExtResource("4_dx6n1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.5406, 8.6394, 0)
-
-[node name="enemy_fly_shoot" parent="." instance=ExtResource("5_sml2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.875485, 4.9157553, 2.0314465)
-
 [node name="Boss" parent="." instance=ExtResource("7_788ah")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 2.4592674, 10.630288)
 
 [node name="Player" parent="." instance=ExtResource("1_snrvv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5539775, 0)
-
-[node name="enemy_ground" parent="." instance=ExtResource("8_00rxe")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.2508821, 13.130421)
