@@ -42,7 +42,10 @@ func _physics_process(delta: float) -> void:
 		get_tree().quit()
 
 	if !alive:
+		%Flash.fade_to_black(2.0, 3.0, Color.BLACK, 3.6)
+		await get_tree().create_timer(5).timeout
 		die()
+		return
 	
 	var direction = Vector3.ZERO
 
@@ -95,4 +98,4 @@ func _on_slide_ended() -> void:
 	target_cam_y = default_cam_y
 
 func hit(_attack: Attack):
-	cam.shake(0.1,_attack.damage * 1)
+	cam.shake(0.1,_attack.damage * 1.5)
