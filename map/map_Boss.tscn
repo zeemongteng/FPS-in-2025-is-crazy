@@ -1,7 +1,9 @@
-[gd_scene load_steps=999 format=4 uid="uid://703upx0de1x3"]
+[gd_scene load_steps=1001 format=4 uid="uid://703upx0de1x3"]
 
+[ext_resource type="Script" path="res://map/map_boss.gd" id="1_lbddn"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://scene/enemy/boss.tscn" id="1_lqhm1"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="2_66qsi"]
+[ext_resource type="PackedScene" path="res://map/hub_boss.tscn" id="4_x1m8h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6s7r"]
 resource_name = "y"
@@ -14736,6 +14738,7 @@ size = Vector3(1, 50, 81.9761)
 size = Vector3(40.0819, 50, 1)
 
 [node name="set design" type="Node3D"]
+script = ExtResource("1_lbddn")
 
 [node name="Plane002" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_6n7ax")
@@ -17741,3 +17744,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.426203, 16.705765, -4.8767
 
 [node name="Player" parent="." instance=ExtResource("2_66qsi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 30.667027, 6.308239, -84.50288)
+
+[node name="HUB_Boss" parent="." instance=ExtResource("4_x1m8h")]

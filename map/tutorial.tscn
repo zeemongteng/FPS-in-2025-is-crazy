@@ -1,8 +1,9 @@
-[gd_scene load_steps=118 format=4 uid="uid://82uyy5mwnaco"]
+[gd_scene load_steps=119 format=4 uid="uid://82uyy5mwnaco"]
 
 [ext_resource type="Script" uid="uid://btrtnd04ogpn1" path="res://map/tutorial.gd" id="1_ov4k6"]
 [ext_resource type="PackedScene" uid="uid://bhp57ajp6xw7h" path="res://scene/enemy/enemy.tscn" id="2_nv76t"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="3_bbb6f"]
+[ext_resource type="PackedScene" path="res://map/hub.tscn" id="4_nv76t"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_obqi3"]
 resource_name = "Material.001"
@@ -2326,3 +2327,5 @@ transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 2.200654, 13.429953)
 
 [node name="Player" parent="." instance=ExtResource("3_bbb6f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7578549, 0.058659077, 19.525284)
+
+[node name="HUB" parent="." instance=ExtResource("4_nv76t")]
