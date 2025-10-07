@@ -22,4 +22,8 @@ func disappear():
 	queue_free()
 
 func flipped():
-	call_deferred("$Hitbox2/CollisionShape3D.disabled = false")
+	call_deferred("_enable_hitbox2")
+	
+func _enable_hitbox2():
+	var shape = get_node("Hitbox2/CollisionShape3D")
+	shape.disabled = false
