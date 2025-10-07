@@ -10,18 +10,20 @@ var damage = 10
 
 @onready var cam: Camera3D = $Camera3D
 @onready var health: Health = $HealthComponent
+@onready var stamina: Stamina = $StaminaComponent
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion:
-		# Rotate player (yaw  dwL:M 
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		# Rotate camera (pitch)
 		cam.rotate_x(-event.relative.y * mouse_sensitivity)
-		# Clamp vertical rotation to avoid flipping
 		cam.rotation.x = clamp(cam.rotation.x, deg_to_rad(-89), deg_to_rad(89))
+	pass
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("ui_cancel"):
@@ -52,7 +54,10 @@ func _physics_process(delta: float) -> void:
 	else: 
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = jump_force
-
+	
+	if Input.is_action_just_pressed("dash"):
+		stamina.try_dash(direction)
+	
 	move_and_slide()
 
 func die():

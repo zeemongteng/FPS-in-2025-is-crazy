@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=16 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -22,6 +22,9 @@ radius = 0.6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ct4mp"]
 bg_color = Color(0, 0.736673, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ml7e8"]
+bg_color = Color(1, 0.5563933, 0, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
@@ -74,19 +77,15 @@ value = 50.0
 script = ExtResource("2_s4jxa")
 HealthComponent = NodePath("../../HealthComponent")
 
-[node name="Staminabar" type="ProgressBar" parent="CanvasLayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
+[node name="StaminaBar" type="ProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("stamina_node")]
 offset_left = 14.0
-offset_top = -73.0
-offset_right = 300.0
-offset_bottom = -46.0
-grow_vertical = 0
-size_flags_horizontal = 0
-theme_override_styles/fill = SubResource("StyleBoxFlat_ct4mp")
+offset_top = 578.0
+offset_right = 299.0
+offset_bottom = 605.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ml7e8")
 value = 50.0
 script = ExtResource("8_ihjo1")
+stamina_node = NodePath("../../StaminaComponent")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = 8
