@@ -1,8 +1,9 @@
-[gd_scene load_steps=1000 format=4 uid="uid://703upx0de1x3"]
+[gd_scene load_steps=1001 format=4 uid="uid://703upx0de1x3"]
 
 [ext_resource type="Script" uid="uid://dr3nnrtkwrict" path="res://map/map_boss.gd" id="1_lbddn"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://scene/enemy/boss.tscn" id="1_lqhm1"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="2_66qsi"]
+[ext_resource type="PackedScene" uid="uid://hnsuxtkgflry" path="res://asset/ghoul/sketchfab_scene.tscn" id="4_lbddn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6s7r"]
 resource_name = "y"
@@ -17743,3 +17744,7 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 28.426203, 1.2686601, -
 
 [node name="Player" parent="." instance=ExtResource("2_66qsi")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 30.667027, 6.308239, -84.50288)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_lbddn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.404781, 20.407785, 32.498047)
+visible = false

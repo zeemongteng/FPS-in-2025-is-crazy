@@ -30,7 +30,7 @@ height = 12.347168
 [sub_resource type="BoxShape3D" id="BoxShape3D_lnbgr"]
 size = Vector3(5, 5, 5)
 
-[node name="Boss" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy"]]
+[node name="Boss" type="CharacterBody3D" node_paths=PackedStringArray("HPnode") groups=["Enemy", "boss"]]
 script = ExtResource("1_o1i15")
 HPnode = NodePath("HealthComponent")
 ground_slam = ExtResource("2_bjihq")
