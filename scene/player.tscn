@@ -33,9 +33,10 @@ bg_color = Color(0, 0.736673, 0, 1)
 [node name="Player" type="CharacterBody3D" groups=["Player"]]
 script = ExtResource("1_fvtld")
 
-[node name="ShootFunction" type="Node" parent="."]
+[node name="ShootFunction" type="Node" parent="." node_paths=PackedStringArray("parryBox")]
 script = ExtResource("2_hp4bs")
 bullet_scene = ExtResource("3_g2vtq")
+parryBox = NodePath("../ParryBox/CollisionShape3D")
 
 [node name="HealthComponent" type="Node" parent="." node_paths=PackedStringArray("hurtbox")]
 script = ExtResource("2_ct4mp")
@@ -56,6 +57,7 @@ script = ExtResource("6_ihjo1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ParryBox"]
 shape = SubResource("BoxShape3D_dk1vr")
+disabled = true
 debug_color = Color(0.87778026, 0.00039871514, 0.8306958, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="."]
