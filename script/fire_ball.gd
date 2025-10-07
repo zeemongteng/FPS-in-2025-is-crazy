@@ -4,6 +4,8 @@ class_name Fireball
 @export var speed: float = 20.0
 var direction: Vector3 = Vector3.ZERO
 @export var hitbox : Hitbox
+@onready var collider : CollisionShape3D = $CollisionShape3D
+
 
 func _ready() -> void:
 	pass
@@ -18,3 +20,6 @@ func _physics_process(delta: float) -> void:
 
 func disappear():
 	queue_free()
+
+func flipped():
+	$Hitbox2/CollisionShape3D.disabled = false

@@ -1,20 +1,33 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmued3pbmaudg"]
+[gd_scene load_steps=7 format=3 uid="uid://bmued3pbmaudg"]
 
 [ext_resource type="PackedScene" uid="uid://bribvmsuovoc" path="res://asset/enemy_model/fireball-vfx/source/fireballvfx.fbx" id="1_73oji"]
 [ext_resource type="Script" uid="uid://o58lunl1kx47" path="res://script/fire_ball.gd" id="1_gregu"]
 [ext_resource type="Script" uid="uid://dtxij87jbkl7h" path="res://script/hitbox.gd" id="2_qsv8u"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_myapo"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_kgtyj"]
 radius = 0.21
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_gregu"]
-radius = 0.2
+radius = 0.49474105
 
 [node name="FireBall" type="Area3D" node_paths=PackedStringArray("hitbox")]
-collision_layer = 0
+collision_layer = 256
 collision_mask = 16
 script = ExtResource("1_gregu")
 hitbox = NodePath("Hitbox")
+
+[node name="Hitbox2" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("2_qsv8u")
+metadata/_custom_type_script = "uid://dtxij87jbkl7h"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox2"]
+shape = SubResource("SphereShape3D_myapo")
+disabled = true
+debug_color = Color(0.9428773, 0.0021192932, 0.60544723, 0.41960785)
 
 [node name="Hitbox" type="Area3D" parent="."]
 collision_layer = 0
@@ -23,6 +36,7 @@ script = ExtResource("2_qsv8u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox"]
 shape = SubResource("SphereShape3D_kgtyj")
+debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.024875417, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wl31yirtr8gs"]
+[gd_scene load_steps=18 format=3 uid="uid://wl31yirtr8gs"]
 
 [ext_resource type="Script" uid="uid://bc5hm1jtqj8rq" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Script" uid="uid://cj4vqdx6vhjyn" path="res://script/health_component.gd" id="2_ct4mp"]
@@ -8,11 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://dk4t66eddv6ri" path="res://asset/crosshair.png" id="3_oh5ij"]
 [ext_resource type="Script" uid="uid://b0y7e06csgu1h" path="res://script/hurtbox.gd" id="4_hp4bs"]
 [ext_resource type="Script" uid="uid://dqkg5p8j7cmj4" path="res://scene/stamina_component.gd" id="5_ml7e8"]
+[ext_resource type="Script" uid="uid://clo402pglooj2" path="res://script/parry_box.gd" id="6_ihjo1"]
 [ext_resource type="PackedScene" uid="uid://vjkgqlha66n6" path="res://scene/weapon_component.tscn" id="6_oh5ij"]
 [ext_resource type="Script" uid="uid://hnawxxt7kyqy" path="res://scene/staminabar.gd" id="8_ihjo1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oh5ij"]
 radius = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dk1vr"]
+size = Vector3(3, 5, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hp4bs"]
 size = Vector3(1.27466, 2.07104, 1.29889)
@@ -44,6 +48,15 @@ script = ExtResource("5_ml7e8")
 transform = Transform3D(1, 0, 0, 0, 0.999856, -0.0169638, 0, 0.0169638, 0.999856, 0, 1.0395, 0)
 visible = false
 mesh = SubResource("CapsuleMesh_oh5ij")
+
+[node name="ParryBox" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("6_ihjo1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ParryBox"]
+shape = SubResource("BoxShape3D_dk1vr")
+debug_color = Color(0.87778026, 0.00039871514, 0.8306958, 0.41960785)
 
 [node name="Hurtbox" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9426124, 0)
@@ -127,3 +140,5 @@ collide_with_bodies = false
 
 [node name="Marker3D" type="Marker3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.1637026)
+
+[connection signal="area_entered" from="ParryBox" to="ParryBox" method="parrying"]

@@ -6,3 +6,6 @@ func _process(_delta: float) -> void:
 
 func shoot():
 	$AnimationPlayer.play("shoot")
+
+func parry():
+	$AnimationPlayer.play("parry")

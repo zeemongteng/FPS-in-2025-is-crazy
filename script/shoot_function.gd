@@ -5,8 +5,13 @@ extends Node
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("left_mouse_button"):
 		shoot()
+	if Input.is_action_just_pressed("right_mouse_button"):
+		parry()
 
 func shoot():
 	var bullet = bullet_scene.instantiate() as Bullet
 	bullet.global_transform = marker_3d.global_transform
 	get_tree().current_scene.add_child(bullet)
+
+func parry():
+	pass

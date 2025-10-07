@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://vjkgqlha66n6"]
+[gd_scene load_steps=7 format=3 uid="uid://vjkgqlha66n6"]
 
 [ext_resource type="Script" uid="uid://dendocwl7n5dw" path="res://script/weapon_component.gd" id="1_l0aut"]
 [ext_resource type="PackedScene" uid="uid://dqexjlkyrccnt" path="res://asset/low-poly_kimber_k6s/scene.gltf" id="1_lrje7"]
@@ -16,6 +16,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.429152, -0.314032, -0.783378)]
 }
 
 [sub_resource type="Animation" id="Animation_ogril"]
@@ -35,9 +47,39 @@ tracks/0/keys = {
 "values": [Vector3(0, 1.5708, 0), Vector3(0, 1.5708, 0.349066), Vector3(0, 1.5708, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_l0aut"]
+resource_name = "parry"
+length = 0.16666834
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.049999997, 0.15),
+"transitions": PackedFloat32Array(2.8284268, 3.7321324, 1),
+"update": 0,
+"values": [Vector3(0.429152, -0.314032, -0.783378), Vector3(0.577, -0.314, -0.713), Vector3(0.08665621, -0.09543279, -1.2724022)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.083333336, 0.15),
+"transitions": PackedFloat32Array(2.4622889, 0.49999982, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(-0.52185345, 1.5132004, -0.29147), Vector3(0.15378462, 1.7016759, 0.7098704)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p0d2r"]
 _data = {
 &"RESET": SubResource("Animation_8b82e"),
+&"parry": SubResource("Animation_l0aut"),
 &"shoot": SubResource("Animation_ogril")
 }
 
@@ -45,7 +87,7 @@ _data = {
 script = ExtResource("1_l0aut")
 
 [node name="Gun" parent="." instance=ExtResource("1_lrje7")]
-transform = Transform3D(-7.23998e-07, 0, 0.2, 0, 0.2, 0, -0.2, 0, -7.23998e-07, 0.429152, -0.314032, -0.783378)
+transform = Transform3D(-7.239979e-07, 0, 0.2, 0, 0.19999997, 0, -0.19999997, 0, -7.23998e-07, 0.429152, -0.314032, -0.783378)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
