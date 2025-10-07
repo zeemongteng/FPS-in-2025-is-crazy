@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7mqopnx72c3i"]
 
 [ext_resource type="Script" uid="uid://x7bf5jd43vnf" path="res://scene/main__menu.gd" id="1_uwdl2"]
-[ext_resource type="PackedScene" uid="uid://dpkym86yv1chi" path="res://scene/testing_ground.tscn" id="2_dd741"]
+[ext_resource type="PackedScene" uid="uid://82uyy5mwnaco" path="res://map/tutorial.tscn" id="2_otbie"]
 [ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="2_v0x5l"]
 [ext_resource type="Texture2D" uid="uid://nbk3qyesqfs1" path="res://asset/Art/Button Normal.png" id="4_otbie"]
 [ext_resource type="Texture2D" uid="uid://bp2wwyrtuq6b3" path="res://asset/Art/Button Active.png" id="5_bhbvq"]
@@ -22,7 +22,7 @@ texture = ExtResource("7_mms4i")
 
 [node name="Main _menu" type="Node3D"]
 script = ExtResource("1_uwdl2")
-first_scene = ExtResource("2_dd741")
+first_scene = ExtResource("2_otbie")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -49,9 +49,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -100.0
-offset_top = -69.0
+offset_top = 16.0
 offset_right = 100.0
-offset_bottom = 31.0
+offset_bottom = 116.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_v0x5l")
@@ -62,24 +62,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_n6nxr")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_vmesy")
 text = "Play"
 
-[node name="Button2" type="Button" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 48.0
-offset_right = 100.0
-offset_bottom = 148.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("2_v0x5l")
-theme_override_font_sizes/font_size = 50
-text = "Option"
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.226385, 2.1159503)
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button2" to="." method="_on_button_pressed"]
