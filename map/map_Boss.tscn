@@ -1,9 +1,22 @@
-[gd_scene load_steps=1001 format=4 uid="uid://703upx0de1x3"]
+[gd_scene load_steps=1004 format=4 uid="uid://703upx0de1x3"]
 
 [ext_resource type="Script" uid="uid://dr3nnrtkwrict" path="res://map/map_boss.gd" id="1_lbddn"]
 [ext_resource type="PackedScene" uid="uid://b7awy4k1k5rh8" path="res://scene/enemy/boss.tscn" id="1_lqhm1"]
 [ext_resource type="PackedScene" uid="uid://wl31yirtr8gs" path="res://scene/player.tscn" id="2_66qsi"]
 [ext_resource type="PackedScene" uid="uid://hnsuxtkgflry" path="res://asset/ghoul/sketchfab_scene.tscn" id="4_lbddn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lbddn"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_x1m8h"]
+sky_material = SubResource("ProceduralSkyMaterial_lbddn")
+
+[sub_resource type="Environment" id="Environment_2s75k"]
+background_mode = 2
+sky = SubResource("Sky_x1m8h")
+tonemap_mode = 2
+glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6s7r"]
 resource_name = "y"
@@ -14739,6 +14752,9 @@ size = Vector3(40.0819, 50, 1)
 
 [node name="set design" type="Node3D"]
 script = ExtResource("1_lbddn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2s75k")
 
 [node name="Plane002" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_6n7ax")
