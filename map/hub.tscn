@@ -7,15 +7,17 @@
 script = ExtResource("1_ki7qt")
 
 [node name="TutorialLabel" type="RichTextLabel" parent="."]
-anchors_preset = -1
-anchor_left = 0.48200002
-anchor_top = 0.264
-anchor_right = 0.48200002
-anchor_bottom = 0.264
-offset_left = -90.26404
-offset_top = -21.072006
-offset_right = 391.73596
-offset_bottom = 18.927994
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.5
+offset_top = -59.0
+offset_right = 368.5
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("2_g1j6s")
+theme_override_font_sizes/normal_font_size = 48
