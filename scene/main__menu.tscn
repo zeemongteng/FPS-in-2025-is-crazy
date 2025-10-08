@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7mqopnx72c3i"]
+[gd_scene load_steps=13 format=3 uid="uid://b7mqopnx72c3i"]
 
 [ext_resource type="Script" uid="uid://x7bf5jd43vnf" path="res://scene/main__menu.gd" id="1_uwdl2"]
 [ext_resource type="PackedScene" uid="uid://82uyy5mwnaco" path="res://map/tutorial.tscn" id="2_otbie"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bp2wwyrtuq6b3" path="res://asset/Art/Button Active.png" id="5_bhbvq"]
 [ext_resource type="Texture2D" uid="uid://cuclkpjwoqe6e" path="res://asset/Art/Button Hover.png" id="6_m05xc"]
 [ext_resource type="Texture2D" uid="uid://ce3k5nlb43hv0" path="res://asset/Art/Button Disable.png" id="7_mms4i"]
+[ext_resource type="Texture2D" uid="uid://d1o0vpgib483g" path="res://asset/Art/ChatGPT Image Oct 8, 2025, 09_54_46 AM.png" id="8_bhbvq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ym8n4"]
 texture = ExtResource("4_otbie")
@@ -29,6 +30,21 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = -7
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.9999847
+offset_top = -9.0
+offset_right = 389.0
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+mouse_filter = 2
+texture = ExtResource("8_bhbvq")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
 anchors_preset = 8
