@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bp46vpstcdcin"]
+[gd_scene load_steps=3 format=3 uid="uid://bp46vpstcdcin"]
 
 [ext_resource type="Script" uid="uid://bi5acimlf7ci0" path="res://map/hub.gd" id="1_ki7qt"]
+[ext_resource type="FontFile" uid="uid://ce4wsfg4r7b1j" path="res://asset/Font/VCR_OSD_MONO_1.001.ttf" id="2_g1j6s"]
 
 [node name="HUB" type="CanvasLayer"]
 script = ExtResource("1_ki7qt")
@@ -17,3 +18,4 @@ offset_right = 391.73596
 offset_bottom = 18.927994
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("2_g1j6s")

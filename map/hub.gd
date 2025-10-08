@@ -2,20 +2,22 @@ extends CanvasLayer
 
 @onready var tutorial_label: RichTextLabel = $TutorialLabel
 
-# ข้อความสอนการเล่นทีละขั้น
 var tutorial_steps: Array = [
-	"กด X เพื่อ skip",
-	"สามารถเดินได้ทุกทิศทาง: W A S D",
-	"กด Shift เพื่อพุ่ง",
-	"กด Space Bar เพื่อกระโดด",
-	"ใช้เมาส์ในการคลิกเลือกเมนูต่างๆ",
-	"ลากเมาส์เพื่อควบคุมทิศทางปืน",
-	"คลิกซ้ายเพื่อยิงปืน",
-	"กำจัดศัตรูทั้งหมดเพื่อไปยังด่านต่อไป"
+	"Press X to Skip",
+	"Walk: W A S D",
+	"Press Shift to Dash",
+	"Press Space Bar to Jump",
+	"Press F to throw coin",
+	"Shoot the coin to make more damage",
+	"Press Space Bar to Jump",
+	"Press m1 to shoot",
+	"Press m2 to parry",
+	"Kill all the monster to go to the next stage",
+	"Lastly don't get hit"
 ]
 
 var current_step: int = 0
-var display_time: float = 4.0 # วินาทีต่อข้อความ
+var display_time: float = 4.0
 
 func _ready() -> void:
 	tutorial_label.visible = false
